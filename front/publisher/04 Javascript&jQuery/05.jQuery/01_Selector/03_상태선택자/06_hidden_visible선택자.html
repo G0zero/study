@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_hidden_visible선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        // :hidden - display: none인 요소를 찾음
+        // :visible - display: none이 아닌 요소를 찾음 
+        //show : 는 display: none인 애들을 원래 display값으로 보이게 하는것 임 
+        //hide: 는 display:none으로 만들어주는거임 
+        //parent() :부모요소 찾는거
+        //parents() : 상위요소 찾는거
+        //parents('p'): 상위요소중 p태그를 찾는거임
+        
+        $(function(){
+            //li의 보이지 않는 요소를 찾아서 
+            //처음화면 로딩후 2초후에 1초동안 나타나게 하고 
+            //2초후에 1초동안 사라지게 하시오
+            $('li:hidden').delay(2000).show(1000).delay(2000).hide(1000);
+            
+            //display: none이 아닌 요소를 선택하여 
+            //6초 후에 글자크기를 32px,글자색 red로 2초간 애니메이션 되면서 변화되는 부분을 볼수있게 하시오 
+            $('li:visible').delay(6000).animate({
+                fontSize:'32px',
+                color: 'red'
+            },2000);
+            
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <ul class="nav">
+            <li style="display: none;">apple</li>
+            <li>banana</li>
+            <li>grape</li>
+        </ul>
+        <ul class="nav2">
+            <li style="display: none;">lion</li>
+            <li>tiger</li>
+            <li>fox</li>
+        </ul>
+    </div>
+</body>
+
+</html>

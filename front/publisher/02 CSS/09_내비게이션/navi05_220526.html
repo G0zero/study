@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>navi05</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        #gnb {
+            width: 900px;
+            height: 50px;
+            line-height: 50px;
+            margin: 30px auto;
+            /*background-color: yellow;*/
+        }
+        #gnb li {
+            width: 150px;
+            float: left;
+            text-align: center;
+            /*outline: 2px solid red;*/
+        }
+        #gnb li~li {
+            border-left: 1px solid #777;
+            box-sizing: border-box;
+        }
+        
+        /* 둥근 모서리 만들기 - li태그 */
+        #gnb li:first-child {
+            border-radius: 10px 0 0 10px;
+            overflow: hidden;
+        }
+        #gnb li:last-child {
+            border-radius: 0 10px 10px 0;
+            overflow: hidden;
+        }
+        
+        #gnb a {
+            background-color: darkseagreen;
+            display: block;
+            color: #333;
+            text-shadow: 1px 1px 0 gray;
+            background: linear-gradient(to bottom, #6d6d6d, #f0f0f0);
+            /*background: linear-gradient(to top, blue, yellow 30%, pink 60%, red 80%, black); */
+        }
+        
+        /* 둥근 모서리 만들기 - a태그 */
+        /*#gnb li:first-child a {
+            border-radius: 6px 0 0 6px;
+        }
+        #gnb li:last-child a {
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }*/
+        
+        #gnb li:hover a {
+            background: linear-gradient(to top, #6d6d6d, #f0f0f0);
+            color: #fff;
+            text-shadow: 0 1px 0 #777;
+        }
+        
+        /*
+        background:
+        linear-gradient(방향, 시작색, 끝색)
+        linear-gradient(방향, 시작색 %, 중간색 %, 끝색 %)
+        linear-gradient(각도, 색1, 색2,...)
+        
+        * 방향 : to top, to bottom, to right, to left
+        * 각도 : 기울임각도 (단위:deg)
+        */
+        
+        
+    
+    
+    </style>
+</head>
+<body>
+   
+   <nav id="gnb">
+       <ul>
+           <li><a href="#">HOME</a></li>
+           <li><a href="#">HTML5</a></li>
+           <li><a href="#">CSS3</a></li>
+           <li><a href="#">jQuery</a></li>
+           <li><a href="#">Mobile</a></li>
+           <li><a href="#">Profile</a></li>
+       </ul>
+   </nav>
+    
+</body>
+</html>

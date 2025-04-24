@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript &amp; jQuery - Chapter 2: 자바스크립트의 기본 명령 - 최종 예제</title>
+    <link rel="stylesheet" href="css/c02.css" />
+</head>
+
+<body>
+    <h1>Elderflower</h1>
+    <div id="content">
+        <div id="greeting" class="message">안녕하세요!</div>
+        <table>
+            <tr>
+                <td>커스텀 명찰: </td>
+                <td id="userSign"></td>
+            </tr>
+            <tr>
+                <td>전체 타일: </td>
+                <td id="tiles"></td>
+            </tr>
+            <tr>
+                <td>소계: </td>
+                <td id="subTotal">$<span id="test1"></span></td>
+            </tr>
+            <tr>
+                <td>배송비: </td>
+                <td id="shipping">$<span id="test2"></span></td>
+            </tr>
+            <tr>
+                <td>총계: </td>
+                <td id="grandTotal">$<span id="testSum"></span></td>
+            </tr>
+        </table>
+        <a href="#" class="action">결제하기</a>
+    </div>
+    <!--script call-->
+
+    <script>
+        
+        //내가 입력한 것 
+        //사용자가 입력한 값으로 나오는 경우
+        
+        /*var msg = "또 오셨군요! 주문 내역을 확인해주세요!";
+        var user = prompt("이름을 입력해주세요");
+        var tiletotal = Number(prompt("타일의 수량을 입력해주세요"));
+        var sub = Number(prompt("재료값을 입력해주세요")),
+            ship = sub*0.1,
+            total = sub+ship;
+       
+        document.getElementById('greeting').innerHTML = msg;
+        document.getElementById('userSign').innerHTML = user;
+        document.getElementById('tiles').innerHTML = tiletotal;
+        document.getElementById('test1').innerHTML = sub;
+        document.getElementById('test2').innerHTML= ship;
+        document.getElementById('testSum').innerHTML = total;*/
+        
+        //내가 임의의 값을 설정한 후 작성한 경우
+        /*  var msg = "또 오셨군요! 주문 내역을 확인해주세요!";
+            var user = "Green art academy",
+                tiletotal = 14,
+                sub = 70,
+                ship = sub * 0.1,
+                total = sub+ship;
+        
+        document.getElementById('greeting').innerHTML = msg;
+        document.getElementById('userSign').innerHTML = user;
+        document.getElementById('tiles').innerHTML = tiletotal;
+        document.getElementById('test1').innerHTML = sub;
+        document.getElementById('test2').innerHTML= ship;
+        document.getElementById('testSum').innerHTML = total;
+        
+        */
+        
+        //선생님 해설
+        
+        var msg = "또 오셨군요! 주문내역을 확인해주세요!";
+        document.getElementById('greeting').innerHTML = msg;
+        
+        //custom nametag 입력받기 
+        //var custom = 'Green Art academy';
+        var custom = prompt("명찰에 입력될 이름을 작성해 주세요!");
+        document.getElementById('userSign').innerHTML = custom;
+        
+        //타일갯수 입력받기
+        var tiles = Number(prompt('주문할 타일의 갯수를 입력하세요'));
+        
+        //타일 값 계산하기
+        var price = 5, //타일 하나당 가격
+            subtotal = tiles * price,
+            ship = subtotal *0.1,
+            total = subtotal+ship;
+        
+        document.getElementById('tiles').innerHTML= tiles;
+        document.getElementById('test1').innerHTML= subtotal;
+        document.getElementById('test2').innerHTML= ship;
+        document.getElementById('testSum').innerHTML= total;
+        
+        
+        
+        
+        
+
+    </script>
+
+
+
+
+</body></html>

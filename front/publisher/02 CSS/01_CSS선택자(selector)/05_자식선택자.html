@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_자식선택자</title>
+    
+    <style>
+        .main>li>a{
+            color: red;
+            font-weight: bold;
+        }
+        
+        .sub>li {
+            color: indianred;
+        }
+        .sub>li>a {
+            color:goldenrod;
+        }
+    
+        /*
+        a태그 같은 경우는 원래 속성에 색상과 밑줄이 있기때문에 li로 선택하여 바꿔주면 안먹힘 
+        순서 안댐 그래서
+        직접 a태그를 선탣해줘야함 위에 예시
+        자식 요소중에 li끼리는 형제 예시임      
+        
+        */
+        
+    </style>
+    
+</head>
+<body>
+    <ul class="main">
+        <li>
+            menu
+            <ul class="sub">
+                <li><a href="#">sub</a></li>
+                <li>sub</li>
+                <li><a href="#">sub</a></li>
+                <li>sub</li>
+                <li>sub</li>
+            </ul>
+        </li>
+        <li><a href="#">menu</a></li>
+    </ul>
+    
+    
+    
+</body>
+</html>

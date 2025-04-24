@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>dropdown_menu1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /*float 해제를 위한 클래스*/
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        nav {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        nav ul.gnb {
+            background-color: black;
+        }
+
+        nav ul.gnb li {
+            float: left;
+            /*width: 150px;*/
+            width: 16.66%;
+            text-align: center;
+
+            /*line-height: 50px;*/
+            /*두줄일땐 lineheight가 적절하지 않음 그럴땐 padding 을 넣어주면 됨 */
+            padding: 10px 0;
+        }
+
+        nav ul.gnb li a {
+            color: #fff;
+        }
+
+        nav ul.gnb li a:hover {
+            text-decoration: underline;
+        }
+
+        div.sub_wrap {
+            background-color: #eee;
+            padding: 15px 0;
+            display: none;
+        }
+
+        div.sub_wrap ul {
+            float: left;
+            width: 150px;
+            text-align: center;
+        }
+
+        div.sub_wrap ul li {
+            line-height: 1.6;
+            /*1.6rem만큼*/
+        }
+
+        div.sub_wrap ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            /*mouseover은 요소를 정확하게 집어서 이벤트를 발생시키기떄문에 이렇게 안에 있는경우 이벤트가 여러번 발생할수 있음 그래서 enter를 더 많이 사용함 */
+            $('ul.gnb li').mouseenter(function() {
+                // alert('까꿍~~~~~');
+               /* var num = $(this).index();
+                //console.log(num);
+                $('div.sub_wrap ul').eq(num).slideDown();*/
+
+                $('div.sub_wrap').stop().slideDown();
+            });
+
+            /* $('ul.gnb li').mouseleave(function(){
+                 $('div.sub_wrap').stop().slideUp();
+            }); 이벤트가 시작하는 요소와 끝나느 요소가 다름 그래서 이렇게 할수 없음 메롱메롱 상태가 됨 */
+
+            $('nav').mouseleave(function() {
+                $('div.sub_wrap').stop().slideUp();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul class="gnb clear">
+            <li><a href="#">main-menu1</a></li>
+            <li><a href="#">main-menu2</a></li>
+            <li><a href="#">main-menu3</a></li>
+            <li><a href="#">main-menu4</a></li>
+            <li><a href="#">main-menu5</a></li>
+            <li><a href="#">main-menu6</a></li>
+            <!--::after처리-->
+        </ul>
+
+        <div class="sub_wrap clear">
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+                <li><a href="#">sub-manu</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</body>
+
+</html>

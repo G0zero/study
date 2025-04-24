@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_slideToggle()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        slideToggle(소요시간, 이징, 함수);
+        : slideUp(), slideDown() 효과메서드를 번갈아 적용 
+        */
+        $(document).ready(function(){
+            //미션 : 버튼을 클릭했을때 slideToggle을 사용해 이미지가 올라가면 감춰지고 내려오면서 보여지게 하시오
+            $('button').click(function(){
+               // $('img').slideToggle(1000,'linear');//이미지는 높이너비 동시에 움직임 그래서 왼쪽에서 사라졌다 열렸다함 
+                $('div').slideToggle(1000, 'linear');//div는 담고있는 요소 라서 높이가 자동으로 측정되기 째문에?
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img src="home1.jpg" alt="">
+    </div>
+    <button>slideToggle()</button>
+</body>
+</html>

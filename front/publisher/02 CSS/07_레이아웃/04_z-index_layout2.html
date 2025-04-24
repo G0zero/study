@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_z-index_layout2</title>
+     <!--1번 유형 css-->
+     <style>
+         * {
+             margin: 0;
+             padding: 0;
+         }
+         
+         body {
+             text-align: center;
+             font-size: 26px;
+         }
+         
+         header {
+             width: 100%;
+             height: 100px;
+             background-color: lightpink;
+             position: fixed;
+             left: 0;
+             top: 0;
+             z-index: 999;
+         }
+         section {
+             /*padding-top: 100px;*/
+             margin-top: 100px;
+         }
+         
+         section .slide {
+             width: 100%;
+                 height: 500px;
+             background-color: lightcyan;
+             position: relative;
+             /*화살표의 기준*/
+         }
+         section .slide p {
+             font-size: 80px;
+             font-weight: bold;
+             position: absolute;
+             top: 50%;
+             margin-top: -53px;
+             
+           /*  outline: 2px solid red;*/
+         }
+         section .slide p:first-child {
+             left:20px;
+         }
+         section .slide p:last-child {
+             right:20px;
+         }
+         section .content {
+             width: 100%;
+             height: 980px;
+             background-color:lightyellow;
+                
+         }
+         footer {
+             width: 100%;
+             height: 80px;
+             background-color: #000;
+             color: #fff;
+         }
+     </style>
+    <!--2번 유형 css-->
+    
+    <style>
+    
+    
+    
+    
+    </style>
+    
+    
+</head>
+
+<body>
+
+
+  <!--  1번 유형--> 
+    <header>
+        <p>header고정~</p>
+    </header>
+
+    <section>
+        <article class="slide">
+            <p>&lsaquo;</p>
+            <p>&rsaquo;</p>
+        </article>
+
+        <article class="content">
+            <p>컨텐츠</p>
+        </article>
+
+    </section>
+    <footer>
+        <p>푸터</p>
+    </footer>
+
+    <!--2번 유형(집에서 해오기)-->
+    <header>
+        header고정~
+    </header>
+
+    <main>
+        <p>&lsaquo;</p>
+        <p>&rsaquo;</p>
+    </main>
+    
+    <section>컨텐츠</section>
+    <footer>푸터</footer>
+
+</body>
+
+</html>

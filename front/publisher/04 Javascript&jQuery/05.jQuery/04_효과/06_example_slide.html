@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_slide</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function() {
+            //미션: 버튼에 마우스가 오버했을떄 이미지가 펼쳐지고, 아무스 아웃했을때 이미작 위로 올라가도록 하시오 
+
+            //선생님 해설 
+            //초기설정
+            //$('div').css('display','none');
+            $('div').hide();
+
+            /*    $('button').on({
+                     'mouseover': function(){
+                        $('div').slideDown();
+                    },
+                    'mouseout' : function(){
+                        $('div').slideUp();
+                    }
+                });*/
+            //mouseenter,mouseleave 사용시 
+
+            $('button').hover(function() {
+                //마우스가 들어갔을때 slideDown()
+                $('div').slideDown(800);
+            }, function() {
+                //마우스가 벗어났을때 slideup()
+                $('div').stop().slideUp(800);
+            });
+
+
+            /* $('button').on({
+                 'mouseover': function(){
+                     $('div').slideDown();
+                 },
+                 'mouseout' : function(){
+                     $('div').slideUp();
+                 }
+             });*/
+            /*   $('img').css('display','none');
+               $('button').hover(function(){
+                    $('div').slideDown();
+               },function(){
+                   $('div').slideUp();
+               });*/
+        });
+    </script>
+</head>
+
+<body>
+    <button>마우스 오버시 slideDown / 마우스오버시 slideup</button>
+    <br><br>
+
+    <div>
+        <img src="suzy.jpg" alt="" width="350">
+    </div>
+</body>
+
+</html>

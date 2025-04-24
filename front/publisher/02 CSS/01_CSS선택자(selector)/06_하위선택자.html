@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>06_하위선택자</title>
+        
+        <style>
+        
+            /*자식 선택자 
+            자식 선택자를 사용할때는 한칸 띄어쓰기 해도 괜찮음 
+            현재 컨테이너의 자식요소는 3개임 h1,p,ul*/
+            
+            .container > ul{
+             /*   border: 3px solid red;*/
+            }
+            
+            /* 하위요소 선택자
+            하위요소에서 {}전 명령어에서 띄어쓰기는 하위로라는 뜻임 
+            하위 요소 선택자가 갖는 의미는 컨테이너 안에 모든 ul 태그를 선택해 라는 뜻
+            */
+            .container ul{
+                border  : 3px solid blue
+            }
+            
+        </style>
+        
+    </head>
+    <body>
+        
+        <div class="container">
+            <!--
+            div태그는 정말 다양하게 사용함 
+            덩어리 묶어줄때
+            -->
+            
+            <h1>주문방법 및 요금</h1>
+            
+            <p>산지직송 싱싱한 제주도 감귤을 주문하세요!</p>
+            
+            <ul>
+                <li>
+                    주문방법
+                    <ul>
+                        <li>직접 통화</li>
+                        <li>문자 주문</li>
+                    </ul>
+                </li>
+                <li>
+                     요금 
+                     <ul>
+                         <li>kg : 10,000원</li>
+                         <li>kg : 20,000원</li>
+                         <li>kg : 30,000원</li>
+                         <li>kg : 40,000원</li>
+                     </ul>
+                </li>
+            </ul>
+            
+        </div>
+        
+    </body>
+</html>

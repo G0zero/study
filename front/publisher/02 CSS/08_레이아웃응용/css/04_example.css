@@ -1,0 +1,142 @@
+@charset "utf_8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.clearfix:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+body {
+  background-image: url(../images/bg.jpg);
+}
+header {
+    width: 100%;
+      height: 120px;
+    background-image: url(../images/bg-header.jpg);
+   /* position: fixed;
+    z-index: 999;*/
+ 
+}
+header .head {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+     margin: 0 auto;
+    outline: 2px solid red;
+    position: relative;
+    
+}
+header .head img  {}
+.head img.logo {
+    float: left;
+    margin: 30px 0 0 10px;
+    width: 270px;
+}
+.head img.icon {
+    float: left;
+    margin: 20px 0 0 10px;
+   
+    
+}
+.head .web {
+    width: 310px;
+    position: absolute;    
+    right: 10px;
+    top: 30%;
+    outline: 2px solid blue;
+}
+.head .web p a {
+    color: #fff;
+    font-size: 20px;
+    float: left;
+}
+.head .web p a:hover {
+    color: greenyellow;
+    font-weight: bold;
+    
+}
+section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    
+}
+
+section .fixed {
+    background-image: url(../images/bg-triangle.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 700px;
+  
+    
+}
+ .fixed h2 {
+    font-size: 40px;
+    text-align: center;
+
+}
+ .fixed .velo  img {
+    width: 700px;
+     padding-left: 120px;
+    /*padding-bottom: 10px;*/
+    float: left;
+     
+}
+ .fixed .velo div {
+    width: 350px;
+     margin: 80px 0 0 10px;
+    float: left;
+     font-size: 18px;
+     
+}
+.fixed .velo div .date {
+    color: lightgoldenrodyellow;
+}
+
+
+section .explain {
+    
+}
+
+section .explain h2 {}
+section .explain .wrap div {
+    width: 25%;
+    float: left;
+  /*  margin: 10px 5px;*/
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    outline: 2px solid red;
+}
+section .explain .wrap div img {
+    width: 90%;
+   outline: 2px solid red;
+}
+section .explain .wrap div p {
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 2px solid #fff;
+} 
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    color: #fff;
+}
+footer p a {
+   
+}
+
+

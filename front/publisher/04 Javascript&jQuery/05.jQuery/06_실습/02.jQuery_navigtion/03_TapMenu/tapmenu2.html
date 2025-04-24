@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>tapmenu2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .content {
+            width: 580px;
+            margin: 50px auto;
+            position: relative;
+            /*컨텐츠 박스의 기준!*/
+            /*outline: 2px solid blue;*/
+        }
+
+        .tabmenu:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .tabmenu>li {
+            float: left;
+            border: 1px solid #ddd;
+            border-bottom: none;
+        }
+
+        .tabmenu>li:first-child {
+            border-right: none;
+        }
+
+        .tabmenu>li>a {
+            /*탭메뉴 명*/
+            width: 150px;
+            background-color: #ccc;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .tabmenu>li>a:hover {
+            background-color: #eee;
+        }
+
+        /*탭메뉴사 선택되었을때 */
+        .tabmenu>li.active>a {
+            background-color: #fff;
+            color: darkseagreen;
+            font-weight: bold;
+        }
+
+        .tabmenu>li>div {
+            /*컨텐츠*/
+            background-color: #fff;
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            left: 0;
+            top: 52px;
+        }
+
+        /*선택된 탭 메뉴에 따른 내용 변경 */
+        .tabmenu>li.active>div {
+            border: 1px solid #ddd;
+            z-index: 1;
+        }
+
+        /* 공지사항 */
+        .notice {}
+
+        .notice ul {
+            padding: 10px;
+        }
+
+        .notice ul li {
+            line-height: 45px;
+            /* margin: 0 10px;*/
+            background-color: lightgoldenrodyellow;
+            text-indent: 10px;
+        }
+
+        .notice ul li:nth-child(2n) {
+            background-color: #ccc;
+        }
+
+        .notice ul li:hover {
+            text-decoration: underline;
+        }
+
+        .notice ul li span {
+            float: right;
+            font-size: 14px;
+            margin-right: 10px;
+            color: #777;
+        }
+
+
+
+        /*갤러리*/
+        .gallery {
+            /* display: none;*/
+        }
+
+        .gallery ul {
+            padding: 10px;
+        }
+
+        .gallery ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .gallery ul li {
+            float: left;
+            width: 180px;
+            height: 180px;
+            /*outline: 2px solid red;*/
+        }
+
+        .gallery ul li~li {
+            margin-left: 10px;
+        }
+
+        .gallery ul li a {
+            display: block;
+        }
+
+        .gallery ul li a img {
+            /*  height: 180px;*/
+            width: 100%;
+        }
+
+        .gallery ul li:hover a img {
+            opacity: 0.5;
+        }
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function() {
+            $('.tabmenu > li > a').click(function(e) {
+               // alert('li를 클릭~');
+                e.preventDefault();//링크가 열리지 않도록 
+                $(this).parent().addClass('active').siblings().removeClass('active');
+                
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="content">
+        <ul class="tabmenu">
+            <li class="active">
+                <a href="#">공지사항</a>
+                <div class="notice">
+                    <ul>
+                        <li>
+                            <a href="#">제목1</a>
+                            <span>2022.08.18</span>
+                        </li>
+                        <li>
+                            <a href="#">제목2</a>
+                            <span>2022.08.17</span>
+                        </li>
+                        <li>
+                            <a href="#">제목3</a>
+                            <span>2022.08.16</span>
+                        </li>
+                        <li>
+                            <a href="#">제목4</a>
+                            <span>2022.08.15</span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">갤러리</a>
+                <div class="gallery">
+                    <ul>
+                        <li><a href="#"><img src="th_bg1.jpg" alt="이미지1"></a></li>
+                        <li><a href="#"><img src="th_bg2.jpg" alt="이미지2"></a></li>
+                        <li><a href="#"><img src="th_bg3.jpg" alt="이미지3"></a></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</body>
+
+</html>

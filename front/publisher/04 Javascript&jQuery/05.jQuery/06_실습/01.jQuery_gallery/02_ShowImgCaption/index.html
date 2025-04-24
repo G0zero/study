@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>showing caption</title>
+
+    <style>
+        body {
+            width: 620px;
+            margin: 20px auto;
+            padding: 0;
+            background-color: #192839;
+            /*outline: 2px solid lime;*/
+        }
+
+        .thumbs {
+            width: 100px;
+            float: left;
+        }
+
+        .thumbs a {
+            display: block;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .thumbs a:hover {
+            border-color: #ef4018;
+        }
+
+        /*클릭된 썸네일 표시*/
+        .thumbs a.on {
+            border: 2px solid #ef4018;
+        }
+
+        .thumbs a img {
+            display: block;
+            width: 100%;
+
+        }
+
+        /*제이쿼리 초기설정*/
+        /* .thumbs em {
+                display: none;
+            }*/
+
+        #largeImg {
+            width: 500px;
+            height: 280px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            /*float: right;*/
+            margin-left: 110px;
+            overflow: hidden;
+        }
+
+        #caption {
+            padding: 10px;
+            background-image: url(captionBg.png);
+            color: #fff;
+            position: relative;
+            /* top: -80px;*/
+        }
+    </style>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(function() {
+            //초기설정 - 썸네일 설명 em 태그 숨기기
+            $('.thumbs em').hide();
+
+            //$('#largeImg img').prepend('<div class="caption"></div>');
+
+
+            $('.thumbs a').click(function(e) {
+                //기본속성 막기 
+                e.preventDefault();
+                //1. 큰이미지 변경하기 
+                var imgsrc = $(this).attr('href');
+                $('#largeImg img').attr('src', imgsrc);
+
+                //2. 해당하는 캡션글 넣기
+                /*
+                caption에 html 추가 하고 누른 아이의 em을 caption안에 넣어줘 에니메이트 사용하여 보여지게 해줘 그리고 값을 비웠다가 ? 
+                */
+
+                //캡션글을 읽어와서 >>text() >>변수에 담기
+                var txt = $(this).next().text();
+                console.log(txt);
+                
+                //#caption을 추가하기 전에 기존 요소(캡션)지우기 
+                $('#caption').remove();
+
+                //#caption요소를 추가 >>html(),prepend(), append()
+                $('#largeImg').append('<div id="caption"></div>');
+
+
+                //캡션글을 #caption에 넣어주기 >> text()
+                $('#caption').text(txt);
+
+                //#caption의 위치 조절을 위해 높잇값 구하기 >> height(), innerheight(),outerheight() >>innerheight >>변수에 담기
+                
+                var currH = $('#caption').innerHeight();
+                console.log('캡션의 높잇값 : '+currH);
+                
+                //animate()로 #caption이 top값을 조절하여 보여지도록 하기
+                $('#caption').animate({
+                    top : -currH 
+                },500);
+
+
+
+            });
+        });
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="thumbs">
+        <a href="images/pic1.jpg"><img src="images/th_pic1.jpg" alt="이미지1"></a>
+        <em>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</em>
+        <a href="images/pic2.jpg"><img src="images/th_pic2.jpg" alt="이미지2"></a>
+        <em>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</em>
+        <a href="images/pic3.jpg"><img src="images/th_pic3.jpg" alt="이미지3"></a>
+        <em>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</em>
+    </div>
+
+    <div id="largeImg">
+        <img src="images/pic1.jpg" alt="">
+
+        <!--caption이 들어갈 공간-->
+        <!--            <div id="caption"></div>-->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-image: url(images/bg_body.png);
+}
+
+.wrap {
+    width: 90%;
+    max-width: 1200px;
+    outline: 2px solid red;
+    margin: 30px auto;
+}
+.wrap .header {
+    width: 210px;
+    height: 1200px;
+    background-image: url(images/bg_head.jpg);
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 26px;
+}
+.wrap .header .gnbbox {
+   
+}
+.wrap .header .gnbbox h1 {
+    background-image: url(images/bg_gnb.png);
+    margin: 20px 40px;
+}
+
+.wrap .mainbox {
+    width: 960px;
+    height: 1200px;
+    float: right;
+    background-image: url(images/bg_main.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 2px solid #333;
+}
+

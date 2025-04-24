@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_mousemove()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        mouseover() : 마우스가 움직였을때 이벤트 실행 
+        
+        *기본형
+        $('이벤트대상').mousemove(function(매개변수){
+            매개변수(이벤트객체).속성;
+        });
+        
+        *속성
+        pageX : 스크롤 x축의 이동한 거리를 계산하여 마우스 포인터의 x좌표값 반환 
+        pageY : 스크롤 Y축의 이동한 거리를 계산하여 마우스 포이너의 Y좌표값 반환 
+        */
+        
+        $(function(){
+            $(document).on('mousemove',function(evt){
+                var result = evt.pageX;
+               // alert(result);
+                console.log(result);
+                
+                $('.posX').text(evt.pageX);
+                $('.posY').text(evt.pageY);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>mousemove</h2>
+    <p>X : <span class="posX">0</span>px</p>
+    <p>Y : <span class="posY">0</span>px</p>
+</body>
+</html>

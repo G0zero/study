@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>11_w3c_MQ</title>
+
+    <style>
+        header {
+            width: 100%;
+            line-height: 120px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            background-color: blue;
+        }
+
+        header h1 {
+            color: #fff;
+        }
+
+        section {}
+
+        section:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        nav {
+            width: 25%;
+            float: left;
+
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            padding-left: 5px;
+
+        }
+
+        nav ul li {
+            list-style: none;
+            background-color: deepskyblue;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 3px 3px 3px #666;
+            /* border: 3px solid #eee;
+    border-style: outset;
+    border-left: 0;
+    border-top: 0;*/
+        }
+
+        article {
+            width: 50%;
+            float: left;
+            padding-left: 20px;
+            padding-right: 10px;
+            box-sizing: border-box;
+
+        }
+
+        article h2 {
+            font-size: 26px;
+            font-size: 1.625rem;
+        }
+
+        aside {
+            width: 25%;
+            background-color: royalblue;
+            text-align: center;
+            float: left;
+            box-shadow: 3px 3px 3px #444;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        aside h2 {
+            color: #fff;
+        }
+
+        aside p {
+            color: #fff;
+            font-size: 14px;
+            font-size: 0.875rem;
+        }
+
+        footer {
+            width: 100%;
+            line-height: 100px;
+            background-color: darkblue;
+            text-align: center;
+        }
+
+        footer p {
+            color: #fff;
+            font-size: 14px;
+            font-size: 0.875rem;
+        }
+
+        @media (min-width:768px) and (max-width:1024px) {
+            nav {
+                width: 30%;
+                margin-bottom: 30px;
+            }
+
+            nav ul {
+                padding: 0;
+                margin: 10px;
+            }
+
+            article {
+                width: 70%;
+                padding: 0 10px;
+            }
+
+            aside {
+                width: calc(100% - 20px);
+                margin: 0 10px;
+
+            }
+        }
+
+        @media (min-width:0px) and (max-width:768px) {
+            nav {
+                width: 90%;
+                float: none;
+                margin: 0 auto 40px;
+
+            }
+
+            nav ul {
+                padding: 0;
+            }
+
+            article {
+                width: 90%;
+                float: none;
+                padding: 0;
+                padding-right: 100px;
+                margin: 0 auto 30px;
+                
+            }
+
+            aside {
+                width: 90%;
+                float: none;
+                margin: 0 auto 10px;
+                letter-spacing: -0.6;
+                
+            }
+            footer p {
+                letter-spacing: -0.6%;
+                font-size: 12px;
+                font-size: 0.75rem;
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Samsung Mobile</h1>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <li>The Flight</li>
+                <li>The City</li>
+                <li>The Island</li>
+                <li>The Food</li>
+            </ul>
+        </nav>
+
+        <article>
+            <h2>The city</h2>
+            <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+        </article>
+
+        <aside>
+            <div>
+                <h2>What?</h2>
+                <p>Chania is a city on the island of Crete.</p>
+            </div>
+
+            <div>
+                <h2>Where?</h2>
+                <p>Crete is a Greek island in the Mediterranean Sea.</p>
+            </div>
+
+            <div>
+                <h2>How?</h2>
+                <p>You cna reach Chania airport from all over Europe</p>
+            </div>
+        </aside>
+    </section>
+
+    <footer>
+        <p>Resize the brower window to see how the content respond to the resizing.</p>
+    </footer>
+</body>
+
+</html>

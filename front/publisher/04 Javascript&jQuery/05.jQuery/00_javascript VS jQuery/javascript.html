@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>javascript</title>
+        
+        <script type="text/jscript">
+            window.onload = function(){
+                
+                //document.getElementById('color').style.color='blue';
+                //document.getElementsByTagName('span')[0].style.color = 'blue';
+                //태그가 한개만 있더라도 자바 입장에서는 더 나올수 있기 떄문에 적용을 시킬수 없음 그래서 스펜 옆에 배열을 사용하여 첫번째거를 색상을 바꿔줘 라고 명령해줘야 가능함 
+                
+                var list = document.getElementsByTagName('li');
+                list[2].style.color='red';
+               
+            };
+            //onload는 속성임 예약어임 
+        
+        
+        </script>
+        
+        <!--type~이거는 하위버전에서 호환성을 위해서 정의할수 있음 근데 html5는 필요없긴 하지만 종종보일거임-->
+        <style type="text/css">
+            body {
+                background-color: bisque;
+            }
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <ul>
+                <li class="one">첫번째</li>
+                <li class="two">두번째</li>
+                <li class="three" id="color"><span>세번째(여기에 CS속성을 적용해 보세요)</span></li>
+                <li class="four">네번째</li>
+            </ul>
+        </div>
+    </body>
+</html>

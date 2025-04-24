@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>09_responsive1</title>
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*pc*/
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+            /*outline: 2px solid red;*/
+        }
+        header {
+            width: 100%;
+            height: 200px;
+            background-color: pink;
+        }
+        #container:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        nav {
+            width: 30%; /*360px*/
+            height: 500px;
+            background-color: violet;
+            float: left;
+        }
+        main {
+            width: 70%; /*840px;*/
+            height: 500px;
+            background-color: skyblue;
+            float: left;
+        }
+        
+        
+        /*노트북*/
+         
+        @media all and (max-width:1280px) {
+            #wrap {
+                padding: 0 50px;
+               /* box-sizing: border-box;*/
+                width: calc(100% - 100px);
+                /*100px은 좌우 패딩 50px임 */
+            }
+            nav {
+                background-color: darkseagreen;
+            }
+            main {
+                background-color: yellow;
+            }
+        }
+        
+        /*태블릿*/
+        /*all은 안적어줘도 기본으로 들어가는 값임 
+        기기에 대한 all 이라는 값은 기본적으로 들어가는 값이라 조건이 3개가 되면 아래의 모습을 제일 많이 사용함 
+        width : 768~1024px*/
+        @media (min-width:768px) and (max-width:1024px) {
+            #wrap {
+                width: 100%;
+                padding: 0;
+                
+            }
+            header {
+                height: 150px;
+                background-color: greenyellow;
+            }
+            nav {
+                width: 25%;
+            }
+            main {
+                width: 75%;
+            }
+        }
+    
+        /*모바일*/ 
+       /*  태블릿 세로형 직전까지는 모바일 UI가 적용  */
+        @media all and (max-width:767px) {
+            #wrap {
+                width: 100%;
+                padding: 0;
+            }
+            header {
+                height: 120px;
+            }
+            nav {
+                width: 100%;
+                float: none;
+                height: 300px;
+            }
+            main {
+                width: 100%;
+                height: 700px;
+                float: none;
+            }
+        }
+        /*max-width: 큰수치>> 작은수치
+        min-width: 작은수치>> 큰수치
+        @media all and () and () {}
+        모든 기기에서 조건 1번 조건 2번이 모두 충족하면 실행해줘 라는 뜻임 
+        예를 들어 
+        @media all and (min-width: 320px) and (max-width:560px) {}
+        이거는 320~560px인데 이렇게 사용하지 않는 이유는 부자연스럽게 레이어드가 움직이게 됨 그리고 구간을 설정한 것이기 떄문에 4각지대가 발생하게됨 그래서 잘 사용하지 않지만 사용은 함 
+        
+        모바일 최소너비 320px 
+        모바일 평균너비 260~375px 
+        
+        태블릿 세로형ㅣ 768px
+        테블린 가로형 : 1024px
+        
+        13인치 노트북 1280~1320px 임 
+         
+        max- width 의 값은 모바일은 태블릿 
+        태블릿은 노트북의 ㅍㅇ균값으로 그잡으면 됩ㅁ
+        */
+    
+    </style>
+</head>
+
+<body>
+
+    <div id="wrap">
+        <header>헤더</header>
+        <div id="container">
+            <nav>메뉴</nav>
+            <main>본문</main>
+        </div>
+    </div>
+</body>
+
+</html>

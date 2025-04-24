@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07_example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 120px;
+            background-color: dimgrey;
+
+        }
+
+        header h1 {
+            color: #fff;
+            text-align: center;
+            /*padding-top: 30px;*/
+            line-height: 120px;
+        }
+
+        section {
+            width: 100%;
+           /* overflow: auto;*/
+        }
+
+        section .menu {
+            width: 20%;
+            height: 600px;
+            background-color: lightgray;
+            float: left;
+
+        }
+        .menu ul li {
+            list-style: none;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        section .london {
+            width: 80%;
+            height: 600px;
+            background-color: aliceblue;
+            float: right;
+            padding: 10px;
+            box-sizing: border-box;
+           
+        }
+        .london h3 {
+            font-size: 30px;
+            /*background-color: yellow;*/
+            
+        }
+        .london p {
+           font-size: 24px;
+            width: 60%;
+            /*background-color: bisque; */ 
+            margin: 5px 0 0;
+        }
+        
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        footer {
+            width: 100%;
+            height: 120px;
+            background-color: dimgray;
+            color: #fff;
+            text-align: center;
+           line-height: 120px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>City Gallery</h1>
+    </header>
+    <section class="clearfix">
+
+        <div class="menu">
+            <ul>
+                <li>London</li>
+                <li>Paris</li>
+                <li>Roma</li>
+            </ul>
+        </div>
+        <div class="london">
+            <h3>London</h3>
+            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants. <br><br> Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+        </div>
+
+    </section>
+
+    <footer>&copy; Greennart.com</footer>
+</body>
+
+</html>

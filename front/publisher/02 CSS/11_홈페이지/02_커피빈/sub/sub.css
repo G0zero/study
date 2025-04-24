@@ -1,0 +1,467 @@
+@charset "utf-8";
+/****RESET*************************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%; /*16px과 같아짐 */
+    font-weight: normal; /*400*/
+}
+
+
+/******common.css**************************************/
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/*안쪽에서 컨텐츠 너비를 잡아주는 공통 클래스*/
+.inner {
+    width: 1280px;
+    margin: 0 auto;
+}
+/*font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Nanum Myeongjo', serif;*/
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+/***HEADER**************************************/
+header {
+    width: 100%;
+    background-color: rgb(255,255,255);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+header .lnb {
+    width: 100%;
+    background-color: lightgray;
+    height: 40px;
+    line-height: 40px;
+    
+}
+
+header .lnb ul {
+    float: right;
+}
+header .lnb ul li {
+    float:left;
+    margin-left: 20px;
+}
+header .lnb ul li:last-child {
+    margin-right: 0;
+   /* background-color: rgb(47,28,17);*/
+    font-size: 0;
+    width: 60px;
+   /* text-indent: -999px;*/
+   font-size: 0;
+    background: rgb(47,28,17) url(img/ico_user_info_line.png) no-repeat center;
+}
+header .lnb ul li a {
+    color: #333;
+    display: block;
+    /*outline: 2px solid red;*/
+}
+header .lnb ul li a:hover {
+    color: rgb(47,28,17);
+    text-decoration: underline;
+}
+
+
+header .header-bottom {
+    height: 100px;
+}
+
+header .header-bottom h1.logo {
+    height:100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+    float: left;
+}
+header .header-bottom h1.logo a {
+   /* background-color: yellow;*/
+    display: block;
+}
+header .header-bottom h1.logo a img {
+    height: 70px;
+    display: block;
+}
+
+header .header-bottom nav {
+    float: left;
+    margin-left:100px;
+}
+/*보통 태그가 길어져서 끊을때는 클레스 이름으로 많이 끊음 지금은 nav태그가 하나여서 이렇게 하긴했지만 보통은 이렇게 끊지는 않음*/
+nav ul {
+    
+}
+nav ul li {
+    float: left;
+    line-height: 100px;
+    margin: 0 30px;
+    /*text-transform: uppercase;*//*대문자로 바꿔주는것*/
+}
+nav ul li a {
+    text-transform: uppercase;
+    font-family: Arial;
+    color: rgb(47,28,17);
+    font-weight: 700;
+}
+nav ul li a:hover {
+    color: rgb(207,102,26);
+}
+nav ul li.active a {
+    color: rgb(207,102,26);
+}
+
+form .searchbox {
+    line-height: 100px;
+}
+form .searchbox input {
+    border: 0;
+    border-bottom: 1px solid #eee;
+}
+
+form .searchbox button {
+    border: 0;
+    background-color: #fff;
+}
+
+/*SECTION1. LOCATION**********************/
+
+section {
+    
+}
+section .location {
+    margin-top: 140px;
+    background-color:  rgb(124,81,161);
+    line-height: 30px;
+}
+
+section .location span {
+    color: #fff;
+    padding: 0 20px;
+    font-size: 14px;
+    
+}
+section .location span~span {
+    background: url(img/img_arr_location.png) no-repeat left center/5px;
+}
+
+/*SECTION2. MAIN*************************/
+
+section .main {
+    margin-bottom: 80px;
+}
+
+section .main > img {
+    width: 100%;
+}
+
+/*SECTION3. MISSION***********************/
+
+section .mission {
+    margin-bottom: 80px;
+}
+section .mission > ul {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgb(124,81,161);
+}
+section .mission .box {
+    width: 22%;
+   /* outline: 2px solid red;*/
+    float: left;
+    text-align: center;
+    /*display: inline-block;*/
+}
+section .mission .box~.box {
+    padding-left: 4%;
+    background: url(img/bg_plus_icon.gif) no-repeat 5px 60px;
+    
+}
+section .mission .box div {}
+
+section .mission .box h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    color: rgb(124,81,161);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 20px 0 ;
+}
+section .mission .box p {
+    margin: 20px 0;
+}
+section .mission .box .froth {
+    font-family: 'Nanum Myeongjo', serif;
+    color: rgb(124,81,161);
+   /* font-weight: 600;*/
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+/*SECTION4. SPECIALTY*********************/
+
+section .specialty {
+    width: 100%;
+    height: 660px;
+    background: url(img/bg_coffeebean-korea_banner02.jpg) no-repeat center 120px/contain;
+    
+    margin-bottom: 80px;
+    
+}
+section .specialty .sec-tit {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+section .specialty p {}
+section .specialty h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(207,102,26);
+    margin: 20px 0;
+}
+
+/*SECTION5. COFFEE*********************/
+section .coffee {
+    margin-bottom: 80px;
+}
+section .coffee > div {
+    text-align: center;
+}
+section .coffee div h2 {
+    background-image: url(img/bg_bar6.gif);
+    background-repeat: repeat-x;
+    background-position: center;
+}
+section .coffee div h2 span{
+   font-family: 'Nanum Myeongjo', serif;
+   
+    color: rgb(207,102,26);
+    font-size: 28px;
+    font-weight: 600;
+    padding: 0 10px;
+    background-color: #fff;
+    position: relative;
+    
+}
+section .coffee div h2 span:first-child:after {
+    content:"";
+    display: block;
+    width: 2px;
+    height: 24px;
+    background-color: rgb(207,102,26);
+    position: absolute;
+    left: 55px;
+    top: 5px;
+}
+
+
+section .coffee  div h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    margin: 30px 0;
+    color: rgb(207,102,26);
+    font-size: 17px;
+    font-weight: 600;
+}
+section .coffee  div p {
+    margin: 20px 0;
+}
+
+section .coffee ul {
+    margin: 50px 0;
+}
+section .coffee ul li {
+   width: 32%;
+    float: left;  
+}
+section .coffee ul li~li {
+    margin-left: 2%;
+}
+section .coffee ul li img {
+    width: 100%;
+    transition: all 0.4s;
+}
+section .coffee ul li:hover img {
+    opacity: 0.5;
+}
+section .coffee > div >p {
+    width: 300px;
+    line-height: 30px;
+    margin: 30px auto;
+    background-color: rgb(207,102,26);
+       
+}
+
+section .coffee > div >p a {
+     font-family: 'Nanum Myeongjo', serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+/*SECTION6. TEA*********************/
+
+
+section .tea {
+    margin-bottom: 80px;
+}
+section .tea > div {
+    text-align: center;
+}
+section .tea div h2 {
+        background-image: url(img/bg_bar6.gif);
+    background-repeat: repeat-x;
+    background-position: center;
+}
+section .tea div h2 span{
+   font-family: 'Nanum Myeongjo', serif;
+    color: rgb(207,102,26);
+    font-size: 28px;
+    font-weight: 600;
+    padding: 0 10px;
+    background-color: #fff;
+    position: relative;
+    
+}
+section .tea div h2 span:first-child:after {
+    content:"";
+    display: block;
+    width: 2px;
+    height: 24px;
+    background-color: rgb(207,102,26);
+    position: absolute;
+    left: 55px;
+    top: 5px;
+}
+section .tea  div h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    margin: 30px 0;
+    color: rgb(207,102,26);
+    font-size: 17px;
+    font-weight: 600;
+}
+section .tea div p {
+    margin: 20px 0;
+}
+
+section .tea ul {
+    margin: 50px 0;
+}
+section .tea ul li {
+   width: 32%;
+    float: left;
+    overflow: hidden;
+    
+}
+section .tea ul li~li {
+    margin-left: 2%;
+}
+section .tea ul li img {
+    width: 100%;
+    transition: all 0.5s;
+}
+section .tea ul li:hover img {
+    transform: scale(1.2);
+}
+section .tea > div >p {
+    width: 300px;
+    line-height: 30px;
+    margin: 30px auto;
+    background-color: rgb(207,102,26);
+       
+}
+
+section .tea > div >p a {
+     font-family: 'Nanum Myeongjo', serif;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/*****FOOTER****************************/
+
+footer {
+    width: 100%;
+    background-color: lightgray;
+    padding: 60px 0;
+}
+footer a {
+    color: #333;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .sitemap {
+   /* border-bottom: 1px solid #333;
+    padding-bottom: 30px;*/
+    margin-bottom: 60px;
+}
+footer .sitemap .mapbox {
+    float: left;
+    width: 16.66%;
+    /*outline: 2px solid red;*/
+}
+footer .sitemap .mapbox h3 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 18px;
+    color: rgb(207,102,26);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+footer .sitemap .mapbox ul {}
+footer .sitemap .mapbox ul li {
+    line-height: 30px;
+}
+
+footer .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 30px;
+}
+
+footer .footer-bottom .info{
+    float: left;
+    
+}
+footer .footer-bottom .info .links {
+    margin-bottom: 20px;
+}
+footer .footer-bottom .info .links a~a {
+    border-left: 2px solid #333;
+    padding-left: 6px;
+}
+
+footer .footer-bottom .sns{
+    float: right;
+    
+}
+
+footer .footer-bottom .sns a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    /*float: left;*/
+    display: inline-block;
+    
+}
+
+footer .footer-bottom .sns a~a{
+    margin-left: 8px;
+}
+footer .footer-bottom .sns a img {
+    display: block;
+    width: 100%;
+}

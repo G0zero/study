@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>02_position-absolute2</title>
+        
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .parent {
+                width: 100%;
+                height: 300px;
+                background-color: darkorange;
+                position: relative/*.box의 기준!!!*/
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -100px;
+                margin-top: -100px;
+            }
+            /*relative : absolute의기준점 
+            absolute : 절대적 위치
+            
+            body에 굳이 relative를 넣지 않음
+        
+            absolute를 사용하기 위해서는 무조건 상위요소 중에 기준점이 필요함 (형제요소 안댐)
+            그게 밑에서는 parent가 기준점이었고 만약에 없다면 body에 자동으로 기준점을 잡음
+            상위 요소중에 relative를 가진게 두개가 있다면 나를 기준으로 제일 가까운 상위요소를 기준으로 한다.*/
+        
+        </style>
+    </head>
+    <body>
+        
+        <div class="parent">
+            <div class="box"></div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+ul,ol {
+    list-style: none;
+}
+ul:after,ol:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.clear:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+
+body {
+    text-align: center;
+}
+header {
+    width:100%;
+    height: 100px;
+}
+header .head-wrap {
+    width: 90%;
+    margin: 0 auto;
+    line-height: 100px;
+    box-sizing: border-box;
+    /*box-sizing이 필요한 이유는요?*/
+}
+header .head-wrap h1 {
+    float: left;
+    padding: 0px 100px;
+    
+}
+header .head-wrap nav ul {
+    float: right;
+}
+header .head-wrap ul li {
+    padding: 0px 30px;
+    
+}
+
+section {
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+section .main {
+    width: 100%;
+    height: 350px;
+    background-color: lightyellow;
+    margin-bottom: 40px;
+}
+section .main div {
+    
+}
+section .title {
+    width: 100%;
+    height: 250px;
+    background-color: #eee;
+    margin-bottom: 30px;
+    
+}
+section .title h2 {
+    font-size: 18px;
+    padding: 15px 0;
+}
+section .title .con-wrap {
+    width: 100%;
+}
+section .title .con-wrap div {
+    /*부모가 가진 공간을 자식요소가 나눠 가져야 하는데 지금은 모든 div는 300px로 동일한 너비를 가졌고 좌우 여백이 10px씩
+    총 합이 960px밖에 되지 않아요
+    부모요소에 너비가 px로 되어 있으면 모르겠지만 그게 아니면 자식요소도 부모를 기준으로 %로 공간을 나눠가지게 하는 게 좋겠죠
+    또한 예제 파일에서 두번째 컨텐츠 박스는 너비값이 다른데 지금은 모두 동일한 너비값이 적용되었네요 */
+    width: 300px;
+    height: 180px;
+    float: left;
+    margin: 0px 10px;
+}
+
+section .title .con-wrap .con1 {
+    background-color: lightsteelblue;
+}
+section .title .con-wrap .con2 {
+    width: 700px;
+    background-color: lightgreen;
+}
+section .title .con-wrap .con3 {
+    background-color: lightsalmon;
+}
+
+section .banner {
+    width: 100%;
+    height: 150px;
+    background-color: cornflowerblue;
+    margin-bottom: 30px;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: #eee;
+    
+}
+
+footer .inner-footer {
+    width: 90%;
+    margin: 0 auto;
+}
+footer .inner-footer p {
+    font-size: 14px;
+    float: left;
+    line-height: 100px;
+}
+footer .inner-footer ul {
+    float: right;
+    line-height: 100px;
+}
+footer .inner-footer ul li {
+    padding: 0 10px;
+    font-size: 14px;
+}

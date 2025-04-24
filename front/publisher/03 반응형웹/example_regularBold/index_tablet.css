@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+/*responsive - tablet*/
+
+/*max-widtn:1024px*/
+
+body {
+    
+}
+.inner {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.sec-tit {
+    font-size: 28px;
+    font-size: 1.75rem;
+    font-family: 'PT Serif', serif;
+    margin-bottom: 20px;
+}
+
+header {}
+
+header .m-menu {
+    display: block;
+    float: right;
+    width: 60px;
+}
+
+header .m-menu img {
+    width: 100%;
+}
+
+header nav {
+    display: none;
+}
+
+header .sns {
+    display: none;
+}
+
+/*****section*************************/
+section {}
+
+section > article {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+/****intro**************************/
+
+article.intro {
+    width: 90%;
+    height: 500px;
+    background-size: auto 500px;
+}
+.intro .txt-box {
+    width: 35%;
+}
+.intro .txt-box .des-en {
+    font-size: 18px;
+    font-size: 1.125rem;
+} 
+.intro .txt-box .des-ko {
+    font-size: 16px;
+    font-size: 1rem;
+} 
+.intro .btn {
+    bottom: 5%;
+    font-size: 16px;
+    font-size: 1rem;
+}
+
+/***works*************************/
+article.works {}
+.works .img-wrap {}
+.works .img-wrap .img-box {
+    width: 49%;
+}
+.works .img-wrap .img-box~.img-box {
+    margin-left: 0;
+    margin-left: 2%;
+}
+.works .img-wrap .img-box:nth-child(2n+1) {
+    margin-left: 0;
+}
+
+/****about*****************************/
+article.about {
+    height: 430px;
+    background-size: 1024px auto;
+}
+
+.about p{
+    width: 70%;
+    font-size: 16px;
+    font-size: 1rem;
+}
+
+.about .btn-more {
+    font-size: 16px;
+    font-size: 1rem;
+}
+
+
+/****news***************************/
+article.news {}
+article.news > p {}
+article.news .box {}
+article.news .box .title a {
+    font-size: 16px;
+    font-size: 1rem;
+}
+article.news .box .date {
+    font-size: 14px;
+    font-size: 0.875rem;
+}
+/*contact*/
+
+/*footer*/
+footer .footer-box {}
+footer .footer-box h3{
+    font-size: 16px;
+    font-size: 1rem;
+}
+footer .footer-box p{
+    font-size: 14px;
+    font-size: 0.875rem;
+}
+footer .top {
+    bottom: 20px;
+    right: 20px;
+}
+
+
+
+

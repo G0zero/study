@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .main {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .main img {
+            width: 100%;
+        }
+
+        .wrap {
+            width: 80%;
+            margin: 60px auto 200px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            bottom: -100px;
+            opacity: 0;
+        }
+
+        .box-wrap {
+            width: 100%;
+            position: relative;
+            bottom: -100px;
+            opacity: 0;
+        }
+
+        .box-wrap:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .box-wrap .box {
+            width: 23%;
+            float: left;
+            padding: 1%;
+            box-sizing: border-box;
+            border: 1px solid #eee;
+            margin: 1%;
+        }
+
+        .box-wrap .box img {
+            width: 100%;
+            display: block;
+        }
+
+        .box-wrap .box h3 {
+            line-height: 3;
+        }
+
+        .box-wrap .box p.title {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: darkcyan;
+        }
+
+        .box-wrap .box p.title+p {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+        }
+    </style>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <script>
+
+        $(window).scroll(function() {
+
+            //var offset = $('.wrap').offset().top;
+            //console.log(offset);
+
+            var scTop = $(this).scrollTop();
+            console.log(scTop);
+
+            if ($(this).scrollTop() > 2800) {
+                $('.wrap h2').animate({
+                    bottom: '0',
+                    opacity: '1'
+                },800);
+                $('.wrap .box-wrap').delay(400).animate({
+                    bottom: '0',
+                    opacity: '1'
+                },800);
+            }
+
+        }); //scroll
+    </script>
+</head>
+
+<body>
+
+    <h1>달이 뜨는 강</h1>
+
+    <div class="main"><img src="img/realation.jpg" alt="인물관계도"></div>
+
+    <div class="wrap">
+        <h2>등장인물</h2>
+        <div class="box-wrap">
+            <div class="box">
+                <img src="img/1.jpg" alt="">
+
+                <h3>평강/염가진</h3>
+                <p class="title">탐욕스러운 간신들을 몰아내고 무너진 고구려의 영광을 되찾겠다!</p>
+                <p>고구려 평원왕의 외동딸. ‘공주’일 땐, 총명. 강직. 담대.
+                    천주방의 살수 ‘염가진’일 땐 시니컬. 냉철. 때로는 잔인.
+                    예외적으로 ‘온달 앞’일 땐 허당. 덜렁. 때로는 순진.
+                    무능한 아버지와 이기적인 간신들을 몰아내고 무너진 고구려의
+                    위상을 바로 세워야 한다는 목표를 향해 달려가는 여장부.
+                    여성 최초의 고구려 태왕을 꿈꿀 만큼 대단한 야심가처럼 보이지만,
+                    나라와 백성을 지키고 싶은 마음만큼은 진심이다.
+                    시작은 ‘복수’였지만 점차 ‘대의’를 위해 자신만의 싸움을 하게 된다.</p>
+            </div>
+
+            <div class="box">
+                <img src="img/2.jpg" alt="">
+
+                <h3>온달</h3>
+                <p class="title">평강의 검이 되어 그녀의 뜻을 이뤄주겠다!</p>
+                <p>前 순노부 족장 온협의 아들. 現 대성산 귀신 혹은 바보 온달.
+                    어릴 땐 호기심, 모험심, 의협심 모두 과했던 열혈소년.
+                    지금은 세상 만물 모두를 위하고 사랑하는 비폭력주의자.
+                    밀렵꾼들이 쳐놓은 덫에 빠진 짐승들을 구해주고,
+                    가뭄이 들자 목마른 동물들을 위해 산 곳곳에 우물을 파러 다닐 정도로 선하고 순박한 인물.
+                    그러나 싸움을 한번 하게 되면 그 파괴력이 엄청 나다.
+                    제비같이 몸이 빠르고 힘이 장사에 돌팔매질 기술이 넘사벽인데다
+                    가공할 만한 점프력까지 갖췄고, 결정적으로 양손을 자유자재로 쓰니 무예를 따로 익히지 않았음에도 불구하고 적수가 없다. 뭔가를 빼앗거나 얻기 위해 싸우는 사람들과 달리 그는 누군가를 지키기 위해서만 싸운다.</p>
+            </div>
+
+            <div class="box">
+                <img src="img/3.jpg" alt="">
+
+                <h3>고건</h3>
+                <p class="title">평강공주를 가져야겠다!</p>
+                <p>상부 고씨 계루부 고추가 고원표의 장남. 계루부땅 송학산성 성주.
+                    거느리는 선인이 1천 명이 넘는, 태학 수석 출신의 엘리트 장군.
+                    한눈에 봐도 ‘왕족’인 걸 알 수 있을 정도로 품위와 권위가 느껴진다.</p>
+            </div>
+
+            <div class="box">
+                <img src="img/4.jpg" alt="">
+
+                <h3>해모용</h3>
+                <p class="title">고구려를 가지고 놀겠다!</p>
+                <p>소노부 고추가 해지월의 양녀.
+                    빼어난 미모. 주도면밀한 성격.
+                    셈이 빠르고 이재(理財)에 능하며, 약초를 다루는 실력도 탁월하다.
+                    아버지 해지월 대신 실질적으로 소노부를 이끌고 있는 비선실세.
+                    그러나 숨겨놓은 속내가 있는 미스테리한 여인.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

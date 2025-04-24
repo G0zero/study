@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_background-size</title>
+    
+    <style>
+        div {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #000;
+            background-image: url(images/bg-size.png);
+            background-repeat: no-repeat;
+            background-position: left top;
+            /*background-size:auto 250px;*/
+            background-size: 60%;
+            /*
+            *속성값(너비, 높이 구분없이 하나의 속성값만 사용)
+            auto : 기본값, 자동맞춤 (주어진 공간안에 이미지가 잘리지않게 자동으로 맞춰줘라는 뜻임 이미지가 잘리지 않도록 짧은 축을 기준으로 맞춰지게 되는거임)
+            contain : 짧은 축 기준, 이미지가 주어진 공간에 잘리지 않고 보여짐
+            cover : 긴축 기준, 박스가 가지고 있는 크기에서 긴 축을 채워줌
+            
+            
+            background-size : w(너비) H (높이);
+            
+            *px, % tkdyd 
+            px : 이미지 크기 조절
+            % : 배경이미지가 들어가는 박스 기준으로 크기 설정
+            
+            값을 하나만 넣게 되면 너비값이 설정되고 높이는 auto가 됨 
+            반대로 너비에 auto하고 높이를 설정하게 되면 비율을 깨트리지않고 설정이 가능함 위아래 둘다 
+            */
+        }
+    
+            /*이미지에 마우스 가져다 대면 사진이 보이는거 명칭: tooltip*/
+    </style>
+</head>
+<body>
+    
+    <div></div>
+    
+    
+    
+</body>
+</html>

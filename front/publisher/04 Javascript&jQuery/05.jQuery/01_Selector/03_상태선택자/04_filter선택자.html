@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_filter선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //filter선택자 (검색의 조건을 필터링의 조건이라고 하는것처럼 그거랑 비슷한거임)
+        //filter선택자 : 선택한 요소 중에서 filter()로 필터링할 요소만 선택
+        //기본형: $('요소선택').filter('선택한 요소 중 필터링할 요소 선택');
+        
+        $(function(){
+            $('#inner_1 p').filter('.txt2').css({
+                backgroundColor: 'greenyellow'
+            });
+        });
+        
+        
+        
+        
+    </script>
+</head>
+
+<body>
+    <div id="outer-wrap">
+        <h1>상태 선택자</h1>
+        <section id="inner_1">
+            <h2>filter() 선택자1</h2>
+            <p class="txt1">내용1</p>
+            <p class="txt2">내용2</p>
+            <p>내용3</p>
+        </section>
+        <section id="inner_2">
+            <h2>filter() 선택자2</h2>
+            <p>내용4</p>
+            <p>내용5</p>
+            <p>내용6</p>
+        </section>
+    </div>
+</body>
+
+</html>

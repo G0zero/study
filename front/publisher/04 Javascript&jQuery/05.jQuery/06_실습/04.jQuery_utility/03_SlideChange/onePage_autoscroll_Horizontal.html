@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>onePage_autoscroll_Horizontal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #eee;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul:after,
+        ol:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        #top {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .inbox {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            /*outline: 3px solid blue;*/
+        }
+
+        #logo {
+            /* width: 250px;*/
+            height: 100%;
+            display: block;
+            /* background-color: lightgoldenrodyellow;*/
+            float: left;
+        }
+
+        #logo img {
+            display: block;
+            height: 50px;
+            margin-top: 15px;
+        }
+
+        #gnb {
+            float: right;
+            margin-top: 40px;
+            /*            outline: 2px solid red;*/
+        }
+
+        #gnb li {
+            margin: 0 7px;
+        }
+
+        #gnb a:hover {
+            color: lime;
+            text-decoration: underline;
+            /* transform: scale(1.1);
+            display: block;*/
+        }
+
+        #gnb li:hover {
+            transform: scale(1.1);
+        }
+
+        .selM {
+            transform: scale(1.1; )
+        }
+
+        .selM a {
+            color: lime;
+            text-decoration: overline;
+        }
+
+        /*페이지 section*/
+        #wrap {
+            width: 700%;
+            height: 100%;
+            overflow: hidden;
+            /*float해제를 위한 설정!*/
+        }
+
+        /*혹은 이렇게 flaot해제해도됨 
+        #wrap:after {
+            content: "";
+            display: block;
+            clear: both;
+        }*/
+        .page {
+            width: 14.285%;
+            /*부모100%를  자식요소가 1/7씩 나눠가짐*/
+            height: 100%;
+            float: left;
+        }
+
+        #page1 {
+            background: url(images/p1.png) no-repeat top/cover;
+        }
+
+        #page2 {
+            background: url(images/p2.png) no-repeat top/cover;
+        }
+
+        #page3 {
+            background: url(images/p3.png) no-repeat top/cover;
+        }
+
+        #page4 {
+            background: url(images/p4.png) no-repeat top/cover;
+        }
+
+        #page5 {
+            background: url(images/p5.png) no-repeat top/cover;
+        }
+
+        #page6 {
+            background: url(images/p6.png) no-repeat top/cover;
+        }
+
+        #page7 {
+            background: url(images/p7.png) no-repeat top/cover;
+        }
+
+        /*블릿 설정*/
+        ol#bnavi {
+            width: 15px;
+            position: fixed;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        ol#bnavi li {
+            width: 100%;
+            height: 15px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 50%;
+            margin: 6px 0;
+            float: none;
+            position: relative;
+            /*span태그의 기준!*/
+        }
+
+        ol#bnavi li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        ol#bnavi li a span {
+            font: bold .9rem '맑은고딕';
+            white-space: nowrap;
+            text-shadow: 1px 0 #888, -1px 0 #888, 0 -1px #888, 0 1px #888;
+            position: absolute;
+            right: 200%;
+            top: -50%;
+            display: none;
+        }
+
+        #bnavi li:hover a span {
+            display: block;
+        }
+
+        .selB {
+            background-color: #ec686a;
+            transform: scale(1.2);
+        }
+
+        .selB span {
+            display: block ! important;
+        }
+    </style>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        /////////////////전역변수///////////////////////
+        var pno = 0; //현재페이지 번호 (index에 맞춰서 첫페이지 0부터 시작)
+        const totcnt = 7; // 전체 페이지 갯수 
+        var prot = 0; //광스크롤 막기 변수 (0-허용,1-막기)
+        //////////////////////////////////////////////////
+
+        $(function() {
+
+            //마우스 휠 이벤트
+            //마우스 스크롤 하는 이벤트를 발생시키기 위해서는 문서의 영역안에서 해줘야함 문서 전체중 어디서든지 휠을 움직이면 이벤트가 발생하거나 제어시켜줘야하기 때문임 
+            $(document).on('mousewheel DOMMouseScroll', function(e) {
+                //e.preventDefault();
+                
+                if(prot ===1) return false;
+                prot=1;
+                
+                //ie구버전 구분하기 
+                var evt = window.event || e;
+
+                //마우스 휠 정보 받기 - wheelDelta: 값을 (새롭게 부여해주는것)지정하는건불가능 값을 받을 받을수 있음 
+                var delta = evt.detail ? evt.detail : evt.wheelDelta;
+                console.log('마우스 휠 델타값 : ' + delta);
+
+                //파이어폭스를 위한 처리
+                if (/firefox/i.test(navigator.userAgent)) {
+                    delta = -evt.orginalEvent.detail; //방향을 반대로 해줘야해서 -를 붙여준거임
+                }
+                
+
+                //마우스 휠 방향에 따라서 페이지 번호 변경하기 
+                if (delta > 0) {
+                    //양수, 윗방향, 이전 페이지 
+                    pno--;
+                    if (pno === -1) pno = 0;
+                } else {
+                    //음수, 아랫방향, 다음페이지
+                    pno++;
+                    if (pno === totcnt) pno = totcnt - 1;
+                }
+
+                //해당 순번 페이지 가로 위칫값(left) 구하기
+                var pagepos = $('.page').eq(pno).offset().left;
+                console.log('페이지 번호 : ' + pno + '/offset 값' + pagepos);
+                
+                //페이지 이동 애니메이션 
+                $('html, body').animate({
+                    scrollLeft : pagepos+'px'
+                },1000 ,'easeInOutCirc' ,function(){
+                    prot=0;
+                });
+                
+                //메뉴 변경 함수 호출
+                chgMenu();
+
+            });//mousewheel
+            
+            //#gnb a 또는 #bnavi a 를 클릭했을때 스크롤 에니메이션 
+            $('#gnb a, #bnavi a').click(function(evt){
+                
+                //a태그의 기본이동 막기!
+                evt.preventDefault;
+                
+                //현재 클릭된 a태그의 부모 li 인덱스번호 구하기 
+                //인덱스번호 = 페이지 번호 일치되므로!!
+                
+                var idx = $(this).parent().index();
+                pno=idx;
+                
+                //이동할 페이지 거리 구하기 
+                //방법 1) 인덱스 번호를 사용하여 페이지 선택하기
+                /*var pagepos = $('.page').eq(pno).offset().left;*/
+                //방법2)클릭된 a의 href값 활용하기
+                var pid = $(this).attr('href');
+                console.log('a태그의 href값 : '+ pid);
+                
+                var pagespos = $(pid).offset().left;
+                
+                //스크롤 애니메이션 
+                $('html, body').animate({
+                    scrollLeft : pagespos + 'px'
+                },1000 , 'easeInOutCirc');
+                
+                //메뉴변경 호출함수 
+                chgMenu();
+                
+                
+                
+                /* 이가영 연습
+                var pagepos = $(this).parent().eq(pno).offset().left;
+                console.log(pagepos);
+                $('body, html').animate({
+                    scrollLeft : pagepos+'px'
+                },800 , function(){
+                    $('#gnb li').eq(pno).addClass('selM').siblings().removeClass('selM');
+                    $('#bnavi li').eq(pno).addClass('selB').siblings().removeClass('selB');
+                     });*/
+               
+            });
+            
+        }); //jQuery
+        
+        /*///////////////////////////////////////////
+            함수명 : chgMenu()
+            기능 : GNB메뉴와 블릿메뉴를 동시에 현재 페이지와 일치되게 변경
+        ////////////////////////////////////////////*/
+        
+        function chgMenu(){
+            //gnb변경 
+            $('#gnb li').eq(pno).addClass('selM').siblings().removeClass('selM');
+            //블릿네비 변경 
+            $('#bnavi li').eq(pno).addClass('selB').siblings().removeClass('selB');
+        }
+        
+        
+    </script>
+</head>
+
+<body>
+    <header id="top">
+        <div class="inbox">
+            <a href="#" id="logo"><img src="images/logo_cgv.png" alt="CGV"></a>
+
+            <nav id="gnb">
+                <ul>
+                    <!--li*7>a[href=#page$]-->
+                    <li class="selM"><a href="#page1">닥터두리틀</a></li>
+                    <li><a href="#page2">안녕베일리</a></li>
+                    <li><a href="#page3">라라랜드</a></li>
+                    <li><a href="#page4">어바웃타임</a></li>
+                    <li><a href="#page5">어벤져스</a></li>
+                    <li><a href="#page6">아이언맨3</a></li>
+                    <li><a href="#page7">라이온킹</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="wrap">
+        <!--section#page$.page*7-->
+        <section id="page1" class="page"></section>
+        <section id="page2" class="page"></section>
+        <section id="page3" class="page"></section>
+        <section id="page4" class="page"></section>
+        <section id="page5" class="page"></section>
+        <section id="page6" class="page"></section>
+        <section id="page7" class="page"></section>
+
+    </div>
+    <ol id="bnavi">
+        <!--li*7>a[href=#page$]>span-->
+        <li class="selB"><a href="#page1"><span>닥터두리틀</span></a></li>
+        <li><a href="#page2"><span>안녕베일리</span></a></li>
+        <li><a href="#page3"><span>라라랜드</span></a></li>
+        <li><a href="#page4"><span>어바웃타임</span></a></li>
+        <li><a href="#page5"><span>어벤져스</span></a></li>
+        <li><a href="#page6"><span>아이언맨3</span></a></li>
+        <li><a href="#page7"><span>라이온킹</span></a></li>
+    </ol>
+
+</body>
+
+</html>

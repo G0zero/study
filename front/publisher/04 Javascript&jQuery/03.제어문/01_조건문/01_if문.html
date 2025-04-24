@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>01_if문</title>
+        
+        <script>
+            /*
+            
+            1. 조건문 
+            - 조건식의 값이 참(true)인지 거짓(false)인지에 따라 자바스크립트 코드를 제어 
+            
+            (1) if문 : 조건식을 만족(true 참)할 경우에만 코드 실행
+            
+            /////////////////기본형////////////////////////
+                
+                if(조건식){
+                    자바스크립트 실행코드;
+                }
+                
+            ////////////////////////////////////////////
+            */
+            
+            var num = 10;
+            if(num<500){
+                document.write('딩동댕<br>');
+               }
+            
+            if(num>500){
+                document.write('앗 이런ㅠㅠ<br>');
+            }
+            
+            if(0){  //0은 언제나 false를 반환
+                document.write('앗 이런222222ㅜㅠㅠㅠ<br>');
+            }
+            if("0"){
+                document.write('딩동댕22222<br>');
+            }
+            
+            if(1){
+                document.write('딩동댕333333<br>');
+            }
+            //0과 1은 각각 다른 결과를 보여주기때문에 보통 0으로 거짓을 만들었다면 1로 참을 넣어 구분한다.
+            
+            //if문 예제1
+            
+        /*    var walkAmount = Number(prompt("당신의 하루 걷는 양은 몇 보인가요?","5000"));
+             
+            if(walkAmount >= 10000){
+                document.write("매우 좋은 습관을 가지고 있군요!!!!!<br>");
+            }
+            */
+            //if문 예제2
+            //사용자로부터 평균 통화량을 입력받아, 입력받은 통화량이 60분보다 많을 경우 "많이 사용하는 편이네요!"화면에 출력
+            
+    /*        var callAmount = Number(prompt("당신의 하루 통화량은 몇 분 인가요? (숫자만 입력)","30"));
+            
+            if(callAmount>=60){
+                document.write("많이 사용하는 편이네요!ㅠㅠ<br>");
+            }
+        */
+            
+            //선생님 해설 
+            
+            /*var min = Number(prompt("당신의 하루 통화량은 몇 분 인가요?","0"));
+            if(min>=60){
+                document.write("많이 사용하는 편이네요!");
+            }
+            */
+            
+            
+            //if문 예제3 -조건식에 문자형 데이터가 오는 경우
+            var userName = prompt("방문자의 이름을 입력하시오","");
+            
+            if(userName){
+                document.write(userName+"님 반갑습니다~!");
+            }
+            
+            //참인지 거짓인지 확인하고 싶다면 
+            console.log(Boolean(userName));//true
+            //Boolean은 넣은 값이 참인지 거짓인지 반환해줌
+            
+            /*논리형 데이터에서 false가 나오는 경우 
+            0
+            null
+            ""(공백문자)
+            underfined
+            */
+            
+            
+            
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

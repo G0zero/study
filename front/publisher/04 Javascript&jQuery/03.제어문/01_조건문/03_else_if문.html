@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>03_else_if문</title>
+
+    <script>
+        /*
+        
+        (3) else if문 : 두 가지 이상의 조건식과 정해놓은 조건을 만족했을때 실행되는 코드
+        
+        ////////////기본형////////////////
+        
+            if(조건식1){
+                자바스크립트 실행코드1;
+            }else if(조건식2){
+                자바스크립트 실행코드2;
+            }else if(조건식3){
+                자바스크립트 실행코드3;
+                 
+            }else if(조건식4){
+                자바스크립트 실행코드4;
+            }else{
+                자바스크립트 실행코드5;
+            }
+        
+        /////////////////////////////////
+        
+        *조건식 1~4까지 차례로 조건 검사, 만족하는 값이 나오면 그에 해당하는 코드를 실행하고 조건문 종료 
+        조건식 중 만족하는 값이 하나도 없으면 마지막 else문 코드로 실행
+        
+
+        */
+
+        //else if문 예제1 - 점수에 따라 '수우미양가' 출력
+
+        /*
+        수 : 90점 이상 (=)
+        우 : 80점 이상 (=)
+        미 : 70점 이상 (=)
+        양 : 60점 이상 (=)
+        가 : 60점 미만 (수,우,미,양에  해당하지 않으면 '가')
+        */
+        
+      /*  var score = Number(prompt("당신의 평가 점수는?"));
+        
+        if(score >= 90){
+            alert('수');
+        }else if(score>=80){
+            alert('우');
+        }else if(score>=70){
+            alert('미');
+        }else if(score>=60){
+            alert('양');
+        }else{
+            alert('가');
+        }*/
+        
+        //else if문 예제2 - 입력되는 월에 따라 계절 출력하기 
+        //3월~5월 봄, 6~8월 여름, 9~11월 가을, 12~2월 겨울
+        var month = prompt('지금은 몇 월입니까? (숫자만 입력)');
+        
+        /*if(month>=3&&month<=5){
+            document.write("당신이 좋아하는 계절은 "+month+"월로 봄입니다!");
+        }else if(month>=6&&month<=8){
+             document.write("당신이 좋아하는 계절은 "+month+"월로 여름입니다!");
+        }else if(month>=9&&month<=11){
+             document.write("당신이 좋아하는 계절은 "+month+"월로 가을입니다!");
+        }else{
+             document.write("당신이 좋아하는 계절은 "+month+"월로 겨울입니다!");
+        }
+        */
+        
+        //선생님 해설
+        
+        if(month>=3 && month<=5){
+            document.write("꽃이 화사한 봄이네요~!");
+        }else if(month>=6 && month<=8){
+            document.write("햇빛이 뜨거운 여름이네요~!");
+        }else if(month>=9 && month<=11){
+            document.write("독서의 계절 가을이네요~!");
+        }else{
+            document.write("흰 눈이 펑펑 내리는 겨울이네요~!");
+        }
+        
+     
+        
+        
+        
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

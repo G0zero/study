@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>changeImg</title>
+        
+        <style>
+            body {
+                width: 620px;
+                margin: 20px auto;
+                padding: 0;
+                background-color: #192839;
+                /*outline: 2px solid lime;*/
+            }
+            .thumbs {
+                width: 100px;
+                float: left;
+            }
+            .thumbs a {
+                display: block;
+                padding: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+            .thumbs a:hover {
+                border-color: #ef4018;
+            }
+            /*클릭된 썸네일 표시*/
+            .thumbs a.on {
+                border: 2px solid #ef4018;          
+            }
+            
+            .thumbs a img {
+                display: block;
+                width: 100%;
+                
+            }
+            
+            #largeImg {
+                width: 500px;
+                height: 280px;
+                padding: 5px;
+                border: 1px solid #ccc;
+                /*float: right;*/
+                margin-left: 110px;
+            }
+        
+        
+        </style>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                //미션: 썸네일을 클릭했을때 메인 이미지의 src변경 
+                $('.thumbs a').click(function(e){
+                    //1) a 태그의 기본 이동 없애기 
+                    e.preventDefault();
+                    
+                    //2) 필요한 정보 세팅 (a태그의 href값)
+                    var imgsrc = $(this).attr('href');
+                    console.log(imgsrc);
+                    
+                    //3)이미지 경로값을 대상요소의 src값으로 세팅
+                    $('#largeImg img').attr('src',imgsrc);
+                    
+                   //4) 클릭된 썸네일 표시 
+                    $(this).addClass('on').siblings().removeClass('on');
+                    
+                });
+            });
+        
+        
+        
+        </script>
+    </head>
+    <body>
+       
+        <div class="thumbs">
+            <a class="on" href="images/pic1.jpg"><img src="images/th_pic1.jpg" alt="이미지1"></a>
+            <a href="images/pic2.jpg"><img src="images/th_pic2.jpg" alt="이미지2"></a>
+            <a href="images/pic3.jpg"><img src="images/th_pic3.jpg" alt="이미지3"></a>
+        </div> 
+        
+        <div id="largeImg">
+            <img src="images/pic1.jpg" alt="">
+        </div>
+    </body>
+</html>

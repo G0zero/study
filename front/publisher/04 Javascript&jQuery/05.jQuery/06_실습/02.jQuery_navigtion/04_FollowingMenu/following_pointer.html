@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>folloing_pointer</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                cursor: none;
+                overflow: hidden;
+            }
+            #screen {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #screen li {
+                width: 50%;
+                height: 50%;
+                float: left;
+                /*outline: 2px solid red;*/
+            }
+            #screen li:nth-child(1) {
+                background: url(bg1.JPG) no-repeat 0/cover;
+            }
+            #screen li:nth-child(2) {
+                background: url(bg2.JPG) no-repeat 0/cover;
+            }
+            #screen li:nth-child(3) {
+                background: url(bg3.JPG) no-repeat 0/cover;
+            }
+            #screen li:nth-child(4) {
+                background: url(bg1.JPG) no-repeat 0/cover;
+            }
+            /*마우스포인터 */
+            #myc {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50px;
+                z-index: 9999;/*포인터는 항상 위에 있어야하기 떄문임!*/
+            }
+        
+        </style>
+        
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                /*
+                기본형 
+                $('이벤트 대상').mousemove(function(매개변수){
+                    매개변수(이벤트객체).속성;
+                });
+                
+                */
+                
+                //마우스 포인터 위치에 포인터 이미지 따라다니게 하기 
+                $('#screen').mousemove(function(e){
+                    var posx = e.pageX+1;
+                    var posy = e.pageY+1;//더하기 일을 해주는이유는 그렇게 하면 경계선 부분에서 좀더 자연스럽게 부드럽게 변경되기때문임 
+        
+                    //console.log(posx+'/'+posy);
+                    
+                    $('#myc').css({
+                        top : posy + 'px',
+                        left: posx + 'px'
+                    });
+                    
+                });
+                
+                //li의 각 영역에 마우스 오버시 커서 이미지 변경하기 
+                $('#screen li').mouseenter(function(){
+                    var idx = $(this).index();
+                    console.log('li 인덱스 : '+ idx);
+                    
+                    switch(idx){
+                        case 0 : idx = 'images/13148a1.gif';
+                        break;
+                        case 1 : idx = 'images/strtail.gif';
+                        break;
+                        case 2 : idx = 'images/yoshi-cursor.gif';
+                        break;
+                        case 3 : idx = 'images/cursor.gif';
+                    }
+                    //커서이미지 변경하기
+                    $('#myc').attr('src',idx);
+                });
+            });
+        
+        </script>
+    </head>
+    <body>
+        <ul id="screen">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <!--따라다닐 커서 이미지-->
+        <img src="images/13148a1.gif" alt="마우스포인터" id="myc">
+    </body>
+</html>

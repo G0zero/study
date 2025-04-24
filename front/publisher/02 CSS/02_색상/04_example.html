@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_example</title>
+
+    <style>
+        body {
+            background-color: silver;
+
+        }
+
+        h1 {
+            width: 1900px;
+            height: 50px;
+            background-color: #eee;
+            color: #64645a;
+        }
+
+        div {
+            color: #fff;
+        }
+
+        p {
+            width: 1900px;
+            height: 30px;
+            font-weight: bold;
+        }
+
+        p:first-child {
+            background-color: #08d
+        }
+
+        p:nth-child(2) {
+            background-color: #0095e2
+        }
+
+        p:nth-child(3) {
+            background-color: #00a0e6
+        }
+
+        p:nth-child(4) {
+            background-color: #30aae9
+        }
+
+        p:nth-child(5) {
+            background-color: #54b6ed
+        }
+
+        p:nth-child(6) {
+            background-color: #72c1f0
+        }
+
+        p:nth-child(7) {
+            background-color: #8ccaf2
+        }
+
+        p:nth-child(8) {
+            background-color: #57b576
+        }
+
+        p:nth-child(9) {
+            background-color: #f5b0cc
+        }
+
+        p:nth-child(10) {
+            background-color: #f69fc0
+        }
+
+        p:nth-child(11) {
+            background-color: #f58cb2
+        }
+
+        p:nth-child(12) {
+            background-color: #f47ba6
+        }
+
+        p:nth-child(13) {
+            background-color: #f36a98
+        }
+
+        p:nth-child(14) {
+            background-color: #f45a8b
+        }
+
+        p:last-child {
+            background-color: #ee3e80
+        }
+
+        /*
+        p.ph14는 p태그중에서 ph14인걸 찾아줘 라는 뜻이고 
+        p .ph14는 하위 요소를 찾는거기때문에 적용이 안됨
+        */
+        p.ph14 {
+            background-color: #08d
+        }
+
+        p.ph13 {
+            background-color: #0095e2
+        }
+
+        p.ph12 {
+            background-color: #00a0e6
+        }
+        
+        ul{padding: 0;}
+        ul li {
+            list-style: none;
+            
+        }
+        ul li:nth-child(1) {background-color: #30aae9}
+        ul li:nth-child(2) {background-color: #54b6ed}
+        ul li:nth-child(3) { background-color: #72c1f0}
+        ul li:nth-child(4) { background-color: #8ccaf2}
+    </style>
+
+</head>
+
+<body>
+    <h1> pH 척도</h1>
+    <!--p태그 사용하기-->
+    <div>
+        <p>14.0 강한 알카리성</p>
+        <p>13.0</p>
+        <p>12.0</p>
+        <p>11.0</p>
+        <p>10.0</p>
+        <p>9.0</p>
+        <p>8.0</p>
+        <p>7.0 중성</p>
+        <p>6.0</p>
+        <p>5.0</p>
+        <p>4.0</p>
+        <p>3.0</p>
+        <p>2.0</p>
+        <p>1.0</p>
+        <p>0.0 강한 산성</p>
+    </div>
+
+    <p class="ph14">14.0 강한 알카리성</p>
+    <p class="ph13">13.0</p>
+    <p class="ph12">12.0</p>
+
+
+    <!--ul 태그-->
+    <ul>
+        <li>11.0</li>
+        <li>10.0</li>
+        <li>9.0</li>
+        <li>8.0</li>
+    </ul>
+    
+</body>
+
+</html>

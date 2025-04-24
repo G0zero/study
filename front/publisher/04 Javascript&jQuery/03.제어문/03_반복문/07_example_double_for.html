@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>07_example_double_for문</title>
+
+    <script>
+        
+        //중첩 for문을 이용해서 5행 5열 표를 만들고, 데이터가 1부터 25까지 출력되도록 작성하시오.
+        
+  /*      var table = "<table border='1'>";
+     
+        var z = 1;
+
+        
+        for(var x=1; x<=5; x++){
+             table += "<tr>";
+            for(var y=1; y<=5; y++){
+                table += "<td>"+(z++)+"</td>";
+            }
+            table += "</tr>";
+        }
+        document.write(table+="</table>");
+        */
+        //선생님 해설 
+        /*
+        내가 사용할 변수! 
+        1) <tr>을 반복할 변수 >>i 
+        2) <td>를 반복할 변수 >>j
+        3) 테이블을 담을 변수 >>table
+        4) td안에 들어갈 숫자 (데이터)를 담을 변수 >>num
+        */
+        
+        var table = '<table border="1">';
+        
+        var num = 1;
+        
+        for(var i=1; i<=5; i++){ //tr 반복 실행
+            table += '<tr>';
+            for(var j=1; j<=5; j++){ //td 반복 실행
+                table += '<td>' +num+'</td>';
+                num++;
+            }
+            table += '</tr>';
+        }
+        table += '</table>';
+        document.write(table);
+        // 보통은 저렇게 num 아래에 따로num++을 넣어줌 왜냐면 연산자가 겹쳐서 오류가 날수있기 때문임
+        
+    </script>
+</head>
+
+<body>
+
+    <!--<table border="1">
+        <tr>
+            <td></td>
+        </tr>
+    </table>-->
+
+</body>
+
+</html>

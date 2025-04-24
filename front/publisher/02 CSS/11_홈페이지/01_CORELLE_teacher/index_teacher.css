@@ -1,0 +1,189 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+/***MAIN****************************/
+
+body {
+    background-image: url(images/bg_body.png);
+}
+.wrap {
+    width: 1200px;
+    margin: 50px auto;
+    position: relative; /*footer 위치 기준!*/
+    overflow: hidden;/*float해제를 위함*/
+   /* outline: 2px solid red;*/
+}
+header {
+    width: 210px;
+    height: 848px;
+    background-image: url(images/bg_head.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: left;
+    padding: 50px 40px 0;
+    box-sizing: border-box;
+}
+
+header h1 a, header nav a {
+    display: block;
+    background-image: url(images/bg_gnb.png);
+   
+    /*폰트에 배경공간까지 사라져서 쓸수 없음 */
+    /* font-size: 0;*/
+    text-indent: -9999px;
+    /*인라인요소는 text-indent로 보낼수 없음 적용 안댐*/
+}
+
+nav ul li {
+    margin: 20px auto;
+   /* outline: 2px solid lime;*/
+}
+
+nav ul li a {
+    /*line-height: 50px;*/
+    padding: 10px 0;
+    /*이럴때 선택할수 있는 공간을 잡아 줘야하기때문에 line-height를 더 많이 사용함*/
+}
+
+/*nav 메뉴 위치 조절*/
+nav ul li.history a {
+    background-position: -40px -38px;
+}
+nav ul li.history a:hover {
+    background-position: -250px -38px;
+}
+nav ul li.innovation a {
+    background-position: -40px -110px;
+}
+nav ul li.innovation a:hover {
+    background-position: -250px -110px;
+}
+nav ul li.new a {
+    background-position: -40px -183px;
+}
+nav ul li.new a:hover {
+    background-position: -250px -183px;
+}
+nav ul li.book a {
+    background-position: -40px -255px;
+}
+nav ul li.book a:hover {
+    background-position: -250px -255px;
+}
+nav ul li.event a {
+    background-position: -40px -317px;
+    background-repeat: no-repeat;
+}
+nav ul li.event a:hover {
+    background-position: -250px -317px;
+}
+
+section {
+    /*background-color: turquoise;*/
+    width: 960px;
+    height: 848px;
+    background: url(images/bg_main.gif) no-repeat;
+    float: right;
+    position: relative;
+}
+section a {
+    display: block;
+    position: absolute;
+    /*여기서 폰트 사이즈 영을 만들수 있었던 이유는 요소마다 너비와 높이를 만들어 주었기 때문에 아까는 글자 크기만큼을 사용했고 지금은 아님*/
+    font-size: 0;
+    /*text-indent: -9999px;*/
+    transition: all 0.5s;
+}
+section a:hover {
+    background-position: right;
+}
+
+section a.con_book {
+   /* background-color: firebrick;*/
+    width: 296px;
+    height: 320px;
+    background-image: url(images/img_main01.png);
+}
+/*section a.con_book:hover {
+    background-position: right;
+}*/
+
+section a.con_history {
+    width: 295px;
+    height: 314px;
+    background-image: url(images/img_main02.png);
+    right: 0px;
+    top: 267px;
+}
+section a.con_movie {
+    width: 296px;
+    height: 222px;
+    background-image: url(images/img_main03.png);
+    bottom:120px;
+}
+section a.con_innovation {
+    width: 369px;
+    height: 120px;
+    background-image: url(images/img_main04.png);
+    bottom: 0;
+    left: 298px;
+}
+section a.con_event {
+    width: 160px;
+    height: 268px;
+    background-image: url(images/img_main05.png);
+    bottom: 0px;
+    right: 135px;
+}
+footer {
+    clear: both;
+    width: 150px;
+    position: absolute;
+    left: 30px;
+    bottom: 50px;
+    text-indent: -9999px;
+}
+
+footer address {
+    background: url(images/bg_footer.png) no-repeat;
+    margin-bottom: 20px;
+    height: 30px;
+    /*outline: 2px solid lime;*/
+}
+footer p {
+    background: url(images/bg_footer.png) no-repeat;
+    height: 40px;
+    margin-bottom: 20px;
+   /* outline: 2px solid lime;*/
+    background-position: left -37px;
+}
+footer .sns > a {
+    width: 36px;
+    height: 36px;
+    display: block;
+    background: url(images/bg_footer.png) no-repeat;
+    float: left;
+}
+footer .sns a:first-child {
+    margin-right: 10px;
+    background-position: left bottom;
+}
+
+footer .sns a:last-child {
+    background-position: -46px bottom;
+}

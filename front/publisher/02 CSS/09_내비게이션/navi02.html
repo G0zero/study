@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>navi02</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul:after,
+        ol:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            
+        }
+        #gnb {
+            width: 100%;
+            height: 60px;
+            background-color: slategray;
+            
+        }
+        
+        #gnb > ul {
+            width: 80%;
+            margin: 0 auto;
+         /*   outline: 2px solid red;*/
+            position: relative;
+        }
+        
+        #gnb > ul > li {
+            width: 25%;
+            text-align: center;
+            line-height: 60px;
+             /*outline: 2px solid red;*/
+        }
+        /*대메뉴 hover1*/
+        #gnb > ul > li:hover {
+            background-color: lightsteelblue;
+        }
+        #gnb >ul >li:hover > a {
+            color: darkslateblue;
+        }
+        /*대메뉴 hover2*/
+        /*#gnb>ul>li>a {
+            display: block;
+        }
+        #gnb>ul>li>a:hover {
+            color: darkslateblue;
+            background-color: lightsteelblue;
+        }*/
+        /*#gnb 하위의 모든 a 태그 선택!*/
+        #gnb a {
+            color: #eee;
+        }
+        /*서브메뉴 디자인*/
+        .smenu {
+            width: 100%;
+            background-color: darkgray;
+            position: absolute;
+            left: 0;
+            /*top: 60px;*/
+            height: 0;
+            overflow: hidden;
+            transition: height 0.4s ease-out;
+        }
+        .smenu li {
+            width: 25%;
+        }
+        .smenu li a {
+            display: block;
+        }
+        #gnb .smenu li:hover a{
+            background-color: #ccc;
+            color: #3a3939;
+        }
+        
+        /*css선택자 우선 적용 순위
+        id > class > tag(Element)
+        
+        *스타일에서 가장 우선적으로 적용되는 것은 인라인 스타일 형태! 
+        예시) <li><a href="#" style="color:yellow">웹디자인</a></li>
+        웹표준에도 안맞음 이렇게 사용 X 
+        */
+        
+        #gnb > ul > li:hover .smenu {
+            height: 60px;
+        }
+        
+        
+        
+        
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav id="gnb">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li>
+                <a href="#">웹개발</a>
+                <ul class="smenu">
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML5+CSS3</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">모바일</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+                <ul class="smenu">
+                    <li><a href="#">Q&amp;A</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

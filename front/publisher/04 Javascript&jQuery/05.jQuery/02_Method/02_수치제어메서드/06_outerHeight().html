@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_outerHeight()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+    /*
+    outerHeight() : 선과 안쪽 여백을 포함한 높잇값을 반환하거나 변환
+    
+    $('요소선택).outerHeight();
+    $('요소선택).outerHeight(값);
+    */
+    
+        $(function(){
+            $('button').click(function(){
+               // alert($('div').outerHeight());//122
+                
+                alert($('div').outerHeight(true));//128
+            });
+            var oh = $('#p1').outerHeight();
+            console.log(oh);//100
+            
+            var ohT = $('#p1').outerHeight(true);
+            console.log(ohT);//106
+            
+            $('#p2').outerHeight(200);
+            
+        });
+    </script>
+</head>
+<body>
+        <h1>outerHeight()</h1>
+    <div></div>
+    
+    <button>Display the outerHeight of div</button>
+    
+    <p>outerHeight() - 매개변수가 true인경우 : margin을 포함한 값(width+padding+border+margin) / 매개변수가 false인 경우 : margin을 포함하지않는 값(width+padding+border)</p>
+    
+    <p id="p1">box</p>
+    <p id="p2">box</p>
+    
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: darkseagreen;
+        }
+        #p1, #p2 {
+            width: 100px;
+            height: 50px;
+            padding: 20px;
+            margin: 3px;
+            border: 5px solid #000;
+            background-color: #ff0;
+        }    
+    
+    
+    </style>
+</body>
+</html>

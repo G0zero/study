@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05_example</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        body {}
+    
+        .wrap h1 {
+            margin: 20px 5px 0;
+        }
+        
+        .wrap .box {
+            width: 300px;
+            height: 200px;
+            margin: 30px 15px; 
+            float: left;
+            overflow: hidden;
+          /*  outline: 2px solid red;*/
+           
+           
+        }
+        
+        .wrap .box img {
+        }
+        
+        .wrap .box .txt {
+            width: 300px;
+            height: 200px;
+            color: #fff;
+            background-color: rgba(0,0,0,0.4);
+          
+            text-align: center;
+            transition: all 0.4s;
+        }
+        .wrap .box:hover .txt {
+         
+            transform: translateY(-205px);
+
+        }
+        .wrap .box .txt h2 {
+            padding: 50px 0 20px;
+        }
+        .wrap .box .txt p {
+            margin: 10px 0;
+        }
+        
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap clear">
+        <h1>신상품 목록</h1>
+        <div class="box">
+            <img src="images/prod1.jpg" alt="인형">
+            <div class="txt">
+                <h2>상품 1</h2>
+                <p>상품 설명 텍스트</p>
+                <p>가격 : 13,000원</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/prod2.jpg" alt="매장">
+            <div class="txt">
+                <h2>상품 2</h2>
+                <p>상품 설명 텍스트</p>
+                <p>가격 : 13,000원</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/prod3.jpg" alt="레스토랑">
+            <div class="txt">
+                <h2>상품 3</h2>
+                <p>상품 설명 텍스트</p>
+                <p>가격 : 13,000원</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

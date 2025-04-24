@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>img-replacement</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            ul {
+                list-style: none;
+            }
+            body {
+                width: 570px;
+                margin: 30px auto;
+               
+            }
+            h2{
+                margin: 10px;
+            }
+            .box {
+              /*  width: 570px;*/
+                margin: 0 auto;
+               /* outline: 2px solid lime;*/
+            }
+            #img-box {
+                border: 1px solid #ccc;
+                width: 560px;
+                
+                
+            }
+            #img-box img {
+                display: block;
+                padding: 5px;
+                margin: 0 auto;
+            }
+            ul:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            li {
+                float: left;
+                border: 1px solid #ccc;
+                margin-top: 5px;
+                height: 110px;
+                
+            }
+              li:hover {
+                border: 1px solid orange;
+            }
+            li~li {
+                margin-left: 1px;
+            }
+            li.on {
+                border: 1px solid orange;
+            }
+            li a {
+                width: 100%;
+                margin: 0 auto;
+            }
+          
+            li a img {
+                padding: 5px;
+            }
+      
+        
+        
+        </style>
+        
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function(){
+                $('ul li a').click(function(e){
+                    e.preventDefault();
+                    
+                    var imgsrc = $(this).attr('href');
+                    $('#img-box img').attr('src',imgsrc);
+                    
+                    $(this).parent().addClass('on').siblings().removeClass('on');
+                    
+                });
+            });
+        
+        </script>
+    </head>
+    <body>
+        <h2>illustrations</h2>
+        <div class="box">
+        <div id="img-box">
+            <img src="images/img1-lg.jpg" alt="메인이미지">
+        </div>
+        
+        <ul>
+            <li class="on">
+                <a href="images/img2-lg.jpg"><img src="images/img2-thumb.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="images/img3-lg.jpg"><img src="images/img3-thumb.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="images/img4-lg.jpg"><img src="images/img4-thumb.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="images/img5-lg.jpg"><img src="images/img5-thumb.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="images/img6-lg.jpg"><img src="images/img6-thumb.jpg" alt=""></a>
+            </li>
+            
+        </ul>
+        </div>
+        
+    </body>
+</html>

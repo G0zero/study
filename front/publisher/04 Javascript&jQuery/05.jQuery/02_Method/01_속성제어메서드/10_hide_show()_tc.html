@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>10_hide_showtc</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+        show(소요시간(ms), 가속도easing, 함수) : display를 보이게 하는 메서드 (디스플레이의 원래 속성으로 돌려주는거임)
+        hide(소요시간(ms), 가속도easing, 함수) : display: none; 으로 변경하는 메서드 
+        toggle(소요시간(ms), 가속도easing, 함수) : display : none; 이면 show()로, 아니면 hide()로 전환해 주는 메서드 
+        */
+        /*
+        예제
+        1) #hide버튼을 클릭하면, 이미지가 1초동안 사라지고 사라진후 이미지 변경
+        2) #show버튼을 클릭하면, 이미지가 1초동안 나타남
+        3) #toggle버튼을 클릭하면, show(),hide()를 전환되어 나타남 
+        */
+        $(function() {
+            var inum = 1; //이미지경로 변경을 위한 번호 변수 
+            //1) #hide버튼을 클릭하면, 이미지가 1초동안 사라지고 사라진후 이미지 변경
+            $('#hide').click(function() {
+                $('img').hide(1000, function() {
+                    //이미지 변경 
+
+                    inum++;
+                    if (inum === 4) inum = 1;
+                    $(this).attr({
+                        src: 'image/sample' + inum + '.jpg'
+                    });
+
+                });
+            });
+            //2) #show버튼을 클릭하면, 이미지가 1초동안 나타남
+            $('#show').click(function() {
+                $('img').show(1000);
+            });
+            //3) #toggle버튼을 클릭하면, show(),hide()를 전환되어 나타남
+            $('#toggle').click(function() {
+                $('img').toggle(1000, function() {
+                    //이미지가 안보이는 상태일때,if문을 실행해줘
+                    if ($(this).css('display') == 'none') {
+                        //css의 display 속성을 비교하므로 css() 메서드 사용 
+                        inum++;
+                        if (inum === 4) inum = 1;
+                        $(this).attr({
+                            src: 'image/sample' + inum + '.jpg'
+                        });
+                    }
+
+                });
+            });
+        });
+        //display는 css의 속성이고 attr는 css아니고 클래스의 속성임 - 태그가 가지고 있는 속성을 말하는 거임
+    </script>
+</head>
+
+<body>
+    <img src="image/sample1.jpg" alt="" width="300" height="300">
+    <br>
+    <button id="hide">hide()</button>
+    <button id="show">show()</button>
+    <button id="toggle">toggle()</button>
+</body>
+
+</html>

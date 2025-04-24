@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'HoonSkybR';
+  src: url('HoonSkybR.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: '훈하늘보리R.TTF';
+  src: url('훈하늘보리R.TTF.eot');
+  src: url('훈하늘보리R.TTF.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*웹 폰트 변환 사이트를 활용하여 만ㅁ든거임 */

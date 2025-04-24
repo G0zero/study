@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>navi06</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        ul:after, ol:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        li {
+            float: left;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        /* 네비게이션 부모박스 */
+        #gnb {
+            width: 100%;
+            height: 50px;
+            background-color: darkseagreen;
+        }
+        #gnb > ul {
+            width: 800px;
+            margin: 0 auto;
+            height: 100%; /* =50px */
+            position: relative; /*.sbox의 기준!*/
+        }
+        #gnb > ul > li {
+            width: 25%;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        /* 네비게이션 모든 a 요소 */
+        #gnb a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+        }
+        #gnb > ul > li > a:hover {
+            color: #001ab7;
+            background-color: bisque;
+        }
+        
+        /* 서브메뉴 박스 */
+        .sbox {
+            width: 100%;
+            background-color: bisque;
+            background-repeat: no-repeat;
+            background-size: auto 180px;
+            
+            position: absolute;
+            left: 0;
+            
+            /* 서브메뉴 숨기기 */
+            height: 0;
+            overflow: hidden;
+            
+            transition: all .6s ease-out;
+        }
+        
+        #gnb > ul > li:hover .sbox {
+            height: 200px;
+        }
+        
+        
+        /* 서브메뉴 박스 개별디자인 */
+        .sb1 {
+            background-image: url(images/bgi001.jpg);
+            background-position: 624px center;
+        }
+        .sb2 {
+            background-image: url(images/bgi002.jpg);
+            background-position: 610px center;
+        }
+        
+        
+        
+        .smenu {
+            /*outline: 2px solid red;*/
+            width: 200px;
+            /*margin-left: 200px;*/
+            position: relative;
+            left: 200px;
+        }
+        
+        .smenu li {
+            float: none;
+        }
+        
+        
+        /* 가상선택자로 밑줄 만들기 */
+        #gnb .smenu > li > a {
+            display: inline-block;
+            position: relative;
+            color: navy;        }
+        #gnb .smenu > li:hover > a:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: navy;
+            position: absolute;
+            bottom: 8px;
+        }
+        
+        
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <nav id="gnb">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li>
+                <a href="#">웹개발</a>
+
+                <div class="sbox sb1">
+                    <ul class="smenu">
+                        <li><a href="#">웹디자인</a></li>
+                        <li><a href="#">HTML5+CSS3</a></li>
+                        <li><a href="#">jQuery</a></li>
+                        <li><a href="#">모바일</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+
+                <div class="sbox sb2">
+                    <ul class="smenu">
+                        <li><a href="#">Q&amp;A</a></li>
+                        <li><a href="#">방명록</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </nav>
+
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_replace()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        replaceAll(), replaceWith() : 선택한 요소를 새 요소로 바꿀 때 사용, 주로 선택한 모든 요소를 한꺼번에 바꿀 때 사용 
+        
+        $('새 요소').replaceAll('요소선택');
+        $('요소선택').replaceWith('새 요소');
+        */
+        
+        $(document).ready(function(){
+            $('<div>수박을 먹자!!!!</div>').replaceAll('p');
+            $('.box1 h2').replaceWith('<h3>시원한 여름을 보내려면~~</h3>');
+        });
+    
+    </script>
+</head>
+<body>
+    <section class="box1">
+        <h2>제목1</h2>
+        <p>내용1</p>
+        <p>내용2</p>
+    </section>
+    
+     <section class="box2">
+        <h2>제목2</h2>
+        <p>내용3</p>
+        <p>내용4</p>
+    </section>
+    
+    <style>
+        h3 {
+            color: red;
+        }
+        p {
+            color: hotpink;
+            font-weight: bold;
+        }
+        div {
+            color: burlywood;
+        }
+    
+    </style>
+</body>
+</html>

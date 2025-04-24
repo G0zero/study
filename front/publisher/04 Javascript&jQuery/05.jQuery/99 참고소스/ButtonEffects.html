@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>버튼 효과 CSS3</title>
+	<style>
+		div{
+			position: relative;
+			font: bold 32px/120px Verdana, "맑은 고딕";
+			padding: 5px;
+			text-align: center;
+			width: 450px;
+			height: 110px;
+			cursor: pointer;
+			background-color: #ccc;
+		}
+		div>span{/*버튼 속박스*/
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		/*border Transition 1 - bt1*/
+		.bt1::before{/*위쪽선*/
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0%;
+			height: 4px;
+			background-color: #666;
+			transition: width .1s linear .3s;
+		}
+		.bt1::after{/*아래쪽선*/
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 0%;
+			height: 4px;
+			background-color: #666;
+			transition: width .1s linear .1s;
+		}
+		.bt1>span::before{/*오른쪽선*/
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 4px;
+			height: 0%;
+			background-color: #666;
+			transition: height .1s linear .2s;
+		}
+		.bt1>span::after{/*왼쪽선*/
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 4px;
+			height: 0%;
+			background-color: #666;
+			transition: height .1s linear 0s;
+		}
+		/*마우스 오버시 테두리 ani*/
+		.bt1:hover::before{/*위쪽선*/
+			width: 100%;			
+			transition: width .1s linear;
+		}
+		.bt1:hover>span::before{/*오른쪽선*/
+			height: 100%;
+			transition: height .1s linear .1s;
+		}
+		.bt1:hover::after{/*아래쪽선*/
+			width: 100%;
+			transition: width .1s linear .2s;
+		}
+		.bt1:hover>span::after{/*왼쪽선*/
+			height: 100%;
+			transition: height .1s linear .3s;
+		}
+		
+		
+		
+		/*border Transition 2 - bt2*/
+		.bt2>span{
+			border: 10px solid #ccc;
+			box-sizing: border-box;
+		}
+		.bt2:hover>span{/*마우스 오버시 커지면서 사라짐*/
+			transform: scaleX(1.1) scaleY(1.4);
+			opacity: 0;
+			transition: all .5s ease-out;
+		}
+		
+		/****Shadow Transition 1 ***/
+		.st1{
+			background-color: transparent;
+		}
+		.st1>span{/*속박스*/
+			background-color: #ccc;
+			transition: top .3s;
+		}
+		.st1::after{/*그림자효과*/
+			content: "";
+			display: block;
+			position: absolute;
+			width:100%;
+			height: 30%;
+			bottom: -35%;
+			background: radial-gradient(#666,#666 40%,transparent 70%);
+			opacity: 0;
+			transition: opacity .3s;
+		}
+		
+		/*마우스 오버시 그림자 보이고 속박스 위로 이동*/
+		.st1:hover>span{
+			top: -10%;
+		}
+		.st1:hover::after{
+			opacity: 0.5;
+		}
+		
+		/*배경효과 버튼*/
+		.bg1::before{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #6883EC;
+			transform: scaleX(0);
+			transition: all .4s;
+		}
+		/*마우스 오버시 가상요소 변경*/
+		.bg1:hover::before{
+			transform: scaleX(1);
+		}
+		/*글자색 변경*/
+		.bg1:hover span{
+			color:#fff;
+		}
+		.bg1 span{/*원본에 줘야 양방향 트랜지션 적용됨!*/
+			transition: all .4s;
+		}
+	</style>
+</head>
+
+<body>
+<h1>Border Transition</h1>
+<div class="bt1">
+	<span>Border Transition1</span>
+</div>
+<br>
+
+<div class="bt2">Border Transition2
+	<span></span>
+</div>
+
+<h1>Shadow Transition</h1>
+<div class="st1">
+	<span>Shadow Transition1</span>
+</div>
+	
+
+<h1>BG Transition</h1>
+<div class="bg1">
+	<span>BG Transition1</span>
+</div>
+	
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+/******reset.css****************************/
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+ul:after, il:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    /*css작업할때 링크라는 걸 알기 위해서 색을 빼주진않음*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}

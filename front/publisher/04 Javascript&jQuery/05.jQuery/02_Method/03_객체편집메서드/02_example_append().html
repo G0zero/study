@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>02_example_append()</title>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            $(function(){
+                
+                //미션: 추가 버튼을 클릭하면 이미지가 랜덤하게 #container에 추가되게 하시오.
+                $('#append').click(function(){
+                    var num = Math.ceil(Math.random()*5);
+                   console.log(num);
+                    
+                    $('div').append('<img src="image/th_pic'+num+'.jpg" alt="">');
+                  
+                });
+                
+                //추가미션 : 자동 버튼을 클릭하면 01.초 간격으로 이미지를 랜덤 추가하시오 멈춤버튼을 누르면 멈추시오. 
+                /*
+                
+                -setInterval(function(){
+                    실행코드;
+                },시간간격, 가속도easing) :지속적으로 일정한 시간 간격을 가지고 함수를 호출하여 코드를 실행 
+                
+                -clearInterval(참조변수) : setIntercal()을 제거하기 위해 사용 
+                */
+                
+                var autoI;//인터벌용 변수
+                console.log(Boolean(autoI));//indifined(초기값이 없어서) 
+                $('#auto').click(function(){
+                    //1. setInterval적용 
+                /*    autoI = setInterval(function(){
+                    var num = Math.ceil(Math.random()*5);
+                    //console.log(num);
+                    
+                    $('div').append('<img src="image/th_pic'+num+'.jpg" alt="">');
+                    },100);*/
+                    
+                    //2. trigger()메서드를 이용한 이벤트 발생 
+                   /* autoI = setInterval(function(){
+                        //trigger()이벤트 강제발생
+                        $('append').trigger('click');
+                    }, 100);*/
+                    
+                    if(!autoI) { //!false >>true !():논리부정
+                         autoI = setInterval(function(){
+                        $('#append').trigger('click');
+                    }, 100);
+                        console.log('autoI : '+Boolean(autoI));
+                    }
+                    
+                });
+                
+                /*
+                trigger() - 강제로 이벤트 발생 
+                "이벤트가 강제로 발생했다"는 것은 "사용자에 의해"이벤트가 발생한 것이 아닌  "핸들러"에 의해 자동으로 이벤트가 발생했다는 것 
+                
+                $('이벤트 대상').trigger('이벤트 종류');
+                */
+                
+                
+               $('#stop').click(function(){
+                   clearInterval(autoI);
+                   console.log('autoI 최종값(반환값) : '+autoI);
+                   autoI = false;
+               }); 
+          });
+        
+        
+        </script>
+    </head>
+    <body>
+        <button id="append">추가</button>
+        <button id="auto">자동</button>
+        <button id="stop">멈춤</button>
+        <br>
+        <div id="container">
+            <!--<img src="image/th_pic1.jpg" alt="">-->
+        </div>
+        <style>
+            div#container {
+                border: 1px solid #00f;
+                margin-top: 30px;
+            }
+        </style>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_jQuery_event</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        //함수 만들기 
+        function haha(){
+            alert('으하하하하하하~~~~~');
+        }
+        
+        $(document).ready(function(){
+            $('#box').click(haha);
+        });
+    
+    </script>
+    
+</head>
+<body>
+    <div id="box">클릭해보렴~~</div>
+    
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: #fc9;
+            cursor: pointer;
+            
+        }
+    </style>
+</body>
+</html>

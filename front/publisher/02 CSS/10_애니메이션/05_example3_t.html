@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>05_example3_t</title>
+        
+        
+        <style>
+        
+            .item-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .item-list:after {
+                content: "";
+                display: block;
+                clear:both;
+            }
+            
+            .item-list li {
+                float: left;
+                margin: 10px;
+                position: relative; /*caption의 기준!*/
+                overflow: hidden;
+               /* outline: 2px solid red;*/
+            }
+            
+            .item-list img {
+               /* float: left;*/
+                /*float으로도 여백을 없앨수 있지만, 관계 요소를 따지면서 까지는 안함 그리고 display로 여백을 없앨수 있기때문에 굳이..*/
+              /*  margin: 0;
+                padding: 0;*/
+                display: block;
+                
+                /*img태그는 인라인 요소이기 떄문에 기본으로 잡히는 여백이 있다 그래서 마진과 패딩으로는 여백을 없앨수 없다. 인라인 요소가 문제라면 블럭요소로 만들어주면 여백이 사라짐*/
+            }
+            .item-list .caption {
+                width: 300px;
+                height: 200px;
+                background-color: rgba(0,0,0,0.5);
+                color: #fff;
+                text-align: center;
+                padding-top: 20px;
+                
+                
+                position: absolute;
+                left: 0;
+                /*top: 200px;*/
+                top: 0;
+                opacity: 0;
+                transition: all 0.4s;
+                
+            }
+            
+            .item-list li:hover .caption  {
+                opacity: 1;
+              /*  transform: translateY(-200px);*/
+               /* left: 0;
+                top: 0;*/
+            }
+            
+            
+        /*    .item-list .caption h2 {
+                padding-top: 20px;
+            }
+            */
+            
+            /*position 으로도 가능하고, margin으로도 가능함*/
+            
+            
+            
+        </style>
+    </head>
+    <body>
+        <h1>신상품 목록</h1>
+    <ul class="item-list clear">
+        <li>
+            <img src="images/prod1.jpg" alt="">
+            <div class="caption">
+                <h2>상품1</h2>
+                <p>상품1의 설명텍스트</p>
+                <p>가격: 12,345원</p>
+            </div>
+        </li>
+         <li>
+            <img src="images/prod2.jpg" alt="">
+            <div class="caption">
+                <h2>상품2</h2>
+                <p>상품2의 설명텍스트</p>
+                <p>가격: 1,000,000원</p>
+            </div>
+        </li>
+         <li>
+            <img src="images/prod3.jpg" alt="">
+            <div class="caption">
+                <h2>상품3</h2>
+                <p>상품3의 설명텍스트</p>
+                <p>가격: 98,745원</p>
+            </div>
+        </li>
+    </ul>
+    </body>
+</html>

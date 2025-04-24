@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_innerWidth()</title>
+   <!-- <script src="jquery-1.7.2.min.js"></script>-->
+   <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        
+        /*
+        innerWidth() : 안쪽여백 (padding)을 포함한 너빗값을 반환하거나 변환
+        
+        $('선택요소).innerWidth(); -반환
+        $('선택요소).innerWidth(값); -변환
+        */
+        $(document).ready(function(){
+           /* $('button').click(function(){
+                alert($('div').innerWidth());//320
+            });
+            */
+            //innerWidth()값 변경
+            $('div').innerWidth(200);
+            
+            var w1 = $('#p1').innerWidth(300);
+            console.log(w1);
+        });
+    
+    </script>
+</head>
+<body>
+    <h1>innerWidth()</h1>
+    <div></div>
+    <button>Display the innerWidth of div</button>
+    
+    <p>innerWidth() -padding값을 포함한 가로크기 반환</p>
+    <p id="p1">box</p>
+    
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid hotpink;
+            background-color: lightpink;
+        }
+        #p1 {
+            width: 100px;
+            height: 50px;
+            padding: 20px;
+            border: 5px solid #000;
+            background-color: #f00;
+        }
+    
+    </style>
+</body>
+</html>

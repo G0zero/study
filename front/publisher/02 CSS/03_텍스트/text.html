@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+
+    <!--링크는 무조건 해드 안에 타이틀 다음에 옴-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+
+    <!--  <link rel(문서의 타입을 설정하는 속성)="stylesheet" href(경로)="">-->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+        /*import는 무조건 상단에 작성해줘야 함 font-face도 마찬가지임 */
+
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo&family=Sunflower:wght@300&display=swap');
+
+        h2 {
+            color: indianred;
+        }
+
+        /* font-family
+        폰트명 중간에 띄어쓰기 있는경우에는 "", 한글인경우에는""를 사용함
+        */
+
+        .serif {
+            font-family: Times, "Times New Roman", serif;
+        }
+
+        .sans-serif {
+            font-family: "돋움", Arial, Helvetica, sans-serif;
+        }
+
+
+        /*font-face 보여지는 폰트에 대해서 설정을 하는것 
+        @이거는 다른곳에서 속성(설정)을 끌고오는것(가져오는것) 아무때나 쓰는거 ㄴㄴ*/
+
+        /*
+        eot: IE 하위버전 때문에 만드는 것 
+        woff: 크롬 파이오폭스 사용자를 위해 만드는 것 
+        */
+        @font-face {
+            font-family: "훈하늘보리R";
+            src: url(font/훈하늘보리R.eot) format('embeded-opentype'), url(font/훈하늘보리R.woff) format('woff');
+        }
+
+        .hun {
+            font-family: "훈하늘보리R";
+            font-size: 24px;
+            color: blueviolet
+        }
+
+        .nanum {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .dohyun {
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+        .sunflower {
+            font-family: 'Sunflower', sans-serif;
+            font-size: 30px;
+            color: crimson;
+        }
+
+        .dokdo {
+            font-family: 'Dokdo', cursive;
+        }
+
+        /* font-size*/
+        /*
+        글씨 크기의 단위는 px,em,rem 사용 가능
+        em. rem은 비율임
+        대문자 M의 가로 넓이 만큼 1rem이라고 함
+        em은 부모의 비율을 포함해서 +로 변함
+        아무단위없이 숫자만 넣는경우 기본적으로 rem으로 적용됨
+        웹 기본 폰트 사이즈: 16px
+        16px = 1em = 1rem
+        */
+
+        .big {
+            font-size: 32px;
+            /*2rem=2em*/
+        }
+
+        .small {
+            font-size: 0.8rem;
+        }
+
+        /*font-weight*/
+        /*
+        font-weight의 기준 : 400 = normal
+        */
+        .bold {
+            font-weight: bold;
+        }
+
+        .light {
+            font-weight: lighter;
+
+        }
+
+        /*font style*/
+        .italic {
+            font-style: italic;
+        }
+
+        /*italic: 정교함의 차이가 있음
+        obliqe 근데 이테릭을 더 많이 씀*/
+
+        .obliqe {
+            font-style: oblique;
+        }
+
+        address {
+            font-style: normal;
+        }
+
+        /* text- decoration*/
+        .deco {
+            text-decoration: line-through;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /*
+        inherit: 위에 속성을물려받음
+        none:라인없음 
+        overline: 글자위에 라인
+        inderline: 글자 아래에 라인
+        line throuth: 글자 중간에 라인이 들어감*/
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .lowercase {
+            text-transform: lowercase;
+        }
+
+        .capitalize {
+            text-transform: capitalize;
+        }
+
+        /*letterspacing(한글자당 자간) &amp; word spacing(단어와 단어사이 자간)
+        자간 조정 보통 자간은 정수보단 소숫점으로 많이 줌*/
+        .letter1 {
+            letter-spacing: 1rem;
+        }
+
+        .letter2 {
+            letter-spacing: -0.6px;
+        }
+
+        .word1 {
+            word-spacing: 6px;
+        }
+
+        .word2 {
+            word-spacing: -0.2rem;
+        }
+
+        /*line-height 
+        +넓이 설정 중요
+        x스크롤바가 생기면 오류가 생긴거임 그럼 다시 해야함 
+        (가로스크롤바)
+        생긴이유: 기본적인 padding +넓이 값 100%를 줘서 padding값을 없애줘야함
+        뒤에 수치가 생략되었다 그렇다면 rem으로 적용
+        예를들어 100픽셀로 값을 줬다면 100픽셀 중앙에 글자가 오게됨
+        */
+        .height {
+            width: 100%;
+            background-color: lawngreen;
+            padding: 0;
+            height: 60px;
+        }
+
+        .height li {
+            display: inline-block;
+            line-height: 60px;
+        }
+
+        /*text-align*/
+        .left {
+            line-height: 2;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        /*text-indent(들여쓰기)
+        -로 수치를 주게되면 안보이게 됨 왜냐면 반대방향으로 보내기 때문임 
+        화면에  안보인다고 무조건 없애는건 아님 요소자체를 없앨수가 없기때문에 글자만 안보이게ㅎ하는거임
+        */
+        .indent1 {
+            text-indent: 15px;
+            text-indent: 10%;
+        }
+
+        .indent2 {
+            text-indent: -9999px;
+        }
+        
+        /*
+        overflow 넘쳐 흐르는 것을 뜻하고 
+        text-overflow 는 글자가 넘쳐흐르는 거임 
+        */
+        .overflow {
+            width: 300px;
+            border: 1px solid #CCC;
+                white-space: nowrap;
+              overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /*normal: 여러개의 공백을 하나로 표시 (기본값) 자동줄바꿈
+        nowrap : 여러개의 공백을 하나로 표시, 영역 너비를 넘어가도 한줄로 표시
+        
+        pre: 여러개의 공백을 그대로 처리, 줄바꿈 없음
+        pre-lone: 여러개의 공백을 하나로 처리 자동 줄바꿈
+        pre-wrap: 여러개의 공백을 그대로 표시, 자동줄바꿈
+        */ 
+        
+        .overflow:hover {
+            overflow: visible;
+        }
+        /*first-letter& line
+        선택범위가 좁은게 우선 적용됨 (선택자의 우선순위)
+        */
+        .first:first-letter {
+            color:red;
+            font-size: 30px;
+            font-weight: bold;  
+        }
+        .first:first-line {
+            color:blue;
+            font-style: italic;
+        }
+        
+        /*text-shadow*/
+        .shadow {
+            font-size: 30px;
+            text-shadow: 5px 5px 5px red;
+            /*text-shadow: x y blur color;
+            괄호가 들어가는 것만 콤마로 구분함 예:rgb(100,100,100)
+            그림자를 위쪽으로 만들고 싶다면 -를 붙이면 됨 
+            글자에 포토샵 블러느낌을 주고 싶다면 x,y값을 0으로 하면 됨
+            */
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!--가지고 있는 파일 변환 프로그램사용-->
+    <h2>font-family(속성명)</h2>
+    <p class="serif">serif</p>
+    <p class="sans-serif">sans-serif</p>
+    <!--폰트 변환사이트 사용-->
+    <h2>font-face</h2>
+    <p class="hun">훈하늘보리R</p>
+    <!--구글웹폰트사용 나눔,직지(import), 배달,독도(링크)-->
+    <p class="nanum">나눔명조</p>
+    <p class="dohyun">배달의 민족 도현체</p>
+
+    <p class="sunflower">직지소프트 선플라워체</p>
+    <p class="dokdo">폰트리스 독도체</p>
+
+    <!--링크와 import중에는 링크를 더많이 사용
+    왜냐면 링크는 해드에 따로 사용하기 때문에 충돌확률이 더 적어지기 때문에 
+    좀더 안정적인 링크형태를 사용함-->
+
+
+    <h2>font-size</h2>
+    <p class="big">글씨크기</p>
+    <p class="small">글씨크기</p>
+    <p class="big hun">tuesday</p>
+
+    <h2>font-weight</h2>
+    <p class="bold">그린컴퓨터아카데미</p>
+    <p class="light">그린컴퓨터아카데미</p>
+
+    <h2>font-style</h2>
+    <p class="italic">즐거운 화요일</p>
+    <p class="obliqe">더 즐거운 수요일</p>
+
+    <address>그린컴퓨터 아카테미 강남</address>
+
+    <h2>text-decoration</h2>
+    <p class="deco">스타벅스 프리퀸시</p>
+    <a href="#">스타벅스 바로가기</a>
+
+    <del>스타벅스 바로가기</del>
+    <ins>스타벅스 바로가기</ins>
+
+
+    <h2>text-transform</h2>
+    <p class="uppercase">Today is Tuesday</p>
+    <p class="lowercase">Today is Tuesday</p>
+    <p class="capitalize">Today is Tuesday</p>
+    <!--uppercase는 모든 글자를 대문자로
+    lowercase는 모든 글자를 소문자로 
+    capitalize는 앞글자만 대문자로-->
+
+    <h2>letter&amp;word spacing</h2>
+    <p class="letter1">It is sunny.</p>
+    <p class="letter2">It is sunny.</p>
+    <p class="word1">It is sunny.</p>
+    <p class="word2">It is sunny.</p>
+
+    <h2>line- height</h2>
+    <ul class="height">
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+    </ul>
+
+    <h2>text-align</h2>
+    <p class="left">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+    <p class="center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+    <p class="right">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
+    <h2>text-indent</h2>
+    <p>블루베리는 비타민 A,C,E가 풍부하고 안톤니사이아민 페놀 등이 활성 산소를 없애 노화를 억제하고 블루베리의 안토니시아 민은 눈의 피로와 시력 저하를 회복시키는 효능을 가지고 있다.</p>
+
+    <p class="indent1">블루베리는 비타민 A,C,E가 풍부하고 안톤니사이아민 페놀 등이 활성 산소를 없애 노화를 억제하고 블루베리의 안토니시아 민은 눈의 피로와 시력 저하를 회복시키는 효능을 가지고 있다.</p>
+
+    <p class="indent2">블루베리는 비타민 A,C,E가 풍부하고 안톤니사이아민 페놀 등이 활성 산소를 없애 노화를 억제하고 블루베리의 안토니시아 민은 눈의 피로와 시력 저하를 회복시키는 효능을 가지고 있다.</p>
+
+    <h2>text-overflow</h2>
+    <p class="overflow">귀리(Oat)는         베타글루칸(항암 및 면역증강작용을 가지고 있는 불소화성 다당류) 성분을 포함하고 있다. <br> 귀리는 오트밀의 재료로 많이 사용된다.</p>
+    <!--공백을 많이 넣어도 딱 한칸만 띄어짐 이걸 화이트 스페이스바라고 함-->
+    
+    <h2>first-letter&amp;first-line</h2>
+    <p class="first">토마토는 비타민 A,C가 풍부한 채소이다. <br>
+    칼륨과 같은 각종 미네랄은 혈액의 신성도를 낮춰주는 역할을 해주며 혈압을 내리고 혈관을 튼튼하게 해준다.</p>
+    
+    <h2>text-shadow</h2>
+    <p class="shadow">HTML5</p>
+    
+    
+
+</body>
+
+</html>

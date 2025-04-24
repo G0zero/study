@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>horizontal_scroll</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            border: none;
+            display: block;
+        }
+        #wrap {
+            width: 800px;
+            overflow: hidden;
+            /*outline: 2px solid red;*/
+        }
+        #content {
+            position: relative;
+        }
+        #scrollBar {
+            width: 800px;
+            height: 30px;
+            background-color: black;
+        }
+        #bar {
+            width: 60px;
+            height: 100%;
+            background-color: greenyellow;
+        }
+        
+    
+    </style>
+    
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            //스크롤바 드래그 설정하여 움직이기 draggable();
+            $('#bar').draggable({
+                //드래그할 공간을 제어해줘야 함 
+                axis: 'x', //x축을 고정해줘 라는 뜻
+                containment: 'parent' //공간은 부모의 공간만큼으로만 고정해줘
+                //작동범위를 부모요소로 한정, 부모요소는 #scrollBar
+            });
+            
+            //위치값 설정 
+            var barmax = 740;  //바의 최대 이동값 , 전체 너비 800px-60px
+            var barpos; //바의 이동값 
+            
+            var imgmax = 480;  //사진 최대 이동값 , 이미지크기 - 보여지는 크기 1280px - 800px  
+            var imgpos; //사진 이동값 
+            
+            /*바가 이동할 때 사진 이동시키기 (비례식 세우기)
+            
+            바의 최대 이동값 : 바 이동값 = 사진 최대 이동값 : 사진 이동값
+            바의 최대 이동값 * 사진 이동값 = 바 이동값 * 사진 최대 이동값 
+            사진 이동값 = 바 이동값 * 사진 최대 이동값 / 바의 최대 이동값
+            imgpos = barpos * imgmax / barmax ;
+            */
+            
+            
+            $('#bar').on('drag', function(){
+                barpos = $(this).offset().left;
+                console.log('바의 이동값 : '+barpos);
+                
+                //사진 이동하기
+                imgpos = barpos * imgmax / barmax ;
+                console.log('사진 이동값 : '+imgpos);
+                
+                $('#content').css({
+                    left: -imgpos + 'px'
+                });
+            });
+            
+            
+            
+            
+        });
+    
+    
+    </script>
+</head>
+<body>
+   
+   <div id="wrap">
+       <div id="content">
+           <img src="pg_new.jpg" alt="">
+       </div>
+       
+       <div id="scrollBar">
+           <div id="bar"></div>
+       </div>
+   </div>
+    
+</body>
+</html>

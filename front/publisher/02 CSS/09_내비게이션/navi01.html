@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>navi01</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+    
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        /*네비게이션 부모 박스*/
+        #gnb {
+            width: 100%;
+            height: 60px;
+            background-color: #00a19c;
+        }
+        #gnb > ul {
+            /*outline: 2px solid red;*/
+            width: 1000px;
+            margin: 0 auto;
+       
+             /*float 해제 방법*/
+           /* overflow: hidden;*/
+            height: 100%;
+        }
+        #gnb > ul:after {
+            content="";
+            display: block;
+            clear: both;
+        }
+       
+        #gnb > ul > li {
+            float: left;
+            width: 250px;
+            text-align: center;
+            line-height: 60px;
+        }
+        #gnb > ul > li > a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+        
+        #gnb > ul > li > a:hover {
+            background-color: #77dfd4;
+            color: #001ab7;
+            
+        }
+        /*서브메뉴 디자인*/
+        .smenu {
+            background-color: #3a3a3a;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.4s ease-out;
+        }
+      /*  .smenu> li {
+            outline: 2px solid lime;
+        }*/
+        .smenu > li > a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+        .smenu > li:hover > a {
+            color: #3a3939;
+            background-color: #ccc;
+        }
+        
+        #gnb > ul > li:nth-child(2):hover .smenu {
+            height: 240px;
+        }
+        #gnb > ul > li:nth-child(3):hover .smenu {
+            height: 120px;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <nav id="gnb">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li>
+                <a href="#">웹개발</a>
+                <ul class="smenu">
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML5+CSS3</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">모바일</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+                <ul class="smenu">
+                    <li><a href="#">Q&amp;A</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </nav>
+
+
+</body>
+
+</html>

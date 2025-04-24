@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_fadeIn_fadeOut()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+            *효과 메서드 기본형
+            $('요소선택').효과메서드(효과소요시간, 가속도, 콜백함수);
+            
+            (1) 효과소요시간 : 효과 메서드가 진행된ㄴ 동안 소요되는 시간 
+            -방법 1: 'slow','normal','fast'(엄청난 차이가 있는것이 아니라 직접입력을 많이씀)
+            -방법 2: 밀리초(ms) 사용, 1000(1초), 500(0.5초)
+            
+            (2) 가속도(easing) : 효과가 적용된 동안의 가속도 설정
+            -'swing' (기본값) : 시작과 끝은 느리게, 중간은 빠른 속도로 움직임
+            -'linear' -일정한 속도로 움직임 
+            
+            (3) 콜백함수 : 효과가 끝난 후에 실행할 함수(생략가능)
+            */
+
+        /*
+        1. fadeIn(소요시간, 이징, 함수);
+        :display를 보이게 한후 opacity값을 0에서 1로 변경
+        
+        2.fadeOut(소요시간, 이징, 함수);
+        :opacity값을 1에서 0으로 변경 애니메이션 (에니메이트X 그냥 그런과정임)후 
+        display:none으로 변경, 요소가 점점 투명해지면서 사라짐  
+        */
+
+        $(document).ready(function() {
+            //fadeIn
+            $('.btn1').click(function() {
+                $('#box1').fadeIn(); //400, swing
+                $('#box2').fadeIn(2000); //2초
+                $('#box3').fadeIn('fast');
+            });
+            //fadeout
+            $('.btn2').click(function() {
+                
+               $('#box4').fadeOut();//400, swing
+                $('#box5').fadeOut(2000, 'linear',function(){
+                    alert('byebye~~~~~~');
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h2>fadeIn</h2>
+    <button class="btn1">Click to fadeIn boxes</button>
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+    <h2>fadeOut</h2>
+    <button class="btn2">click to fadeOut boxes</button>
+
+    <div id="box4"></div>
+    <div id="box5"></div>
+
+    <style>
+        #box1,
+        #box2,
+        #box3 {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #box1 {
+            background-color: indianred;
+        }
+
+        #box2 {
+            background-color: green;
+        }
+
+        #box3 {
+            background-color: darkseagreen;
+        }
+
+        #box4 {
+            width: 200px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: skyblue;
+        }
+        #box5 {
+            width: 300px;
+            height: 100px;
+            margin-top: 20px;
+            background-color: greenyellow;
+        }
+    </style>
+</body>
+
+</html>

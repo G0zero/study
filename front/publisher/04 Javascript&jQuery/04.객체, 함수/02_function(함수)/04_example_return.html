@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_example_return</title>
+
+
+    <style>
+        #galleryZone {
+            text-align: center;
+        }
+
+        img {
+            width: 500px;
+        }
+    </style>
+
+    <script>
+        //총 8개의 이미지를 사용해 갤러리를 만들어 보세요. 처음 화면에는 1번 이미지가 나오고 다음 버튼을 누르면 다음 이미지로 변경되도록 구현하세요.
+
+
+        /*    
+            var i = 1;
+
+            
+            function changeImg(){
+               document.getElementById('galleryZone');
+                getElementsById('photo').innerHTML = 'src="images/pic_' + i + '.jpg"';
+                i++;
+                console.log(i);
+            };
+            */
+
+        //다음 버튼을 눌렀을때 >> click 이벤트
+        //src 속성을 pic.2jpg로 이미지 경로 변경
+
+        var num = 1; //이미지 파일명을 변경할 변수
+
+        function next() {
+
+            //alert('함수 호출??????'); 
+
+            if (num == 8) {
+                alert('마지막 이미지입니다.');
+                return false; // false를 반환하고 종료해 
+            }
+
+
+            num++;
+
+            var imgTag = document.getElementById('photo');
+            //imgTag.src = 'images/pic_2.jpg';
+            // imgTag.setAttribute('src','images/pic_2.jpg');
+            imgTag.setAttribute('src', 'images/pic_' + num + '.jpg');
+        }
+
+        function prev() {
+            if (num == 1) {
+                alert('첫번째 이미지 입니다.');
+                return false;
+            }
+
+            num--;
+
+            var imgTag = document.getElementById('photo');
+            imgTag.setAttribute('src', 'images/pic_' + num + '.jpg');
+        }
+
+
+        function gallery(direct) {
+
+            //[다음] 버튼을 누르면 ++; >> true
+            //[이전] 버튼을 누르면 --; >> false
+
+            if (direct) {
+                //true, [다음] 버튼을 눌렀을때
+                if(num==8)return false;
+                num++;
+
+            } else {
+                //false, [이전] 버튼을 눌렀을때
+                if(num==1)return false;
+                num--;
+
+            }
+
+
+            var imgTag = document.getElementById('photo');
+            imgTag.setAttribute('src','images/pic_'+num+'.jpg');
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="galleryZone">
+        <div class="img-box">
+            <img src="images/pic_1.jpg" alt="" id="photo">
+        </div>
+
+        <div class="btngrp">
+            <!--1) next(),prev() 각각의 함수 이용-->
+            <!-- <button onclick="prev();">이전</button>
+            <button onclick="next();">다음</button>-->
+
+            <!--2) 하나의 함수 이용-->
+            <button onclick="gallery(0);">이전</button>
+            <button onclick="gallery(1);">다음</button>
+        </div>
+    </div>
+
+    <script>
+
+
+    </script>
+
+
+</body>
+
+</html>

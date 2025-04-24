@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06-1_미니언즈</title>
+
+    <script src="jquery-1.7.2.min.js"></script>
+
+    <script>
+        /*
+        예제
+        
+        1) 각 li태그에 미니언즈 이미지를 넣고 
+        2) 이미지 크기를 width:100px로 설정
+        3) 각 이미지를 클릭시 
+        4) 이미지 크기가 클릭 할때마다 10px씩 커지게 함 
+        5) 동시에 한번은 오른쪽, 한번은 왼쪽으로 10도씩 기울어지게 함
+        */
+      /*  
+        var i = 1;
+        var scale = "transform : scale(1." + i + "),";
+        
+        $(function() {
+            $('.list li img').click(function() {
+                $(this).css({
+                    //ransform: 'scale(1.i)',
+                    //transform: 'rotate(10deg)'
+
+                    if (i % 2 == 0) {
+                        transform: 'rotate(10deg)'
+                    }
+                    else {
+                        transform: 'rotate(-10deg)'
+                    };
+                            i++;
+
+                });
+            });
+        });*/
+        
+        
+        //선생님 해설 
+        
+        $(document).ready(function(){
+            //1) 각 li에 미니언즈 이미지를 넣고
+            //html() - 선택요소의 하위요소 html을 넣는 메서드  
+            
+            $('#first').html(' <img src="image/mini01.png" alt="미니언즈1">');
+            $('#second').html(' <img src="image/mini02.jpg" alt="미니언즈2"> ');
+            $('#third').html(' <img src="image/mini03.jpg" alt="미니언즈3">');
+            
+            //2) 이미지 크기를 width: 100px 설정
+            $('.list img').css('width','100px');
+            
+            //3) 각 이미지를 클릭했을때 -클릭 이벤트 
+            var degs=10;//각도 변경용 변수
+            $('.list img').click(function(){
+                //이미지크기가 클릴할때마다 10px씩 커지게 함 
+                //기존크기에 +10px의 크기 누적(+=)
+                var cw = $(this).css('width');// css는 css를 성정해줄수도 있지만 저렇게 위드라고 적어주면 위드를 적어두면 크기를 읽어줌
+                cw = parseInt(cw);
+                //cw = Number(cw);//NaN
+                console.log('클릭된 이미지 크기: '+cw);
+
+                cw += 10;
+                console.log('10씩 증가된 너비값: '+cw);
+                
+                //클릭된 이미지 변경 +각도번경
+                $(this).css({
+                    width: cw+'px',
+                    transform: 'rotate('+degs+'deg)'
+                });
+                
+                //5) 동서에 한번은 오른쪽, 한번은 왼쪽으로 10도씩 기울어지게 함
+                //삼항 조건 연산자 (조건식? 실행문1:실행문2;)
+                degs===10 ? degs = -10 :degs = 10;
+                
+                
+            });//click()
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h2>Welcome~!</h2>
+            <p>minions Friends!</p>
+        </header>
+        <nav>
+            <ul class="list">
+                <li id="first">first</li>
+                <li id="second">second</li>
+                <li id="third">third</li>
+            </ul>
+        </nav>
+        <p>Have a nice day~~~!!!!!</p>
+    </div>
+   
+
+<!--    <style>
+        .list img: {
+            width: 100px;
+        }
+    </style>-->
+</body>
+
+</html>

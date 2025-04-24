@@ -1,0 +1,12 @@
+toggleClass()
+- addClass()
+- removeClass()
+/////////////////////////////
+toggle()
+-show(), hide()
+
+fadeToggle()
+- fadeIn(), fadeOut()
+
+slideToggle()
+-slideDown(), slideUp()

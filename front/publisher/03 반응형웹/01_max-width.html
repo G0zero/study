@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--제일 많이 사용하는 형식-->
+    <title>01_max-width</title>
+    
+    <style>
+        body {
+            background: url(images/bg0.jpg) no-repeat fixed;
+            /*fixed는 위치를 지정해서 고정시키는게 아님 그래서 포지션과 같이 사용 못함*/
+            background-size: cover;
+        }
+          /*max-width는 큰 수치에서 작은 수치순서로 */
+        
+        @media screen and (max-width:1024px) {
+            body {
+                background: url(images/bg1.jpg) no-repeat fixed;
+                background-size: cover;
+            }
+        }
+    
+        @media all and (max-width:768px) {
+            body {
+                background: url(images/bg2.jpg) no-repeat fixed;
+                background-size: cover;
+            }
+        }
+        
+        @media all and (max-width:360px) {
+            body {
+                background: url(images/bg3.jpg) no-repeat fixed;
+                background-size: cover;
+            }
+        }
+    
+    
+    
+    </style>
+</head>
+<body>
+
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+*IE 하위버전 호환성 보기
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+*html5shiv (https://github.com/afarkas/html5shiv)
+<!--[if lt IE 9]>          
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>       
+<![endif]-->
+
+

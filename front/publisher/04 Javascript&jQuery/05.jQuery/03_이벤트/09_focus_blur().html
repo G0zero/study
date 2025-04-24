@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>09_focus_blur()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        포커스 이벤트 : <a>,<input> 태그를 클릭하거나 tab키를 누르면 생성 
+        
+        focus() : 대상 요소로 포커스가 이동하면 이벤트 발생 
+        blur() : 포커스가 대상요소에서 다른 요소로 이동하면 이벤트 발생 
+        
+        *키보드 접근성 높이기 
+        마우스 이벤트 등록 시 <a>, 또는 <input>태그에 마우스가 없을 경우 마우스 이벤트에 대응할 수 있는 키보드 이벤트 등록
+        
+        (1) mouseover = focus
+        (2) mouseout = blur
+        */
+        
+        $(document).ready(function(){
+            //focus & blur
+            $('#user_id, #user_pw').on('focus',function(){
+                $(this).css({
+                    backgroundColor: 'pink'
+                });
+            });
+            $('#user_id, #user_pw').on('blur', function(){
+                $(this).css({
+                    backgroundColor: 'white'
+                });
+            });
+            
+        });
+        
+        /*
+        focusin() : 대상요소의 '하위요소' 중 입력 요소로 포커스가 이동하면 이벤트 발생
+        focusout() : 대상요소의 '하위요소' 중 입력 요소 에서 외부 요소로 이동하면 이벤트 발생 
+        
+        */
+        $(function(){
+            $('#frm').on({
+                'focusin': function(){
+                    $(this).css({
+                        backgroundColor: 'darkseagreen'
+                    });
+                },
+                'focusout': function(){
+                    $(this).css({
+                        background: 'none'
+                    });
+                }
+            });
+        });
+        
+        
+    
+    </script>
+</head>
+<body>
+    <h2>focus/ blur</h2>
+    <form action="$">
+        <p>
+            <label for="user_id">ID</label>
+            <input type="text" name="user_id" id="user_id" autofocus>
+        </p>
+        <p>
+            <label for="user_pw">PW</label>
+            <input type="password" name="user_pw" id="user_pw">
+        </p>
+    </form>
+    
+    <h2>focusin/focusout</h2>
+    <form action="#" id="frm">
+        <p>
+            <label for="uid">아이디</label>
+            <input type="text" name="uid" id="uid">
+        </p>
+         <p>
+            <label for="upw">비밀번호</label>
+            <input type="password" name="upw" id="upw">
+        </p>
+    </form>
+</body>
+</html>

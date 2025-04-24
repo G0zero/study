@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>10_hide_show()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+        show(소요시간(ms), 가속도easing, 함수) : display를 보이게 하는 메서드 (디스플레이의 원래 속성으로 돌려주는거임)
+        hide(소요시간(ms), 가속도easing, 함수) : display: none; 으로 변경하는 메서드 
+        toggle(소요시간(ms), 가속도easing, 함수) : display : none; 이면 show()로, 아니면 hide()로 전환해 주는 메서드 
+        */
+        /*
+        예제
+        1) #hide버튼을 클릭하면, 이미지가 1초동안 사라지고 사라진후 이미지 변경
+        2) #show버튼을 클릭하면, 이미지가 1초동안 나타남
+        3) #toggle버튼을 클릭하면, show(),hide()를 전환되어 나타남 
+        */
+        $(function() {
+           var i = 1;
+            $('#hide').click(function() {
+               
+                $('img').hide(1000, function() {
+                    i++;
+                    if(i===4)i=1;
+                    $('img').attr({
+                        src: 'image/sample'+ i +'.jpg'
+                    });
+                }); //hide
+            });
+
+            $('#show').click(function() {
+                $('img').show(1000);
+            });
+            
+            $('#toggle').click(function(){
+                $('img').toggle(1000);
+            });
+        });
+        
+        
+ 
+    </script>
+</head>
+
+<body>
+    <img src="image/sample1.jpg" alt="" width="300" height="300">
+    <br>
+    <button id="hide">hide()</button>
+    <button id="show">show()</button>
+    <button id="toggle">toggle()</button>
+</body>
+
+</html>

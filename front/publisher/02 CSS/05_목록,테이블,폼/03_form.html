@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_form</title>
+    </head>
+    <body>
+        <!--input:search1-->
+        <p class="input1">
+            <input type="text" placeholder="검색어 입력">
+        </p>
+        
+        <style>
+            .input1 {
+                /*background-color: indianred;*/
+                width: 600px;
+                margin: 0 auto;
+                /*auto는 좌우만 가능함*/
+            }
+            /*인라인 요소는 넓이나 높이 처럼 크기를 정해주는게 잘 안먹힐수 있음 이유는 인라인은 자신이 차지하는 만큼쓰기떄문ㄴ임
+            input은 대표적인 인라인임 
+            기본적으로 아래를 기준으로 높이를 설정함 
+            html 속성을 통해 너비값을 설정할수 있었던 것들은 예외로 적용이 가능함*/
+            .input1 input{
+                /*width: 100px;
+                %는 부모의 속성을 이어받아서 */
+                width: 50%;
+                box-sizing: border-box;
+                /*padding: 4px 8px;*/
+                padding: 0;
+                /*text-indent: 10px;*/
+                border: 1px solid #00f;
+                outline: 0;
+                height: 50px;
+                color: red;
+                background-image: url(images/search.png);
+                background-repeat: no-repeat;
+                background-position: left center;
+                padding: 0 5px 0 25px;
+            }
+            
+            .input1 input::placeholder {
+                color: blue;
+            }
+            
+        </style> 
+      <!--form태그에서 보통 어떤것을 입력할때 겉에 라인이 둥글고 굵은 선으로 바뀌는데 그것을 아웃라인이라고 함 
+       보통은 아웃라인을 없애주거나 디자인에 맞춰서 색상을 바꿔줌 보통은 명도를 낮춰줌 디자인떄문에-->
+        
+               <!--input:search2-->
+         
+         <p class="input2">
+             <input type="text">
+         </p>
+        
+        <style>
+            .input2 input {
+                height: 30px;
+                border: 1px solid #555;
+                border-radius: 30px;
+                background-image: url(images/search.png);
+                background-repeat: no-repeat;
+                background-position: 95% center;
+                padding: 4px 20px 4px 10px;
+                outline-color: darkseagreen;
+            /*    box-sizing: border-box;*/
+                
+            }
+        
+        
+        </style>  
+              
+         <!--cursor-->
+        <h2>cursor</h2>
+        <!--p[class]*8이렇게 하면 밑에처럼 나옴-->
+        <p class="crosshair">crosshair(십자가모양)</p>
+        <p class="default">default</p>
+        <p class="help">help</p>
+        <p class="move">move</p>
+        <p class="pointer">pointer(!!!!!손가락을 바뀌는거 많이 사용)</p>
+        <p class="progress">progress</p>
+        <p class="wait">wait</p>
+        <p class="text">text</p>
+        
+        
+        <style>
+            .crosshair {cursor:crosshair;}
+            .default {cursor: default;}
+            .help {cursor: help;}
+            .move {cursor: move;}
+            .pointer {cursor: pointer;}
+            .progress {cursor: progress}
+            .wait {cursor: wait;}
+            .text {cursor: text;}
+        
+        </style>
+   
+        
+   
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>

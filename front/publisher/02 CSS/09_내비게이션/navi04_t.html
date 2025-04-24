@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>navi04_t</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        #gnb {
+            width: 200px;
+            height: 100%;
+            background-color: dodgerblue;
+        }
+        /* #gnb 내의 모든 a태그 (공통css)*/
+        #gnb a {
+            display: block;
+            line-height: 60px;
+            color: #eee;
+            text-align: center;
+        }
+        
+        /*대메뉴 선택!*/
+        #gnb > ul > li {
+            position: relative; /*.smenu의 기준!*/
+        }
+        
+        #gnb > ul > li:hover > a {
+            background-color: lightskyblue;
+            color: #001ab7;
+            
+        }
+        /*서브메뉴 디자인*/
+        .smenu {
+            background-color: #3a3a3a;
+            position: absolute;
+            left:100%;
+            /*100%의 의미는 이 요소가 가지는 크기를 지나서 그다음에 라는뜻임*/
+            top: 0;
+            
+            width: 100%;
+            
+           /* height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-out;*/
+            
+            display: none;
+        }
+        
+    /*    .smenu li {
+            width: 200px;
+        }*/
+        
+        .smenu > li:hover > a {
+            color: #3a3939 !important;
+            background-color: #ccc;
+        }
+        
+        #gnb >ul >li:nth-child(2):hover .smenu {
+          /*  height: 240px;*/
+            display: block;
+        }
+        #gnb >ul >li:nth-child(3):hover .smenu {
+            /*height: 120px;*/
+            display: block;
+        }
+    
+    
+    </style>
+    
+</head>
+<body>
+    
+         <nav id="gnb">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li>
+                <a href="#">웹개발</a>
+                <ul class="smenu">
+                    <li><a href="#">웹디자인</a></li>
+                    <li><a href="#">HTML5+CSS3</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">모바일</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+                <ul class="smenu">
+                    <li><a href="#">Q&amp;A</a></li>
+                    <li><a href="#">방명록</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

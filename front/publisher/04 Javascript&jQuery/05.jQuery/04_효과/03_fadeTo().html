@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>03_fadeTo()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+            fadeTo(소요시간, 투명도, 이징, 함수);
+            :opacity값을 특정값으로 변경하여 애니메이션(서서히때문에 애니메이션이란 용어 사용됨)
+            :opacity값이 0이 되어도 display: none 이 되지 않는다 요소의 공간이 계쏙해서 남아있음 
+            :투명도는 0~1사이의 값을 사용함
+            */
+        $(document).ready(function() {
+            //예제1
+            $('#box').click(function() {
+                $(this).fadeTo(500, 0.3);
+                //소요시간과 투명도 모두 수치이기때문에 둘다 작성해주는 것이 안정적임 
+            });
+            //예제2
+            //미션: 각버튼 클릭시 버튼에 쓰여진 수치에 맞게 투명도를 조절하여 변경하시오.
+            
+           /* $('button').click(function(){
+                var opt = $(this).text();
+                $('img').fadeTo(500, opt);
+            });*/
+            
+            //선생님 해설 
+            $('button').click(function(){
+                var opa = $(this).text();
+                console.log(opa);//현재는 문자형데이터이기떄문에 number를 사용해도 되지만 비교하거나 수치를 계산할때 사용함 보통은 생략해도 됨
+                //투명도적용하기 
+                $('img').fadeTo(500, opa);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!--예제1-->
+    <div id="box"></div>
+
+    <!--예제2-->
+    <img src="home3.jpg" alt="">
+    <br>
+    <button>0</button>
+    <button>0.1</button>
+    <button>0.2</button>
+    <button>0.3</button>
+    <button>0.4</button>
+    <button>0.5</button>
+    <button>0.6</button>
+    <button>0.7</button>
+    <button>0.8</button>
+    <button>0.9</button>
+    <button>1</button>
+
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: indianred;
+            margin-bottom: 30px;
+        }
+    </style>
+</body>
+
+</html>

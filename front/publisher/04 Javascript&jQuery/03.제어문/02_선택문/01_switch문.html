@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_switch문</title>
+
+
+    <script>
+        /*
+        
+        2. 선택문 
+        - 일치하는 경우의 값이 있을 때만 특정 코드를 실행
+        
+        (1) switch문 : 변수에 저장된 값과 switch문에 있는 경우(case)의 값을 검사, 변수와 경우의 값에서 일치하는 값이 있을 때 그에 해당하는 코드를 실행
+        
+        ///////기본형///////////////////////
+        
+            var 변수명 = 초깃값;
+            
+            switch(변수){
+                case 값1:코드1;
+                break;
+                case 값2:코드2;
+                break;
+                case 값3:코드3;
+                break;
+                case 값4:코드4;
+                break;
+                
+                default:코드5;
+            }
+        
+        ////////////////////////////////////
+        
+        
+        switch는 데이터가 있는 변수와 case(경우의수)를 비교하여 실행시키는 선택문임
+        그래서 위에 switch 옆 변수는 데이터가 있는 변수의 이름을 말하며, default는 비교값이 없는경우를 말함 
+        
+        location은 사이트와 연결시키는 무언가 인데 이거는 객체배울때 정확히 설명
+        */
+
+        /*       //switch예제 1
+               var site = prompt("네이버, 다음, 네이트, 구글 중 즐겨 사용하는 포털 검색 사이트는?");
+
+               var url; //사이트 주소를 담아줄 변수
+
+               switch (site) {
+                   case "네이버":
+                       url = "www.naver.com";
+                       break;
+                   case "다음":
+                       url = "www.daum.net";
+                       break;
+                   case "네이트":
+                       url = "www.nate.com";
+                       break;
+                   case "구글":
+                       url = "www.google.com";
+                       break;
+                   default:alert("보기 중에 없는 사이트입니다.");
+               }
+               
+               console.log(url);
+               
+               //if문에 값을 넣어 이 값이 true false인지에 따라 실행하는것 중괄호가 생략되는 경우에는 이렇게 한줄로 실행코드가 끝날때 가능함 
+               
+               if(url) location.href = "http://"+url;
+               
+               //href를 통해 이동할수 있게 해주는거임
+               //location은 새로운 페이지를 만들어주거나 페이지에 관련된 것들을 하는것임 
+               
+               
+               */
+
+        //switch예제 2 - 사용자가 입력하는 지역의 지역번호를 경고창으로 실행되도록 하시오. 
+
+        // 서울 02, 경기 031, 대전 042, 부산 051, 제주 064
+        //해당하는 지역이 없을 경우 '등록되지 않은 지역입니다.'
+
+        /*       var address = prompt("어느 지역의 지역번호를 원하시나요? (지역명만 작성)");
+               
+               var call;
+               
+               switch(address){
+                   case "서울":call="서울의 지역번호는 02 입니다.";
+                       break;
+                   case "경기":call="경기의 지역번호는 031 입니다.";
+                       break;
+                   case "대전":call="대전의 지역번호는 042 입니다.";
+                       break;
+                   case "부산":call="부산의 지역번호는 051 입니다.";
+                       break;
+                   case "제주":call="제주의 지역번호는 064 입니다.";
+                       break;
+                       
+                   default:alert("등록되지 않은 지역입니다.");
+               }
+               
+               // console.log(call);
+               
+               //document.write(call);
+               
+               /*if(call){
+                   document.write(call);
+               }else{
+                   document.write("등록되지 않은 지역입니다.");
+               }*/
+
+        //if(call) alert(call);
+
+        //alert(call);*/
+
+        //선생님 해설
+        //1번 방법
+
+        var local = prompt("알고 싶은 국번의 지역을 입력하세요.", "서울");
+
+    /*    switch (local) {
+            case "서울":
+                alert(local + "의 지역번호는 02 입니다.");
+                break;
+            case "경기":
+                alert(local + "의 지역번호는 031 입니다.");
+                break;
+            case "대전":
+                alert(local + "의 지역번호는 042 입니다.");
+                break;
+            case "부산":
+                alert(local + "의 지역번호는 051 입니다.");
+                break;
+            case "제주":
+                alert(local + "의 지역번호는 064 입니다.");
+                break;
+                
+            default:alert("등록되지 않은 지역입니다.");
+        }*/
+        
+        // 전화번호는 문자형 데이터임 
+        
+        //2번방법
+        
+        var localNum; //지역번호를 담을 변수
+        
+        switch(local){
+            case "서울":localNum = "02";
+                break;
+            case "경기":localNum = "031";
+                break;
+            case "대전":localNum = "042";
+                break;
+            case "부산":localNum = "052";
+                break;
+            case "제주":localNum = "064";
+                break;
+                
+                default :alert("등록되지 않은 지역입니다.");
+        }
+        
+        if(localNum) alert(localNum);
+        
+        //실행코드는 한줄로 작성하는 것이 규칙임
+        
+        
+    </script>
+</head>
+
+<body>
+    <!--다른 선택문에 비해 덜쓰임-->
+</body>
+
+</html>

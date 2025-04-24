@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>03_prepend()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        prepend(), prependTo() : 선택한 요소의 하위요소로 맨앞에 새 요소를 생성 또는 기존의 자식요소를 맨 압으로 이동 
+        
+        $('요소선택').prepend('새요소');
+        $('새 요소').prependTo('요소선택');
+        */
+        $(document).ready(function(){
+            //예제1
+            $('#listZone').prepend('<li>내가 처음 prepend!!!!</li>');
+            $('<li>내가 진짜 처음 prependTo!!!!!</li>').prependTo('#listZone');
+            
+            //예제2
+            //p태그의 글자를 클릭하면 
+            //#pics요소의 자식요소를 웹 경로 이미지가 번갈아서 앞쪽에 추가 되게 하시오 
+            
+            //이미지를 담는 배열 변수
+            var imgs = ['https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg','https://image-notepet.akamaized.net/resize/620x-/seimage/20180220%2Facb6381fef1e712ccc38f6469aec5422.jpg'];
+          /*  var i =0;
+            $('#container p').click(function(){
+                //if(i==2) i=0;
+                
+                $('#pics').prepend('<img src="'+imgs[i]+'">');
+                $('#pics img').width(200);
+                i==1 ? i=0 : i++;
+                //i++;
+            });*/
+            
+            //선생님 해설
+            //하위요소 선택자 1. find() , children()
+            
+            var seq= 0;//배열 순번 변수
+            
+            $('#container').find('p').click(function(){
+                
+                
+                //이미지 넣기
+                $('#pics').prepend('<img src="'+imgs[seq]+'"alt="고양이">');
+                
+                //1) 이미지 순번 바꾸기1
+               // seq++;
+                //if(seq >= 2) seq=0;
+                
+                //2) 이미지 순번 바꾸기 2 - 삼항조건 연산자
+                //조건식? 실행문1 : 실행문 2;
+                seq ===0 ?seq =1 : seq=0;
+                
+                
+                
+                
+                
+                //img크기변경 
+                $('#pics img').css({
+                    width : '200px'
+                });
+            });
+            
+          
+            
+          
+        });
+    
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <!--예제1-->
+    <ul id="listZone">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+        <li>리스트5</li>
+    </ul>
+    <!--예제2-->
+    <div id="container">
+        <p>당신이 좋아하는 사진 2장을 번갈아 앞쪽에 추가하세요.</p>
+        <div id="pics">
+            <!--<img src="" alt="">-->
+        </div>
+    </div>
+    
+</body>
+</html>

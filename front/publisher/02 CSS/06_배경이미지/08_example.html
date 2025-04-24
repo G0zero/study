@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>08_example</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-image: url(images/pattern_gray.png);
+        }
+
+     /*   .img {
+            width: 100%;
+            height: 100px;
+            background-color: #fff;
+            margin: 40px 0 50px;
+            background-image: url(images/faq_topimg.jpg);
+            background-repeat: no-repeat;
+            background-size: 60% auto;
+            border: 1px solid #000;
+            border-bottom: 3px solid #000;
+            background-position: center;
+        }
+*/
+        .image {
+            width: 100%;
+            height: 100px;
+            background-color: #fff;
+            margin: 40px 0 50px 0;
+            border: 2px solid #000;
+            border-bottom: 4px solid;
+        }
+        img {
+            width: 900px;
+            margin: 10px 300px;
+        }
+        .message {
+            width: 45%;
+            height: 250px;
+            border: 5px solid #fff;
+            border-radius: 40px;
+            margin: 0 auto;
+            background-color: gray;
+            color: #fff;
+            padding: 10px 50px;
+        }
+
+        .message h1 {
+            border-bottom: 3px dotted #fff;
+            padding: 15px;
+        }
+
+        p.question {
+            width: 100%;
+            height: 50px;
+            background-color: #000;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        span.Q {
+            color: lightgreen;
+            font-weight: bold;
+        }
+
+        p.answer {
+            width: 550px;
+            margin: 20px auto;
+            font-size: 18px;
+        }
+
+        span.A {
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+   <!-- <div class="img"></div>-->
+   <div class="image">
+   <img src="images/faq_topimg.jpg" alt="FAQ게시판 정보문화사에 자주 올라오는 질문을 모아 놓았습니다. FAQ를 참고하시면 보다 빨리 궁금한 점을 해결하실수 있습니다.">
+   </div>
+    <div class="message">
+        <h1>3DS MAX에서 에러 메시지</h1>
+        <p class="question"><span class="Q">Q...</span>Missing Map Files의 에러 메세지가 나옵니다.</p>
+        <p class="answer"><span class="A">A...</span> 위와 같은 에러메시지는 맥스 3.1 풀버전을 설치하시지 않으셨기 때문입니다. 맥스 3.1 setup 시에 custom 옵션에서 모든 항목을 체크하시면 door와 window라는 플러그인이 설치가 됩니다.</p>
+    </div>
+</body>
+
+</html>

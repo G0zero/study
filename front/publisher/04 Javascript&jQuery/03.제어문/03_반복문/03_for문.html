@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>03_for문</title>
+
+    <style>
+        .pink {
+            color: deeppink;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
+        }
+    </style>
+
+    <script>
+        /*
+        (3) for문 : 조건식을 만족할 때까지 특정코드를 반복하여 실행
+        
+        작성하는 형식이 가장 간단하기 떄문에 제일 많이 사용함 
+        
+        //////////////기본형/////////////////////
+        
+            for(변수의 초깃값; 조건식; 증감식){
+                자바스크립트 실행코드;(만 들어감)
+            }
+        
+        ////////////////////////////////////////
+        
+        증감식만 마지막이라 ;안들어감
+        *실행 순서: 초깃값 -> 조건식 -> 자바스크립트코드실행 -> 증감식 -> 조건식 -> 자바스크립트 코드 실행 ....(반복)
+        */
+
+
+        //기본형 예제 - for문으로 1~10까지 i를 1씩 증가하여 출력
+
+        //while문
+        /*   var i = 1;    
+           while(i<=10){
+               document.write(i,"<br>");
+               i++;
+           }    */
+
+        //for문 
+        for (var i = 1; i <= 10; i++) {
+            //초깃값;조건식; 증감식
+            document.write(i, "<br>");
+        }
+
+
+        //예제1. 구구단 출력 - 3단 출력
+        /*      for(var x=1;x<=9; x++){
+                  document.write("3 x "+x+" = "+(3*x)+"<br>");
+              }
+          */
+        //선생님 해설
+        var gugu = "";
+
+        var k = 3;
+
+        for (var i = 1; i < 10; i++) {
+            gugu += k + " x " + i + " = " + (k * i) + "<br>";
+        }
+
+        document.write(gugu+"<br>");
+        
+        //예제2. 1~100까지의 숫자 중 5의 배수일 경우 빨간색, 7의 배수일 경우에는 파란색,5의 배수이면서 7의 배수인 경우 핑크색으로 출력하시오 (else if문 사용
+        
+    
+/*        
+        for (var x=1;x<=100;x++){
+            if(x%5==0 && x%7==0){
+                document.write("<span class='pink'>"+x+"</span>"+" ");
+            }else if(x%5==0){
+                document.write("<span class='red'>"+x+"</span>"+" ");
+            }else if(x%7==0){
+                document.write("<span class='blue'>"+x+"</span>"+" ");
+            }else {
+                document.write("<span>"+x+"</span>"+" ");
+            }
+        }
+        //esle if 문에서 마지막에 else생략가능 
+        */
+        
+        //선생님 해설 
+        //초깃값이 없을수도 있음 꼭 초깃값이 1이 와야하는것은 아님
+         for(var i = 1; i <= 100; i++){
+             if(i%5==0 && i%7==0){
+                 document.write('<p class="pink">'+i+'</p>');
+             }else if(i%5==0){
+                 document.write('<p class="red">'+i+'</p>');
+             }else if(i%7==0){
+                 document.write('<p class="blue">'+i+'</p>');
+             }
+         }
+        
+        
+        
+        
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

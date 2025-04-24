@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04_z-index_layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: lightblue;
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* z-index: 1;*/
+        }
+
+        header p {
+            text-align: center;
+        }
+
+        .box1 {
+            width: 100%;
+            height: 500px;
+            background-color: lightpink;
+            margin-top: 100px;
+            /*position: relative;*/
+           
+          
+        }
+
+        .box1 .left {
+            font-size: 35px;
+           /* position: absolute;
+            top: 35%;*/
+            float: left;
+            line-height: 480px;
+        }
+        .box1 .right {
+            font-size: 35px;
+         /*   position: absolute;
+            right:0;
+            top: 35%;*/
+            float: right;
+            line-height: 480px;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 1500px;
+            background-color: lightyellow;
+        }
+
+        .box2 p {
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        footer p {
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <p>header고정</p>
+    </header>
+
+    <section>
+        <div class="box1">
+            <p class="left">&lt;</p>
+            <p class="right">&gt;</p>
+        </div>
+
+        <div class="box2">
+            <p>contents</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>footer</p>
+    </footer>
+
+
+
+
+
+</body>
+
+</html>

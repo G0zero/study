@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_background-attachment</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 32px;
+        }
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .art1 {
+            width: 100%;
+            height: 360px;
+            background-image: url(images/img01.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .art2 {
+            width: 100%;
+            height: 700px;
+            background-color: fuchsia;
+        }
+        .art3 {
+            width: 100%;
+            height: 360px;
+            background-image: url(images/img02.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: darksalmon;
+        }
+        
+    
+    </style>
+    
+    
+</head>
+<body>
+    <header>header</header>
+    <section>
+        <article class="art1">article1</article>
+        <article class="art2">article2</article>
+        <article class="art3">article3</article>
+    </section>
+    <footer>footer</footer>
+    
+    
+</body>
+</html>

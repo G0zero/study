@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>operators_03</title>
+</head>
+
+<body>
+    <h4>변수 x,y를 활용하여 10+5의 값을 p요소에 나타내세요.</h4>
+
+    <p id="demo">Display the result here.</p>
+
+    <script>
+      var x = 10,
+          y = 5;
+        document.getElementById('demo').innerHTML=x+y;
+        
+        /*
+        선생님 풀이 
+        var x = 10,
+            y = 5,
+            sum = x+y;
+        document.getElementById('demo').innerHTML = sum;
+        */
+        
+        
+        //복합대입연산자
+        //A+=B, A=A+B
+        var z = 10;
+        z += 5;  //a= a(10)+5
+        document.write(z);
+        
+        
+    </script>
+
+</body></html>

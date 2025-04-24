@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript &amp; jQuery - Chapter 2: 자바스크립트의 기본 명령 - 배열 생성자</title>
+    <link rel="stylesheet" href="css/c02.css" />
+</head>
+
+<body>
+    <h1>Elderflower</h1>
+    <div id="content">
+        <div class="message">Color: <span id="colors">선택하신 색상을 찾을 수 없습니다. 다시 시도해 주세요.</span></div>
+    </div>
+    <!--script call-->
+    <script>
+        /* var favoritecolor = "yellow";
+    document.getElementById('colors').innerHTML= favoritecolor;*/
+
+        //1. 배열을 자유롭게 생성하시오. 단,yellow 필수 포함
+        /*var color = ["blue","red","yellow"];*/
+
+        /*var color = new Array("blue","red","yellow");*/
+
+        var color = new Array;
+        color[0] = "blue";
+        color[1] = "red";
+        color[2] = "yellow"
+
+
+
+        //2. 배열 메서드를 사용해서 yellow가 출력되게 하시오 !
+        //1) slice();
+        /*  var favorite = color.slice(2,3);
+        document.getElementById('colors').innerHTML=favorite;*/
+
+        //2)splice();
+        /*  var favorite = color.splice(2,1);
+         document.getElementById('colors').innerHTML=favorite;*/
+
+        //3)pop();
+        /* var favorite = color.pop();
+         document.getElementById('colors').innerHTML=favorite;*/
+
+        //4)shift();
+       /* color.shift();
+        color.shift();
+        document.getElementById('colors').innerHTML = color;*/
+
+        //5)
+        document.getElementById('colors').innerHTML=color[2];
+    </script>
+</body>
+
+</html>

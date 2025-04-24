@@ -1,0 +1,228 @@
+@charset "utf-8";
+/****reset**********************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: 100%;
+    
+}
+/******float해제******************/
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ul::after, ol::after {
+    content: "";
+    display:block;
+    clear: both;
+}
+
+li {
+    float: left;
+}
+
+
+/***공통**********************/
+
+.inner {
+    width: 1200px;
+    margin: 0 auto;
+    outline: 2px solid lime;
+}
+
+
+
+/**********header*****************/
+header {}
+
+header .line {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(0,145,50);
+}
+
+header .logobox {
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+header .logobox .logo {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+header .logobox .logo img {
+    width: 250px;
+}
+header .logobox .lnb {
+    position: absolute;
+    right: 0;
+    top: 30%;
+}
+
+header .logobox .lnb li {
+    padding: 10px;
+    line-height: 30px;
+}
+header .logobox .lnb li a {
+    color: #777;
+    display: block;
+}
+
+
+header .logobox .lnb li a img {
+    width: 30px;
+    height: 30px;
+    
+}
+
+
+/*******navi****************************/
+
+nav {
+   width: 1200px;
+    margin: 0 auto;
+}
+nav ul {
+  /*  outline: 2px solid blue;*/
+    margin: 0 auto;
+}
+nav li {
+    margin: 30px 61.6px;
+   /* outline: 2px solid red;*/
+    
+}
+
+nav li a {
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+}
+
+/******main*****************************/
+
+main {
+    margin-bottom: 100px;
+    position: relative;
+}
+main .mainbox {
+    
+}
+main .mainbox img {
+    width: 100%;
+   /* display: block;*/
+}
+
+main .main-btn {
+    position: absolute;
+    bottom: -40px;
+    right: 60px;
+  
+}
+main .main-btn li {
+    width: 300px;
+    height: 70px;
+    background-color:  #ffc20d;
+    text-align: center;
+    border-top-left-radius: 30px;
+   
+    
+    
+    
+}
+main .main-btn li:last-child {
+    background-color: #009132;
+    border-radius: 0;
+    border-bottom-right-radius: 30px;
+    
+}
+main .main-btn li a {
+    width: 100%;
+    font-size: 20px;
+    display: inline-block;
+   
+    line-height: 70px;
+    color: #333;
+    font-weight: 700;
+    box-sizing: border-box;
+    
+   
+}
+main .main-btn li:last-child a{
+    color: #fff;
+}
+main .main-btn li a img {
+    width: 24px;
+    display: inline-block;
+    margin: 0 10px;
+    
+}
+
+main .main-btn li:last-child a img {
+    width: 40px;
+}
+
+section {}
+
+section .subwaymenu {
+    width: 1200px;
+    margin: 0 auto;
+}
+section .subwaymenu h2 {
+    padding: 10px 15px 0;
+    font-size: 30px;
+    font-weight: 700;
+    background-image: url(image/bul_tit.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    float: left;
+    outline: 2px solid lime;
+    
+}
+section .subwaymenu .menu {
+    float: right;
+    padding: 15px 0;
+    outline: 2px solid lime;
+}
+section .subwaymenu .menu li {}
+section .subwaymenu .menu li a {
+    color: #333;
+    padding: 0 10px 0;
+}
+
+section .menubox{
+    clear: both;
+}
+section .menubox .left {}
+section .menubox ul {}
+section .menubox ul li {
+    width: 23.5%;
+    margin-left: 2%;
+    outline: 2px solid red;
+    
+        
+}
+section .menubox ul li:first-child {
+    margin: 0;
+}
+section .menubox ul li a img {
+    width: 100%;
+}
+section .menubox .right{}

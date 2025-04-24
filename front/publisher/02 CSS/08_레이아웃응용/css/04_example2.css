@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+/****reset*************************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*float을 해제하는 가상선택자*/
+.clearfix:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+/*컨텐츠 너비를 잡아주는 공통 클래스*/
+.inner {
+    width: 960px;
+    margin: 0 auto;
+}
+/********************************************/
+
+body {
+    background-image: url(../images/bg.jpg);
+    color: #fff;
+    
+}
+header {
+    background-image: url(../images/bg-header.jpg);
+    width: 100%;
+    position: fixed;
+    height: 100px;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    
+}
+
+
+header h1 {
+    float: left;
+}
+header h1 img {
+    padding: 0 5px; 
+}
+header  h1 img:first-child{
+    padding-bottom: 10px;
+}
+header nav {
+ /*outline: 2px solid red;*/
+    width: 270px;
+    float: right;
+    line-height: 100px;
+    
+}
+header nav a {
+    color: #fff;
+    font-size: 16px;
+}
+header nav a:hover {
+    color: greenyellow;
+    font-weight: bold;
+}
+section {
+    width: 960px;
+    margin: 0 auto;
+}
+section .content1 {
+    margin-top: 100px;
+    width: 100%;
+    height: 450px;
+     background-image: url(../images/triangles.png), url(../images/bg-triangle.png);
+    background-repeat: no-repeat;
+    background-position:left 120px bottom 85px, left bottom 30px;
+    background-size: 580px,600px;
+    border-bottom: 2px solid #fff;
+    position: relative;
+    /*padding-bottom: 20px;*/
+    
+}
+section .content1 h2 {
+ position: absolute;
+    top: 10%;
+    right: 150px;
+}
+section .content1 .txt-box {
+      width: 250px;
+      position: absolute;
+    margin-bottom: 10px;
+    right: 0;
+    top: 20%;
+ 
+}
+section .content1 .txt-box p{
+    font-size: 14px;
+    padding: 5px 10px;
+    
+}
+section .content1 .txt-box p:first-child{
+    color: greenyellow;
+}
+section .content1 .txt-box p a {
+    color: lightcoral;
+}
+section .content2 {
+    width: 100%;
+}
+section .content2 h2 {
+    margin: 10px;
+}
+section .content2 .box-wrap {
+    width: 100%;
+}
+section .content2 .box-wrap .box {
+    width: 25%;
+    float: left;
+    padding: 0 5px;
+   /* outline:2px solid red;*/
+    box-sizing: border-box;
+}
+section .content2 .box-wrap .box:first-child{
+    padding-left: 0;
+}
+section .content2 .box-wrap .box:last-child {
+    padding-right: 0;
+}
+.content2 .box-wrap .box > img {
+   /* width: 100%;*/
+}
+.box-wrap .box > p {
+    font-size: 13px;
+    padding: 10px 5px;
+    border-bottom: 1px solid #fff;
+}
+.box-wrap .box > p:last-child {
+    border: 0;
+} 
+footer {
+    width: 100%;
+    background-color: #000;
+}
+footer ul {
+     float: right;
+}
+footer ul li {
+    display: inline-block;
+    border-right: 1px solid #fff;
+    margin: 10px 0;
+   
+    
+}
+footer ul li:last-child {
+    border: 0;
+}
+footer ul li a{
+    color: #fff;
+    font-size: 14px;
+    padding: 0 5px;
+}
+footer ul li a:hover {
+    color: greenyellow;
+    font-weight: bold;
+}

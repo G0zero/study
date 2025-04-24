@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_html()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+            *객체조작 메서드: 객체를 생성, 복제 ,삭제, 속성변환
+            
+            1) 속성제어 메서드 : 요소의 속성을 바꿀때 사용
+            2) 수치제어 메서드 : 요소의 너빗값 또는 높잇값 반환 또는 수치를 바꿀때 사용 
+            3) 객체편집 메서드 : 객체를 생성하거나 삭제 또는 복제
+            */
+        /*
+        html() 메서드 : 선택한 요소의 하위 요소를 가져와 문자열로 반환하거나 하위요소를 전부 제거하고 요소를 바꿀때 사용 
+        
+        *기본형
+        1) $('요소선택').html(); - 선택한 요소의 하위요소를 가져와 문자열로 반환 
+        2) $('요소선택').html('새요소') - 선택한 요소의 하위요소를 전부 제거하고 지정한 새요소를 생성, 삽입 
+        *자바스크립트 innerHTML(얜 속성임)과 유사하게 사용할수 있음 
+        */
+        
+        $(document).ready(function(){
+            var reult_1 = $('#summer_fruit').html();
+            console.log(reult_1);
+            
+            //$('#summer_fruit p').last().html('<a href="#">사러가기</a>');
+            
+            $("summer_fruit").last().html("<a href =\"#link\">사러가기");
+            //역슬래쉬\를 쓰면 따옴표를 중처하여 사용해도 됨  
+            //\는 따옴표를 중첩해서 사용가능
+            
+        });
+    </script>
+</head>
+
+<body>
+    <h1>html() 메서드</h1>
+
+    <section id="summer_fruit">
+        <h2><em>여름과일</em></h2>
+        <p>수박</p>
+        <p>복숭아</p>
+        <p>자두</p>
+    </section>
+    <section id="winter_fruit">
+        <h2><em>겨울과일</em></h2>
+        <p>딸기</p>
+        <p>귤</p>
+        <p>유자</p>
+    </section>
+</body>
+
+</html>

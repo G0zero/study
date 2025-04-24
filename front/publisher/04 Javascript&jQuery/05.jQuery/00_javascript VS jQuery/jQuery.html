@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>//일단 내가 작성한 코드보다 무조건 먼저 나와야함 
+        
+        <script>
+            /*
+            
+            1. 제이쿼리를 사용하기 위한 기본 환경 만들기
+            
+            (1) CDN (Content Delivery Network) 열결
+            (2) jQuery 라이브러리 파일 연결
+            2번째의 장점: 인터넷이 없는 환경에서도 미리보기?를 볼수 있음 
+            
+            2. 제일쿼리 시작 코드 블록 만들기 
+            (1) jQuery(document).ready(function(){
+                구현코드;
+            });
+            
+            (2) $(document).ready(function(){
+                구현코드;
+            }); //$=jQueryㄹ는 의미있음 
+            
+            (3) $(function(){
+                구현코드;
+            });
+            */
+            
+            $(document).ready(function(){
+                $('.three > span').css('color','red');
+            });
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        </script>
+    </head>
+    <body>
+               <div id="wrapper">
+            <ul>
+                <li class="one">첫번째</li>
+                <li class="two">두번째</li>
+                <li class="three" id="color"><span>세번째(여기에 CS속성을 적용해 보세요)</span></li>
+                <li class="four">네번째</li>
+            </ul>
+        </div>
+    </body>
+</html>

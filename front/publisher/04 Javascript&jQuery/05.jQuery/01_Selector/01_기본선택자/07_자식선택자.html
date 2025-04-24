@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_자식선택자</title>
+    <!--jQuery Library-->
+    <script src="jquery-1.7.2.min.js"></script>
+    //인터넷이 연결안되도 미리보기를 볼수있는 장점
+    
+    <script>
+        //자식선택자 : 선택된 요소를 기준으로 지정한 자식요소만 선택
+        /*
+        기본형 
+        1) $('요소선택 > 자식요소')//많이 사용함 
+        2) $('요소선택').children()//부모기 있고그부모의 모든 자식요소를 선택해줘
+        3) $('요소선택').children('자식요소선택')
+        */
+        
+       /* $(document).ready(function(){
+            $('#container > p').css('background-color','yellow');
+            
+            $('#container').children().css('border','2px dashed blue');
+            $('#container').children('p').css('color','red');
+        });*/
+        $(function(){
+            $('#container').click(function(){
+                //$('>선택요소',this)
+                //$('선택 하위요소',this)
+                
+                $('>p',this).css({
+                    backgroundColor: 'darkseagreen',
+                    color: 'yellow',
+                    fontSize: '42px',
+                    border: '5px dotted green'
+                });
+            });
+        });
+        
+        
+    
+    
+    
+    
+    </script>
+    
+    
+   
+</head>
+<body>
+    
+    <div id="container">
+        <header>
+            <h2>Welcome</h2>
+            <p>나는 손자 p태그</p>
+        </header>
+        
+        <nav>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </nav>
+        <p>나는 직계자식 p태그!!!</p>
+    </div>
+    
+    <style>
+        #container {
+            outline: 1px solid red;
+        }
+    </style>
+</body>
+</html>

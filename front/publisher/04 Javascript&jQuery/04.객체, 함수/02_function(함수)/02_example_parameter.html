@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_example_parameter</title>
+
+    <script>
+        //prompt를 통해 방문자의 아이디와 비밀번호를 입력받고, 만일 잘못된 아이디가 입력된 경우에는 "존재하지 않는 아이디입니다."라는 경고 창을 나타내고, 잘못된 비밀번호가 작성된 경우에는 "잘못된 비밀번호입니다."라는 경고창을 나타내시오. 아이디와 비밀번호가 일치하면 환영문구를 출력하세요.
+
+        var rightId = "green";
+        var rightPw = "1234";
+
+        //함수 정의문을 만들고 함수 호출을 통해 결과가 실행되도록 할것!
+
+   /*     var userId = prompt('아이디를 입력해주세요.');
+        var userPw = prompt('비밀번호를 입력해주세요.');
+
+        function user() {
+
+            if (rightId == userId && rightPw == userPw) {
+                alert('반갑습니다. ' + userId + '님~~~^^');
+            } else if (rightId !== userId) {
+                alert('존재하지 않는 아이디 입니다.');
+            } else if (rightId == userId && rightPw !== userPw) {
+                alert('잘못된 비밀번호 입니다.');
+            }
+
+        }
+        user();*/
+        
+        //선생님 해설
+        /*
+        1) 아이디, 비밀번호 입력
+        
+        2)아이디비교(if~else)
+        2-1)일치 >> 비밀번호 비교 
+        2-2)불일치 >> alert('존재하지 않는 아이디입니다.');
+        
+        3)비밀번호 비교 (if~else)
+        3-1)일치 >>document.write('환영합니다');
+        3-2)불일치 >> alert('잘못된 비밀번호입니다.');
+        
+        */
+        //1)아이디,비밀번호 입력
+        
+        var userId= prompt('아이디를 입력하세요');
+        var userPw= prompt('비밀번호를 입력하세요');
+        
+        //2)함수 -입력받은 데이터의 일치여부 
+        
+        function login(id,pw){
+            //2)아이디 비교
+            if(rightId==id){
+                //아이디가 일치했을때
+                
+                //3)비밀번호까지 일치했을때
+                if(rightPw==pw){
+                //비밀번호까지 일치했을때
+                    document.write('환영합니다.');
+                }else{
+                    //비밀번호가 일치하지 않았을때 
+                    alert('잘못된 비밀번호입니다.');
+                    location.reload();
+                }
+            }else {
+                //아이디가 불일치 했을때
+                alert('존재하지 않는 아이디입니다.');
+                location.reload();
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        //함수호출login(데이터1>>id, 데이터2>>pw)
+        login(userId,userPw);
+        
+        
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>onePage_scrollActionl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul:after,
+        ol:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        html,
+        body {
+            /*보이는 화면 기준! */
+            width: 100%;
+            height: 100%;
+        }
+
+        /*header 디자인*/
+
+        header#top {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .inbox {
+            width: 100%;
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+            /*로고, 메뉴의 기준!*/
+            /* outline: 2px solid red;*/
+        }
+
+        #logo {
+            display: block;
+            /*width: 250px;*/
+            height: 100%;
+            /*80px*/
+            position: absolute;
+            /*background-color: yellow;*/
+        }
+
+        #logo img {
+            height: 60px;
+            margin-top: 10px;
+
+        }
+
+
+        /*GNB메뉴*/
+        #gnb {
+            position: absolute;
+            right: 2%;
+            top: 40px;
+        }
+
+        #gnb li {
+            margin: 0 7px;
+        }
+
+        #gnb li a {
+            /* color: #fff;*/
+        }
+
+        #gnb li a:hover {
+            color: lime;
+            text-decoration: underline;
+        }
+
+        #gnb li:hover {
+            transform: scale(1.1);
+        }
+
+        /*선택된 메뉴 - selM */
+        .selM {
+            transform: scale(1.2);
+        }
+
+        .selM a {
+            color: lime;
+            text-decoration: overline;
+        }
+
+        /*각 섹션 디자인*/
+        .page {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /*.pic의 기준!*/
+            overflow: hidden;
+        }
+
+        #page1 {
+            background: url(images/p1.png) no-repeat top/cover;
+        }
+
+        #page2 {
+            background: url(images/p2.png) no-repeat top/cover;
+        }
+
+        #page3 {
+            background: url(images/p3.png) no-repeat top/cover;
+        }
+
+        #page4 {
+            background: url(images/p4.png) no-repeat top/cover;
+        }
+
+        #page5 {
+            background: url(images/p5.png) no-repeat top/cover;
+        }
+
+        #page6 {
+            background: url(images/p6.png) no-repeat top/cover;
+        }
+
+        #page7 {
+            background: url(images/p7.png) no-repeat top/cover;
+        }
+
+        /*각 페이지 등장 이미지 공통 CSS */
+        .pic {
+            width: 50%;
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 0 0 20px #fff;
+            opacity: 0;
+        }
+    </style>
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        ///////////////전역변수구역////////////////////
+        //1. 각 스크롤 액션 실행여부 (0-실행전, 1-실행후)
+        var p1 = 0,
+            p2 = 0,
+            p3 = 0,
+            p4 = 0,
+            p5 = 0,
+            p6 = 0,
+            p7 = 0;
+
+        //2. 스크롤 액션 기준선 요소의 top값 셋팅변수 
+        var p1pos, p2pos, p3pos, p4pos, p5pos, p6pos, p7pos;
+
+        //3. 기준 위치 폭
+        var gap = 200;
+
+        //4. GNB 클릭여부 확인 
+        var gnbsts = 0; //0-클릭하지 않은 상태, 1-클릭한 상태 
+
+        /*///////////////////////////////////////////
+                함수명: scrollAction
+                기능 : 지정된 범위의 스크롤 구간에 액션주기 
+        //////////////////////////////////////////////////*/
+
+        var scrollAction = function(n) {
+            $('#page' + n).find('.pic').animate({
+                top: '50%',
+                opacity: 1
+            }, 800);
+        };
+        
+        /*///////////////////////////////////////////
+                함수명: chgMenu
+                기능 : 스크롤시 해당하는 페이지에 맞춰 메뉴 변경하기
+        //////////////////////////////////////////////////*/
+        
+        function chgMenu(seq){
+            
+            //GNB메뉴를 클릭한 경우 실행하지마!
+            if(gnbsts === 1) return false;
+            
+            $('#gnb li').eq(seq).addClass('selM').siblings().removeClass('selM');
+            
+        }
+
+        /* 스크롤 이벤트 
+        1. 스크롤 이벤트는 scroll() 이벤트 메소드 사용 
+           scroll() : 가로,세로 스크롤바를 움직일 때 마다 이벤트 발생 
+        
+        2. 페이지 전체에 스크롤 이벤트가 적용되므로 window 객체를 사용 
+        3. 제이쿼리 시작 코드블럭과 별도로 있어도 구현가능 
+        4. 스크롤 이벤트와 마우스 휠 이벤트는 다름 
+        5. 각 페이지의 실행 상태를 '전역변수'로 관리
+        (이유 : 스크롤 액션시 중복실행 방지)
+        */
+
+        //스크롤 이벤트 발생
+        $(window).scroll(function() {
+
+            //현재 window의 스크롤바 위치 
+            var scTop = $(this).scrollTop();
+            console.log('현재 스크롤 위치 : ' + scTop);
+
+            //각 위치 별 등장요소 액션주기 - else if 
+            if (scTop > 80 && scTop < p2pos - gap) {
+                /*alert('졸리지~~~~~~~~~~~');*/
+                 chgMenu(1);
+
+                if (p1 === 1) return false;
+                p1 = 1;
+
+                //80 < scTop < 969-200
+                scrollAction(1);
+
+
+            } else if (scTop > p2pos - gap && scTop < p2pos) {
+                //scTop > 969-200 && scTop < 969
+                //769 < scTop < 969 (두번째 페이지 시작 위치!)
+                chgMenu(2);
+                
+                if (p2 === 1) return false;
+                p2 = 1;
+
+                scrollAction(2);
+            } else if (scTop > p3pos - gap && scTop < p3pos) {
+                //scTop > 1938-200 && scTop < 1938
+                //1738 < scTop <1938 (선생님화면 기준)
+                chgMenu(3);
+                
+                if (p3 === 1) return false;
+                p3 = 1;
+               
+                scrollAction(3);
+            } else if (scTop > p4pos - gap && scTop < p4pos) {
+                chgMenu(4);
+                
+                if (p4 === 1) return false;
+                p4pos = 1;
+
+                scrollAction(4);
+            } else if (scTop > p5pos - gap && scTop < p5pos) {
+                chgMenu(5);
+               
+                if (p5 === 1) return false;
+                p5 = 1;
+                
+                scrollAction(5);
+            } else if (scTop > p6pos - gap && scTop < p6pos) {
+                chgMenu(6);
+               
+                if (p6 === 1) return false;
+                p6 = 1;
+               
+                scrollAction(6);
+            } else if (scTop > p7pos - gap && scTop < p7pos) {
+                
+                chgMenu(7);
+                
+                if (p7 === 1) return false;
+                p7 = 1;
+                
+                scrollAction(7);
+            }
+
+        });
+
+        $(document).ready(function() {
+            //새로고침 시 스크롤 위치를 처음으로 변경 
+            $('html, body').animate({
+                scrollTop: 0
+            }, 10);
+
+            //스크롤액션 기준요소 top값 셋팅 
+            p1pos = $('#page1').offset().top;
+            p2pos = $('#page2').offset().top;
+            p3pos = $('#page3').offset().top;
+            p4pos = $('#page4').offset().top;
+            p5pos = $('#page5').offset().top;
+            p6pos = $('#page6').offset().top;
+            p7pos = $('#page7').offset().top;
+
+            console.log('각 기준요소 top값 : ' + p1pos + '/' + p2pos + '/' + p3pos + '/' + p4pos + '/' + p5pos + '/' + p6pos + '/' + p7pos);
+            
+            //GNB의 a링크를 클릭하면 해당 페이지로 스크롤 애니메이션 
+            $('#gnb li a').click(function(e){
+                e.preventDefault();
+                
+                //gnbsts 클릭 상태 여부
+                gnbsts=1;
+                
+                var pid = $(this).attr('href');
+                console.log(pid);
+                
+                var pagepos = $(pid).offset().top;
+                
+                $('html, body').animate({
+                    scrollTop: pagepos+'px'
+                },800, function(){
+                    gnbsts = 0;
+                });
+                
+                
+                
+                /* 이가영
+                var idx = $(this).parent().index();
+                console.log('인덱스번호 '+idx);
+
+                var ppos = $('.page').eq(idx).offset().top;
+                
+                $('html, body').animate({
+                    scrollTop : ppos+'px';*/
+                
+                //1. 메뉴변경 함수 사용 
+                /*var idx = $(this).parent().index();
+                chgmenu(idx);*/
+                
+                //2. 메뉴변경 실행코드 직접 작성 
+                $(this).parent().addClass('selM').siblings().removeClass('selM');
+                
+                });//click
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <header id="top">
+        <div class="inbox">
+            <a href="#" id="logo"><img src="images/logo_cgv.png" alt="cgv"></a>
+
+            <!--gnb-->
+            <nav id="gnb">
+                <ul>
+                    <!--li*7>a[href='#page']이걸 젠코딩이라고 함-->
+                    <li class="selM"><a href="#page1">닥터두리틀</a></li>
+                    <li><a href="#page2">안녕베일리</a></li>
+                    <li><a href="#page3">라라랜드</a></li>
+                    <li><a href="#page4">어바웃타임</a></li>
+                    <li><a href="#page5">어벤져스</a></li>
+                    <li><a href="#page6">아이언맨3</a></li>
+                    <li><a href="#page7">라이온킹</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--각 페이지 박스-->
+    <!--section#page$.page*7-->
+    <section id="page1" class="page">
+        <img src="images/m1.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page2" class="page">
+        <img src="images/m2.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page3" class="page">
+        <img src="images/m3.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page4" class="page">
+        <img src="images/m4.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page5" class="page">
+        <img src="images/m5.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page6" class="page">
+        <img src="images/m6.jpg" alt="scene" class="pic">
+    </section>
+    <section id="page7" class="page">
+        <img src="images/m7.jpg" alt="scene" class="pic">
+    </section>
+
+
+</body>
+
+</html>

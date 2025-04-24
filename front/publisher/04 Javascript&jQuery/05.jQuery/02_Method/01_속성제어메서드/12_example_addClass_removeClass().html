@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>12_example_addClass_removeClass()</title>
+    <style>
+        img {
+            padding: 10px;
+            background-color: #666;
+        }
+        img.type1 {background-color: darkorange;}
+        img.type2 {background-color: yellow;}
+        img.type3 {background-color: darkseagreen;}
+        img.type4 {background-color: skyblue;}
+        img.type5 {background-color: fuchsia;}
+    </style>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //04.객체,함수/01_objects(객체)/01_bulit-in-Object.html참고
+        /*
+        Math.random(); 0~1사이의 난수를 반환 
+        Math.ceil(숫자) : 소수점 첫째자리에서 무조건 올림하여 정수를 반환
+        
+        
+        */
+        var rnd = Math.random();
+        console.log(rnd);
+        console.log('round : '+Math.round(rnd));
+        console.log('ceil : '+Math.ceil(rnd));//언제나 1만 출력!
+        console.log('floor : '+Math.floor(rnd));
+        
+        /*
+        *랜덤수 만들기 -1부터 시작하는 랜덤수
+        Math.ceil(Math.random() *최대수);
+        
+        예시1) 1~5까지 랜덤수를 만들 경우 
+        Math.ceil(Math.random() *5);
+        */
+        //이미지 태그를 클릭하면img의 class를 랜덤으로 변경 (type1~type5)
+        
+        $(document).ready(function(){
+               var bnum= 0;//직전 랜덤수를 저장하는 변수
+            $('img').click(function(){
+                
+             
+                //기존클래스 지우기 
+                $(this).removeClass();
+                
+                //1~5사이의 랜덤수를 만들어서 값 저장 
+                var num =Math.ceil(Math.random()*5);//최소값이 무조건 1이여야해서ceil사용 
+                console.log(num);
+                
+                //바로 직전 랜덤수와 같으면 다시 랜덤수 구하기 
+                while(num===bnum){
+                     num =Math.ceil(Math.random()*5);
+                    console.log('while문 실행!!!!')
+                }
+                
+                //랜덤수를 클래스에 적용하기 
+                $(this).addClass('type'+num);
+                
+                //직전 랜덤수를 현재 랜덤수에 넣기 
+                bnum=num;
+            });
+        });
+    
+    </script>
+</head>
+<body>
+    
+    <img src="image/cake1.jpg" alt="">
+    <img src="image/cake2.jpg" alt="">
+    <img src="image/cake3.jpg" alt="">
+</body>
+</html>

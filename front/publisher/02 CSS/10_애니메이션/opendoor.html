@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>opendoor</title>
+        
+        <style>
+            
+            body {
+                background-color: bisque;
+            }
+        
+            /*전체 부모: 문 전체!*/
+            .gate {
+                width: 200px;
+                height: 300px;
+                background-color: #900;
+                margin: 100px auto 0;
+            }
+            
+            /*문이 열렸을때 뚫린 부분*/
+            .frame {
+                width: 160px;/*좌,우 여백이 20px;*/
+                height: 280px;/* 위 여백이 20px;*/
+                background-color: yellow;
+                margin: 0 auto;
+                position: relative;
+                top: 20px;
+                background: url(images/seashore.jpg) no-repeat center/auto 100%;
+                
+                /*문이 입체적으로 보이기 위한 설정*/
+                perspective: 480px;
+                
+            }
+            
+            
+            /*
+            3D로 원근 설정하기
+            
+            1. 설정위치 : 3D 원근 설정을 적용할 대상의 부모박스에 설정!
+            2. 설정방법 : perspective : 수치; (px단위)
+            */
+            
+            
+            
+            
+            
+            
+            
+            
+            /*엘사*/
+            .elsa {
+                width: 160px;
+                height: 280px;
+                /*outline: 2px solid lime;*/
+                position: absolute;
+                overflow: hidden;
+            }
+            .elsa img {
+               /* width: 50%;*/
+                transform: scale(0.5) rotate(0deg);
+                position: absolute;
+                right: -180px;
+                top: 10px;
+                animation: elsa 2s ease-in-out infinite alternate;
+            }
+           
+            
+            
+            /*elsa가 애니메이션 되었을때의 위치 확인*/
+         /*   .elsa img:hover {
+                transform: scale(1) rotate(-30deg);
+            }
+            */
+            
+            
+            
+           /* 문짝*/
+            .door {
+                width: 160px;
+                height: 280px;
+                background-color: #c90;
+                position: absolute;
+                /*transform: rotateY(70deg);*/
+                transform-origin: left;
+                animation: opendoor 2s ease-in-out infinite alternate;
+            }
+            .handle {
+                width: 20px;
+                height: 20px;
+                background-color: navy;
+                border-radius: 50%;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            
+            /*애니메이션 키프레임 설정*/
+            @keyframes elsa {
+                to {
+                    transform: scale(1) rotate(-30deg);
+                }
+            }
+            @keyframes opendoor {
+                from {
+                    transform: rotateY(70deg);
+                }
+                to {
+                    transform: rotateY(-70deg);
+                }
+            }
+            
+            
+        </style>
+        
+    </head>
+    <body>
+        
+        <!-- 문 전체 부모!-->
+        <div class="gate">
+            <div class="frame">
+               <!--엘사-->
+               <div class="elsa">
+                  <img src="images/elsa.png" alt="엘사">
+               </div>
+               
+               <!--문짝-->
+               <div class="door">
+                   <!--손잡이-->
+                   <div class="handle"></div>
+               </div>
+               
+               
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,137 @@
+/*** header.css ****************************************/
+
+@charset "utf-8";
+
+header {
+    width: 100%;
+    background-color: rgb(255,255,255);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+}
+header .lnb {
+    width: 100%;
+    background-color: lightgray;
+    height: 40px;
+    line-height: 40px;
+}
+header .lnb ul {
+    float: right;
+}
+header .lnb ul li {
+    float: left;
+    margin-right: 20px;
+}
+header .lnb ul li:last-child {
+    margin-right: 0;
+    width: 60px;
+    /*text-indent: -9999px;*/
+    font-size: 0;
+    /*background-color: rgb(47,28,17);*/
+    background: rgb(47,28,17) url(../img/ico_user_info_line.png) no-repeat center;
+}
+header .lnb ul li a {
+    color: #333;
+    display: block;
+}
+header .lnb ul li a:hover {
+    color: rgb(47,28,17);
+    text-decoration: underline;
+}
+
+/*header > .inner {}*/
+header .header-bottom {
+    height: 100px;
+}
+header .header-bottom h1.logo {
+    height: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+    float: left;
+}
+header .header-bottom h1.logo a {
+    display: block;
+}
+header .header-bottom h1.logo a img {
+    height: 70px;
+    display: block;
+}
+
+header .header-bottom nav {
+    float: left;
+    margin-left: 100px;
+}
+nav ul {}
+nav ul li {
+    float: left;
+    line-height: 100px;
+    margin: 0 30px;
+    /*text-transform: uppercase;*/
+}
+nav ul li a {
+    text-transform: uppercase;
+    font-family: Arial;
+    color: rgb(47,28,17);
+    font-weight: 700;
+}
+nav ul li a:hover {
+    color: rgb(207,102,26);
+}
+nav ul li.active a {
+    color: rgb(207,102,26);
+}
+
+
+/*header .header-bottom #btnSearch {
+    float: right;
+}
+header .header-bottom #btnSearch a {
+    width: 20px;
+    height: 100px;
+    display: block;
+    background: url(img/ico_search.png) no-repeat center;
+    text-indent: -9999px;
+}*/
+
+
+/* 폼태그로 구현한 검색바 */
+header form {
+    float: right;
+}
+header .searchbox {
+    /*outline: 2px solid red;*/
+    margin-top: 35px;
+}
+header .searchbox input {
+    height: 30px;
+    vertical-align: bottom;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    outline: 0;
+    color: blue;
+}
+/*header .searchbox input[placeholder] {
+    color: red;
+}*/
+header .searchbox input::placeholder {
+    color: red;
+}
+header .searchbox button {
+    height: 30px;
+    vertical-align: bottom;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+

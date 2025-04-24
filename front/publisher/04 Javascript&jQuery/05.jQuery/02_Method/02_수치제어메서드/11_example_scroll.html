@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>11_example_scroll</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //h1태그의 위치값 구하기 
+            var topNum = $('h1').offset().top;
+            console.log('top으로 부터 떨어진 거리: '+topNum);
+            
+            //scrollTop위치 지정하기 
+            $(window).scrollTop(topNum);
+            
+            //브라우저 스크롤 시작점 값 반환 
+            var sct = $(window).scrollTop();
+            console.log('scrollTop :'+sct);
+        });
+    
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>위치 메서드</h1>
+    </div>
+    
+     <style>
+         *{
+             margin: 0;
+             padding: 0;
+         }
+         #wrap {
+             height: 5000px;
+             padding-top: 2000px;
+             background-color: yellow;
+         }
+    
+    </style>
+</body>
+</html>

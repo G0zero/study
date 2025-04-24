@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>08_속성선택자</title>
+    
+    <style>
+        input {
+            border: 1px solid #CCC;
+            padding: 10px;
+        }
+        
+        /*속성 선택자*/
+        /*[]는 속성선택자라는 뜻 {}는 디자인 값을 넣는것  */
+        input[placeholder] {
+            background-color: yellow;
+        }
+        /*속성값 선택자*/
+        input[type="password"] {
+            background-color: darkseagreen;
+        }
+        
+    </style>
+    
+    
+</head>
+<body>
+   
+   <input type="text" placeholder="아이디입력">
+   <input type="password">
+   <input type="text" placeholder="이메일입력">
+   
+    
+</body>
+</html>

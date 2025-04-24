@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+/****reset*************************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+/*float을 해제하는 가상선택자*/
+.clear:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+/*컨텐츠 너비를 잡아주는 공통 클래스*/
+.inner {
+    width: 960px;
+    margin: 0 auto;
+}
+/********************************************/
+
+body {
+    background-image: url(../images/bg.jpg);
+    color: #fff;
+}
+header {
+    width: 100%;
+    height: 100px;
+    background-image: url(../images/bg-header.jpg);
+   /* overflow: hidden;*/
+    position: fixed;
+    z-index: 999;
+}
+header h1 {
+    /*outline: 2px solid lime;*/
+   /* width: 30%;*/
+    float: left;
+    margin-left: 24px;
+}
+
+/*
+header h1 img {
+    display: block;
+    float: left;
+}
+*/
+header h1 img:first-child {
+    margin-bottom: 20px;
+}
+header h1 img:last-child {}
+
+header nav {
+  /*  outline: 2px solid lime;*/
+    /*width: 50%;*/
+    float: right;
+    /*line-height: 100px;*/
+    margin-top: 50px;
+}
+header nav a {
+    color : #fff;
+}
+header nav a:hover {
+    color: greenyellow;
+    font-weight: bold;
+}
+section {
+    width: 960px;
+    margin: 0 auto;
+    /*outline:2px solid lime; */
+    background: url(../images/bg-triangle.png) no-repeat;
+}
+section .content1 {
+    background: url(../images/triangles.png) no-repeat 124px 142px;
+    height: 550px;
+    /*background-position: 124px 142px;*/
+    border-bottom: 1px solid silver;
+    position: relative;/*h2, .txt-box의 기준!*/
+}
+section .content1 h2 {
+    font-size: 30px;
+    position: absolute;
+    right: 184px;
+    top: 150px;
+}
+section .content1 .txt-box {
+    width: 250px;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+
+section .content1 .txt-box p {
+    margin-bottom: 10px;
+}
+
+section .content1 .txt-box p:first-child {
+    color: greenyellow;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+section .content1 .txt-box p a {
+    color: lightpink;
+}
+section .content1 .txt-box p a:hover {
+    background-color: lightpink;
+    color: #333;
+    font-weight: 600;
+}
+
+section .content2 {}
+section .content2 h2 {
+    font-size: 24px;
+    padding: 10px 0;
+}
+section .content2 .box-wrap {}
+section .content2 .box-wrap .box {
+    /*outline: 2px solid lime;*/
+    width: 220px;
+    float: left;
+}
+section .content2 .box-wrap .box ~ .box {
+    margin-left: 26.6px;
+}
+section .content2 .box-wrap .box p {
+    font-size: 14px;
+    letter-spacing: -0.6px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+section .content2 .box-wrap .box p:last-child {
+    border: 0;
+}
+footer {
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 40px;
+    color: silver;
+}
+footer a {
+    color: silver;
+}
+footer ul {
+    float: right;
+}
+footer ul li {
+    float: left;
+    margin-right: 12px;
+   /* outline: 2px solid lime;*/
+}

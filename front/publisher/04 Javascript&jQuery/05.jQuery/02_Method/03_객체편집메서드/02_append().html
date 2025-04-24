@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta lang="utf-7">
+    <title>02_append()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+            append(), appendTo() : 선택한 요소의 '하위요소'로 마지막 위치에 새 요소를 생성하고 추가 
+            
+            $('요소선택').append('새 요소');
+            $('새 요소').appendTo('요소선택');
+            */
+
+        $(function() {
+            //예제1
+            $('#listZone').append('<li>내가 마지막  append!!!</li>');
+            $('<li>내가 진짜 마지막 appendTo!!</li>').appendTo('#listZone');
+
+            //예제2
+            var num = 1;
+            $('#container').click(function() {
+                //클릭할때마다 p태그 생성
+                $(this).append('<p>이상한 변호사 우영우 ' + num + '</p>');
+                num++;
+
+                //추가 미션 - '맨 뒤로 가!' 버튼을 클릭하면 맨 앞의 p태그를 선택, 맨 뒤로 이동시키시오.
+
+                /* $('#btngo').click(function(){
+                $('#container').append($('#container>p').first());
+                함수 안에 함수는 첫번쨰 이벤트 실행후 뒤에 이벤트가 실행이 되어야 하는데 밑에 실행없이 계쏙 먼저 실행이 되어서 누적된 이벤트가 실행되기때문에 하나씩 움직이는것임    */
+            });
+
+            //btngo 클릭 이벤트 위치에 따라 결과가 다름
+            $('#btngo').click(function() {
+                $('#container').append($('#container>p').first());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!--예제1-->
+    <ul id="listZone">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+        <li>리스트5</li>
+    </ul>
+
+    <!--예제2-->
+    <button id="btngo">맨 뒤로 가!</button>
+    <div id="container">
+        <p>최근에 즐겨보는 드라마는 무엇입니까?</p>
+    </div>
+
+    <style>
+        #container {
+            background-color: yellow;
+            cursor: pointer;
+        }
+
+        #container p:first-child {
+            font-weight: bold;
+        }
+    </style>
+</body>
+
+</html>

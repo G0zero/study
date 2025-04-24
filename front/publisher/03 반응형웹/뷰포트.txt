@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+미디어 커리
+@media (min-width:320px) and (max-width:768px) {실행 css}
+
+@미디어 커리 시작 (조건문 최소가로사이즈 320px이상) 
+논리연산자 앞뒤조건이 모두 해당될때 실행 
+(조건문 최대 가로 사이즈 768px이하 ) {실행문 css삽입}
+
+링크를 걸어준다. 
+<link rel="stylesheet" media="all and (min-width:320px)" href=mobile">
+이런식으로 근데 우리는 이번엔 안할거임 
+
+
+
+
+(소가로)- 조건
+{배춧입,중가로}-적용할 css가 들어감
+[대가로]- 선택자의 속성이나 선택하는거 

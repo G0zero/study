@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07-1_위치선택자(배수)</title>
+    
+    <style>
+        /*
+        nth-child(2n) : 2의배수
+        nth-child(3n) : 3의배수
+        */
+        
+    /*짝수*/
+        li:nth-child(2n) {
+            background-color: yellow;
+        }
+    /*홀수*/
+        li:nth-child(2n+1) {
+            background-color: skyblue;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <ol>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+    </ol>
+    
+    
+</body>
+</html>

@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content:"";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    height: 120px;
+    background-color: darksalmon;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+main {
+    margin-top: 120px;
+    width: 100%;
+    height: 380px;
+    background-color: steelblue;
+}
+
+section {
+    width: 90%;
+    max-width: 1200px;
+    /*너비가 1200이 넘어가면 더이상 커지지말고 1200을 맥스로 잡아줘*/
+    margin: 0 auto;
+    outline: 2px solid red;
+}
+
+section .content-top {
+    background-color: yellow;
+    overflow: hidden;
+}
+
+section .content-top .con1 {
+    width: 30%;
+    height: 280px;
+    background-color: lightsteelblue;
+    float: left;
+}
+
+section .content-top .con-wrap {
+    width: 15%;
+    background-color: mediumslateblue;
+    float: left;
+}
+
+section .content-top .con-wrap li {
+    height: 70px;
+}
+
+.con-wrap li.con2 {
+    background-color: slateblue;
+}
+
+.con-wrap li.con3 {
+    background-color: sandybrown;
+}
+
+.con-wrap li.con4 {
+    background-color: darkseagreen;
+}
+
+.con-wrap li.con5 {
+    background-color: silver;
+}
+
+section .content-top .con6 {
+    width: 55%;
+    height: 280px;
+    background-color: teal;
+    float: left;
+}
+
+section .banner {
+    width: 100%;
+    height: 120px;
+    background-color: greenyellow;
+}
+
+section .content-bottom {}
+section .content-bottom .left {
+    width: 60%;
+    background-color: cadetblue;
+    float: left;
+}
+section .content-bottom .left > div {
+    height: 150px;
+    float: left;
+}
+.content-bottom .left .con7 {
+    width: 100%;
+    background-color: lightgoldenrodyellow;
+}
+.content-bottom .left .con8 {
+    width: 50%;
+    background-color: lightgreen;
+}
+.content-bottom .left .con9 {
+    width: 50%;
+    background-color: paleturquoise;
+}
+.content-bottom .left .con10 {
+    width: 50%;
+    background-color: lightpink;
+}
+.content-bottom .left .con11 {
+    width: 50%;
+    background-color: lightskyblue;
+}
+
+section .content-bottom .right {
+    width: 40%;
+    background-color: dodgerblue;
+    float: right;
+   /* clear: both;*/
+}
+
+.content-bottom .right .con12 {
+    width: 100%;
+    height: 300px;
+    background-color: olivedrab;
+}
+.content-bottom .right .con13 {
+    width: 100%;
+    height: 150px;
+    background-color: lightblue;
+}
+
+section .partners {
+    width: 100%;
+    height: 150px;
+    background-color: lightskyblue;
+}
+
+footer {
+    width: 90%;
+    max-width: 1200px;
+    height: 100px;
+    background-color: #000;
+    color: #fff;
+    margin: 0 auto;
+    
+}
+/*상위 요소에 높이값을 주는 것보다 요소에*/
+

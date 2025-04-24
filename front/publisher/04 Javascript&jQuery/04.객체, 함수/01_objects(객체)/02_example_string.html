@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_example_string</title>
+
+    <script>
+        //방문자로부터 이름을 영문으로 입력(대문자로 출력)받고, 연락처를 입력 받은 후 정보가 노출되지 않도록 전화번호 뒤의 네 자리는 '*'로 출력하시오.
+
+/*        var user = prompt("이름을 영문으로 입력해주세요");
+        alert(user.toUpperCase());
+        var userNum = prompt("연락처를 입력해주세요(숫자만 입력해주세요)", "01012345678");
+        var userLeng = userNum.length;
+        var userCall = " ";
+
+        if (userLeng <= 9) {
+             userCall = userNum.substr(5, 4);
+             alert(userNum.replace(userCall, "****"));
+            }
+            else if (userLeng <= 10) {
+                userCall = userNum.substr(6, 4);
+                alert(userNum.replace(userCall, "****"));
+                }
+                else {
+                    userCall = userNum.substr(7, 4);
+                    alert(userNum.replace(userCall, "****"), '<br>');
+                }
+
+
+                //var userCall = userNum.substr(7,4);
+                //alert(userNum.replace(userCall, "****"), '<br>');
+
+
+                document.write("이름 : " + user.toUpperCase() + '<br>');
+                document.write("전화번호 : " + userNum.replace(userCall, "****") + '<br>');*/
+        
+        // 선생님 해설
+        //1. 영문이름 입력받기
+        //2. 입력받은 이름을 대문자로 출력 >>
+        //3. 연락처 입력받기
+        //4. 입력받은 연락처의 마지막 4자리는 ****로 표기 
+        
+        var userName = prompt('당신의 영문이름은?');
+        var upperName = userName.toUpperCase();
+        document.write(upperName, '<br>');
+        
+        var userNum = prompt('당신의 연락처는? (숫자만 입력하세요)');
+        var lastNum = userNum.length -4;
+        //ex) 10-4=6, 11-4=7,12-4=8
+         
+        
+        //1) substring(a,b) : a인덱스~ b인덱스 이전까지 구간!
+        // 전화번호 인덱스 0~7 이전까지의 번호 구하기 
+        var result = userNum.substring(0, lastNum) + '****';
+        document.write(result, '<br>');
+        
+        //2) substr(), replace 
+        //substr(a, 문자객수) >> a:시작하는 인덱스 
+        //replace(바꿀 대상문자, 바꿀 문자)
+        
+        // ex) 02 3481 1005(10)
+        var last = userNum.substr(lasrNum,4);//substr(6,4)>>1005
+        var result2 = userNum.replace(last,'****');
+        
+        document.write(result2,'<br>');
+        
+        
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>

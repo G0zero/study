@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>06_even_odd선택자</title>
+        <script src="jquery-1.7.2.min.js"></script>
+        <!--위에 스크립트는 이미 저건 링크역할을 하는것이기 떄문에 코드를 작성하지 않음 -->
+        <script>
+            //even선택자 : 짝수 인덱스 요소 선택 
+            //odd선택자 : 홀수 인덱스 요소 선택 
+            //nth-child(even|odd)를 사용하면 우리가 아는 순서와 맞출수 있음!
+        
+            //예제1
+            $(document).ready(function(){
+           /*     $('#menu li:even').css('background-color','yellow');
+                //짝수의 의미가 인덱스의 숫자를 기준으로 하기때문에 내용 1,3이 짝수로 나옴
+                $('#menu li:odd').css('color','red');//홀수*/
+                
+                $('#menu li:nth-child(even)').css('background-color','pink');
+            });
+        
+            //예제2
+            //1) #container를 클릭하면
+            //2) li의 짝수번쨰에 배경색 red
+            //3) li의 홀수 번째에 배경색 yellow
+            //4) 동시에 height값이 200px로 변경 (초기 높잇값은 40px로 설정)
+        
+    /*        $(function(){
+                $('li').css('height','40px');
+                $('#container').click(function(){
+                    $('li:nth-child(even)').css({
+                        backgroundColor: 'red',
+                        height: '200px',
+                        transition: 'all .8s'
+                    });
+                    $('li:nth-child(odd)').css({
+                        backgroundColor: 'yellow',
+                        height: '200px',
+                        transition: 'all .8s'
+                    });
+                });
+            });
+            */
+            //선생님 해설
+                  $(function(){
+                $('li').css('height','40px');
+                $('#container').click(function(){
+                    $('li:nth-child(even)').css({
+                        backgroundColor: 'red',
+                        height: '200px',
+                        transition: 'all .8s ease-in-out'
+                    });
+                    $('li:nth-child(odd)').css({
+                        backgroundColor: 'yellow',
+                       
+                    });
+                    $('li').animate({
+                        height: '200px'
+                    },800,'swing');//swing이 기본이라 작성안해줘도 됨!
+                });
+            });
+        </script>
+        
+ <!--       <style>
+            li:nth-child(2n) {
+                color:red;
+            }
+            li:nth-child(2n+1){
+                color: blue;
+            }
+        </style>-->
+    </head>
+    <body>
+       <!--예제1-->
+ <!--      <h1>even/odd선택자</h1>
+       <ul id="menu">
+           <li>내용1 (인덱스0)</li>
+           <li>내용2 (인덱스1)</li>
+           <li>내용3 (인덱스2)</li>
+           <li>내용4 (인덱스3)</li>
+       </ul>-->
+       
+    <!--예제2-->
+       <div id="container">
+           <ul class="nav1">
+               <li>1</li>
+               <li>2</li>
+               <li>3</li>
+               <li>4</li>
+           </ul>
+            <ul class="nav2">
+               <li>1</li>
+               <li>2</li>
+               <li>3</li>
+               <li>4</li>
+               <li>5</li>
+           </ul>
+       </div>
+        
+    </body>
+</html>

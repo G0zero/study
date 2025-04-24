@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>11_example_attr()</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        #wrapper {
+            width: 522px;
+            margin: 100px auto 0;
+        }
+
+        nav {
+            width: 100%;
+            /*522px*/
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            width: 123px;
+            height: 40px;
+            /*100%*/
+            float: left;
+        }
+
+        li~li {
+            margin-left: 10px;
+        }
+
+        li a,
+        li a img {
+            display: block;
+        }
+
+        #image {
+            width: 522px;
+            height: 400px;
+        }
+
+        #image img {
+            width: 100%;
+        }
+    </style>
+
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //예제 - 계절 버튼 클릭 시, 계절에 맞는 이미지가 보여지도록 구현하시오.
+        /*    $(function(){
+                //봄
+                $('#springBtn').click(function(){
+                    
+                    $('#image img').attr({
+                        src: 'images/spring.jpg'
+                    });
+                });
+                //여름
+                $('#summerBtn').click(function(){
+                     $('#image img').attr({
+                        src: 'images/summer.jpg'
+                    });
+                });
+                //가을
+                $('#fallBtn').click(function(){
+                      $('#image img').attr({
+                        src: 'images/fall.jpg'
+                });
+                });
+                //겨울
+                $('#winterBtn').click(function(){
+                     $('#image img').attr({
+                        src: 'images/winter.jpg'
+                });
+            }); 
+                    
+        });*/
+
+        //선생님 해설
+        $(document).ready(function() {
+            //개별버튼 클릭
+            /* $('#springBtn').click(function(){
+                 $('#image img').attr({
+                     src : 'images/spring.jpg'
+                 });
+             });//click
+             
+             $('#summerBtn').click(function(){
+                 $('#image img').attr('src','images/summer.jpg');
+             });
+             
+             $('#fallBtn').click(function(){
+                 $('#image img').attr({
+                     src: 'images/fall.jpg'
+                 });
+             });
+             
+             $('#winterBtn').click(function(){
+                 $('#image img').attr({
+                     src: 'images/winter.jpg'
+                 });
+             });*/
+
+            //공통적용 (클릭의 대상 바뀜)
+            $('nav li a').click(function() {
+                var season = $(this).find('img').attr('alt');
+                console.log(season);
+
+                $('#image img').attr({
+                    src: 'images/' + season + '.jpg',
+                    alt: season
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav>
+            <ul>
+                <li id="springBtn">
+                    <a href="#">
+                        <img src="images/btn1_2.jpg" alt="spring">
+                    </a>
+                </li>
+                <li id="summerBtn">
+                    <a href="#">
+                        <img src="images/btn2_2.jpg" alt="summer">
+                    </a>
+                </li>
+                <li id="fallBtn">
+                    <a href="#">
+                        <img src="images/btn3_2.jpg" alt="fall">
+                    </a>
+                </li>
+                <li id="winterBtn">
+                    <a href="#">
+                        <img src="images/btn4_2.jpg" alt="winter">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="image">
+            <img src="images/spring.jpg" alt="봄">
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>innerHTML</title>
+</head>
+
+<body>
+    <h4>"Hello world!"를 아래 p요소에 출력하세요.</h4>
+    <p id="here">text here!</p>
+
+    <script>
+        //camel표기법 
+        /*여러단어가 모여있는경우 
+        첫번째 단어 앞글자는 괜찮은데 
+        두번째 단어부터는 첫글자가 대문자로 써야함
+        예시 밑에 getElmentById
+        
+        getElementById ()는 아이디가 있는요소 인데 어떤 아이디
+        innerHtml 
+        html 안쪽에 적혀져있는 값을 이렇게 바꿔줘 라는 뜻임이라는 뜻임 */
+        document.getElementById("here").innerHTML="Hello world!";
+        
+
+
+    </script>
+
+</body>
+
+</html>

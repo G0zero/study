@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript &amp; jQuery - Chapter 2: 자바스크립트의 기본 명령 - 배열 수정하기</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+      <div class="message">색상: <span id="colors">선택하신 색상을 찾을 수 없습니다. 다시 시도해 주세요.</span></div>
+    </div>
+     <!--script call-->
+     
+     <script>
+      //var color = ["beige","black","white"];
+        // document.getElementById('colors').innerHTML=color[0];
+         
+         /*var selected = color.shift();
+         document.getElementById('colors').innerHTML=selected;*/
+         
+        /* var favorite = color.slice(0,1);
+         document.getElementById('colors').innerHTML=favorite;*/
+         
+        //var favorite = color.splice(0,1);
+         //document.getElementById('colors').innerHTML=favorite;
+      
+      //선생님 해설
+         var color = ["white","black","Custom"];
+         
+         //1.배열값 수정 (재할당)하기
+         
+         /*color[2] = "Beige";
+         document.getElementById('colors').innerHTML= color[2];*/
+         
+         // 배열 메서드 사용하기
+         
+         color.splice(3,0,"Beige");//push처럼도 사용가능함 이렇게
+         console.log(color);
+         document.getElementById('colors').innerHTML = color[3];
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </script>
+  
+  </body>
+</html>

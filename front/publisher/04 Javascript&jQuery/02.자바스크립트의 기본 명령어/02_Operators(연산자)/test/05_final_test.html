@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>종합실습</title>
+</head>
+
+<body>
+    <p>수현이의 하루 지출 내역은 교통비 3,000원, 식비 6,000원, 음료비 3,000원입니다.<br> 삼항 조건 연산자를 사용하여 하루 적정 지출 비용인 1만원을 초과했을 경우에는 "000원 초과"라고 출력하고, 아닐 경우에는 "돈 관리 잘했어요!"라고 출력하세요.</p>
+
+    <!--script call-->
+    <script>
+        
+  /*      var traffic = 3000,
+            food = 6000,
+            drink = 3000,
+            allDay = 10000,
+            sueDay = traffic + food + drink,
+            total = sueDay - allDay;
+
+        document.write("수현이의 하루 지출<br>");
+        allDay >= sueDay ? document.write("돈 관리 잘했어요! <br>") : document.write(total + "원 초과 <br>");
+
+
+        var name = prompt("이름을 입력해주세요"),
+            userTraffic = Number(prompt("하루 교통비를 입력해주세요 (숫자만 입력)")),
+            userFood = Number(prompt("하루 식비를 입력해주세요 (숫자만 입력)")),
+            userDrink = Number(prompt("하루 음료비를 입력해주세요 (숫자만 입력)")),
+            userDay = userTraffic + userFood + userDrink,
+            userTotal = userDay - allDay;
+
+
+        document.write(name + "님의 하루지출<br>");
+        allDay >= userDay ? document.write("돈 관리 잘했어요!") : document.write(userTotal + "원 초과");*/
+        
+        //선생님 해설
+        var price1 = 3000,
+            price2 = 6000,
+            price3 = 3000,
+            total = price1+price2+price3; //12000
+        
+        // 제대로 이뤄지고 있는가를 확인할때는 console을 사용하고 log는 document.write처럼 사용
+        console.log(total);
+        
+        //삼항 조건 연산자
+        var result = total > 10000 ? (total-10000)+"원 초과" : "돈 관리 잘했어요~!";
+        
+        document.write(result, "<br>");
+        
+        //사용자에게 입력값 받기 
+        var cost1 = Number(prompt("오늘 사용한 교통비는?"));
+        var cost2 = Number(prompt("오늘 사용한 식비는?"));
+        var cost3 = Number(prompt("오늘 사용한 음료비는?"));
+        
+        var costTotal = cost1+cost2+cost3;
+        console.log("내가 입력한 총합 :"+costTotal);
+        
+        result = costTotal > 10000 ? (costTotal-10000)+ "원 초과! 지출 관리에 신경쓰세요!" : "돈 관리 잘했어요~!!!"
+        
+        document.write(result);
+        
+        
+    </script>
+
+
+
+</body>
+
+</html>

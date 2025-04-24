@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02_has선택자 선생님해설</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        //예제2
+        /*
+        1) #container를 클릭하면 
+        2) span태그를 포함하고 있는 li를 선택하여 글자 크기를 9px, 2초간 애니메이션
+        3) 0.5초간 사라지게 하고 
+        4) 사라진 상태에서 텍스트를 "내가 이러니 바나나 안바나나!!!!!!"로 변경 
+        5) 0.5초간 나타나게 하고 
+        6) 글자 크기를 72px, 글자색은 노란색으로 애니메이션 적용(글자 그림자 효과는 추후에)  
+        7) body를 바나나 배경으로 채우기 
+        */
+        $(function() {
+            // 1) #container를 클릭하면
+            $('#container').click(function() {
+                //2) span태그를 포함하고 있는 li를 선택하여 글자 크기를 9px, 2초간 애니메이션
+                $('li').has('span').animate({
+                        fontSize: '9px'
+                    }, 2000)
+                    //3) 0.5초간 사라지게 하고 (중간에 띄어쓰기는 안되는데 줄바꿈은 가능) 
+                    .hide(500, function() {
+                        //4) 사라진 상태에서 텍스트를 "내가 이러니 바나나 안바나나!!!!!!"로 변경
+                        $(this).text('내가 이러니 바나나 안바나나!!!!!')
+                            //5) 0.5초간 나타나게 하고   
+                            .show(500)
+                            //6) 글자 크기를 72px, 글자색은 노란색으로 애니메이션 적용(글자 그림자 효과는 추후에)
+                            .animate({
+                                fontSize: '72px',
+                                color: 'yellow'
+                                //textShadow: '2px 2px 2px #f00'//animate 수치와 컬러를 동시에 가능한건 안됨
+                            }, 800, function() {
+                                //6-1) 글자 그림자 효과 넣기
+                                $(this).css({
+                                    textShadow: '2px 2px 2px #f00'
+                                });
+
+                                $('body').css({
+                                    //7) body를 바나나 배경으로 채우기 
+                                    backgroundImage: 'url(img/banana.jpg)'
+                                });
+                            });
+
+                    });
+            }); //click()
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div>Banana Show!!!!!</div>
+
+        <ul class="nav1">
+            <li>apple</li>
+            <li><span>banana</span></li>
+            <li>grape</li>
+        </ul>
+        <ul class="nav2">
+            <li>바나나우유</li>
+            <li>바나나케이크</li>
+            <li>바나나킥</li>
+        </ul>
+    </div>
+</body>
+
+</html>

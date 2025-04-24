@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>02_position-absolute1</title>
+        
+        <style>
+            .box1, .box2 {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                left: 100px;
+                top: 100px;
+            }
+            .box1 {
+                background-color: deeppink;
+            } 
+            .box2 {
+                background-color: skyblue;
+            }
+            .parent {
+                width: 400px;
+                height: 300px;
+                border: 1px solid #000;
+                position: relative;
+                top: 200px;
+                left: 200px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <div class="box1">box1</div>
+        <div class="parent">
+            <div class="box2">box2</div>
+        </div>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>20_example_order-form</title>
+</head>
+
+<body>
+    <h1>상품주문서</h1>
+    <form action="#" method="post" name="order">
+        <fieldset>
+            <legend>주문자정보</legend>
+
+            <ul>
+                <li>
+                    <label for="user">아이디</label>
+                    <input type="text" name="user" id="user" value="아이디 수정불가">
+                </li>
+
+                <li>
+                    <label for="user-name">이&nbsp;&nbsp; 름</label>
+                    <input type="text" name="user-name" id="user-name" placeholder="이름을 입력하세요." required>
+                </li>
+
+                <li>
+                    <label for="user-number">연락처</label>
+                    <input type="tel" name="user-number" id="user-number" placeholder="'-'없이 입력해주세요" required>
+                </li>
+                <li>
+                    <label for="user-email">이메일</label>
+                    <input type="email" name="user-email" id="user-email" required>
+                </li>
+
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>배송지 정보</legend>
+            <ul>
+                <li>
+                    <label for="home">주소</label>
+                    <input type="text" name="home" id="home" required>
+                </li>
+                <li>
+                    <label for="home-number">전화</label>
+                    <input type="tel" name="home-number" id="home-number">
+                </li>
+                <li>
+                    <label for="memo">메모</label>
+                    <textarea name="memo" id="memo" cols="50" rows="4">메모를 확인하세요.</textarea>
+                </li>
+            </ul>
+            <label><input type="checkbox" name="area" value="기본배송지로 저장" checked>기본배송지로 저장</label>
+        </fieldset>
+        <fieldset>
+            <legend>주문정보</legend>
+
+            <ul>
+                <li>
+                    <label><input type="checkbox" name="coffee">과테말라 안티구아 (100g)
+                        <input type="number" value="1" min="1" max="10"></label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="coffee">인도네시아 만델링 (100g)
+                        <input type="number" value="1" min="1" max="10"></label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="coffee">탐라는도다 블렌딩 (100g)
+                        <input type="number" value="1" min="1" max="10"></label>
+                </li>
+            </ul>
+
+        </fieldset>
+
+        <p>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="재작성">
+        </p>
+
+    </form>
+</body>
+
+</html>

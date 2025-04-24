@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>02_height()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+        height() :안쪽 여백 (padding)과 선(border)을 제외한 컨텐츠의 높잇값을 반환
+        
+        $('요소선택').height(); -값반환
+        $('요소선택').height(값); -값 변환
+        */
+        $(function(){
+            $('div').height(300);
+            
+            $('button').click(function(){
+                alert($('div').height());//300
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>height()</h1>
+
+    <div></div>
+    <button>Display the height of div</button>
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+    </style>
+</body>
+
+</html>

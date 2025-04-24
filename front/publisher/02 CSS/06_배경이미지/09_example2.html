@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <title>09_example2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background-image: url(images/backdrop.gif);
+        }
+
+        header {
+            /* background-color: firebrick;*/
+            margin: 30px 0 50px;
+            text-align: center;
+        }
+
+        header h1 {
+            background-image: url(images/title.gif);
+            height: 122px;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-size: 0;
+            margin-bottom: 10px;
+        }
+
+        /*1번째 줄 : div태그*/
+        .wrap {
+            /*  background-color: aquamarine;*/
+            /*    width: 700px;
+            margin: 0 auto; 이렇게 하면 미묘하게 계속 중심을 못잡음*/
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrap .box {
+            width: 200px;
+            background-color: dimgray;
+            padding: 10px;
+            display: inline-block;
+
+        }
+
+        .wrap .box p {
+            color: #fff;
+            font-size: 14px;
+            /* text-align: center;*/
+            background-image: url(images/icon.png);
+            background-repeat: no-repeat;
+            display: inline-block;
+            padding-left: 20px;
+            background-position: left center;
+        }
+
+
+        /*두번째 줄 : 목록 태그 사용*/
+
+        .flower-list {
+            /*background-color: aquamarine;*/
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .flower-list li {
+            width: 220px;
+            background-color: dimgray;
+            padding: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+
+        }
+
+        .flower-list li p {
+            color: #fff;
+            font-size: 14px;
+            /*background-image: url(images/icon.png);
+            background-repeat: no-repeat;
+             background-position:left center;
+            
+            background: image repeat position*/
+            background: url(images/icon.png) no-repeat left center;
+            display: inline-block;
+            padding-left: 20px;
+
+        }
+
+
+        /*세번째 줄 : figure 태그 사용*/
+        .fig-wrap {
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .fig-wrap figure {
+            width: 200px;
+            background-color: dimgray;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .fig-wrap figure figcaption {
+            color: #fff;
+            font-size: 14px;
+           /* outline: 2px solid lime;*/
+        }
+        .fig-wrap figure figcaption img {
+            margin-right: 6px;
+            vertical-align: middle;
+              /*vertical-align은 폼태그에서 많이 쓰임
+            base line : 기본
+            text-bottom :글자를 기준으로 아래쪽으로 할거야 
+            text-top : 글자를 기준으로 위쪽으로 할거야*/
+            margin-top: -4px;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Galerie Botanique</h1>
+        <!--보통 h1은 class를 많이 부여해줌 이름은 로고로 많이 함 -->
+        <p>개최된 컬렉션에 선택된 고풍스러운 식물 이미지는 다음과 같다.</p>
+    </header>
+
+    <section>
+        <div class="wrap">
+            <div class="box">
+                <img src="images/print-01.jpg" alt="해바라기">
+                <p>해바라기(Helianthus)</p>
+            </div>
+            <div class="box">
+                <img src="images/print-02.jpg" alt="시계꽃">
+                <p>시계꽃(passiflora)</p>
+            </div>
+            <div class="box">
+                <img src="images/print-03.jpg" alt="닉토칼로스">
+                <p>닉토칼로스(Nyctocalos)</p>
+            </div>
+        </div>
+
+        <!--두번째 줄 : 목록 태그 사용-->
+
+        <ul class="flower-list">
+            <li>
+                <img src="images/print-04.jpg" alt="폴리안테스">
+                <p>폴리안테스(Polianthes)</p>
+            </li>
+            <li>
+                <img src="images/print-05.jpg" alt="무화과나무">
+                <p>무화과나무(Ficus)</p>
+            </li>
+            <li>
+                <img src="images/print-06.jpg" alt="덴드로비움">
+                <p>덴드로비움(Dendrobium)</p>
+            </li>
+        </ul>
+
+
+
+        <!--세번째 줄 : figure 태그 사용-->
+        <div class="fig-wrap">
+            <figure>
+                <img src="images/print-01.jpg" alt="해바라기(Helianthus)">
+                <figcaption><img src="images/icon.png" alt="">해바라기(Helianthus)</figcaption>
+            </figure>
+            <figure>
+                <img src="images/print-02.jpg" alt="시계꽃(passiflora)">
+                <figcaption><img src="images/icon.png" alt="">시계꽃(passiflora)</figcaption>
+            </figure>
+            <figure>
+                <img src="images/print-03.jpg" alt="닉토칼로스(Nyctocalos)">
+                <figcaption><img src="images/icon.png" alt="">닉토칼로스(Nyctocalos)</figcaption>
+            </figure>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

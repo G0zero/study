@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>적정체중 테스트</title>
+    <script>
+        /*조건
+        이름 : 그린이
+        신장 : 180(cm)
+        체중 : 74(kg)
+        적정체중 : (180-100)*0.9=72(kg)
+        결과 : 적정 체중은 72kg이며, 현재 적정체중에서 2kg 초과
+        */
+        
+        //STEP1. 적정체중 구하기 : 적정체중=(본인신장-100)*0.9 화면에 출력되게 하세요.
+        
+    /*    var name = "그린이",
+            tall = 180,
+            goodKg = (tall-100)*0.9;
+        document.write(name+"의 적정체중은 "+goodKg+" 입니다.");*/
+        
+        //선생님 해설
+        var userHeight = 180; //그린이의 신장
+        var normal = (userHeight-100)*0.9;
+        
+        var userWeight = 74;
+        var averageWeight = userWeight-normal; 
+        
+        document.write("그린이의 적정체중 : "+normal+"kg<br>");
+        
+
+        //STEP2. 방문자가 입력한 정보로 적정체중 구하기
+        //입력받을 정보: 이름, 키, 몸무게
+       /* var name = prompt("이름을 입력해주세요."),
+            tall = Number(prompt("자신의 신장을 입력해주세요.")),
+            kg = Number(prompt("자신의 체중을 입력해주세요.")),
+            goodKg = (tall-100)*0.9;
+        
+        
+        document.write (name+"의 적중체중 : "+goodKg+"입니다.");
+        
+        var total = kg-goodKg;
+        total >= 0 ? document.write(total+"초과입니다."):document.write(total+"미만입니다.");*/
+        
+        
+        //선생님 해설
+        
+        var name = prompt("당신의 이름은?");
+        var height = Number(prompt("키는 얼마입니까? (숫자만 입력)"));
+        var weight = Number(prompt("몸무게는 얼마입니까? (숫자만 입력)"));
+        
+        //적정체중 구하기
+        var userNormal = (height-100)*0.9;
+        document.write(name +"님의 적정체중은 "+userNormal+"입니다.<br>");
+        
+        //오차범위비교
+        //적정체중의 ±5kg
+    
+        var normalWeight = weight => userNormal-5 && weight && weight <= userNormal+5;
+        
+      /*  임의설정 :  normalNormal :72kg, 67kg ~ 77kg
+        
+        1) 입력받은 weight값 = 70, usernormal
+        70 >= 67 && 70<=77
+        true && true
+        
+        2) 입력받은 weight = 60
+         60 >= 67 && 60 <= 77
+         false && true, false
+      
+        주석처리된 과정이 debuging과정이다. 
+        이건 공식이 있는 것은 아님 
+        */
+        
+        var result = normalWeight ? "적정체중입니다." : "적정체중이 아닙니다.";
+        document.write(name+"님은"+result);
+        
+        /*var과 lat의 차이를 알아야 함 
+        변수 선언할떄 같은 이름으로 지어줄수 없음 
+        
+        prompt는 변수에 적어주는 이유는 
+        입력받은 데이터값을 담아주는 그릇이 필요하기 때문임
+       
+       const는 변하지 않는 값 상수를 의미함*/
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

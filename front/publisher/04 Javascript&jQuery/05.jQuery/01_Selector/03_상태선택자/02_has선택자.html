@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>02_has선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //has()선택자 : 선택한 요소 중 지정한 태그를 포함하는 요소만 선택 
+        //기본형: $('요소선택: has(태그명)') 또는 $('요소선택').has('태그명');
+        //예제1
+        $(document).ready(function() {
+
+            $('#inner_1 p:has(span)').css({
+                backgroundColor: 'yellow',
+                fontSize: '30px'
+            });
+
+            $('#inner_2 p').has('strong').css({
+                fontWeight: 'normal',
+                color: 'red'
+            });
+        });
+
+        //예제2
+        /*
+        1) #container를 클릭하면 
+        2) span태그를 포함하고 있는 li를 선택하여 글자 크기를 9px, 2초간 애니메이션
+        3) 0.5초간 사라지게 하고 
+        4) 사라진 상태에서 텍스트를 "내가 이러니 바나나 안바나나!!!!!!"로 변경 
+        5) 0.5초간 나타나게 하고 
+        6) 글자 크기를 72px, 글자색은 노란색으로 애니메이션 적용(글자 그림자 효과는 추후에)  
+        7) body를 바나나 배경으로 채우기 
+        */
+
+        $(document).ready(function() {
+            $('#container').click(function() {
+
+                $('.nav1 li:has(span)').animate({
+                    fontSize: '9px'
+                },2000).hide(500, function(){
+                    $('.nav1 li:contains(banana)').text('내가 이러니 바나나 안바나나!!!!').css({
+                        fontSize: '72px',
+                        color: 'yellow'
+                    });
+                }).show(500, function(){
+                    $('body').css({
+                        background: 'url(img/banana.jpg)'
+                    });
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!--예제1-->
+    <!--       <div id="outer-wrap">
+           <h1>상태 선택자</h1>
+           
+           <section id="inner_1">
+               <h2>has() 선택자1</h2>
+               <p><span>내용1</span></p>
+               <p>내용2</p>
+               <p><span>내용3</span></p>
+           </section>
+           
+           <section id="inner_2">
+               <h2>has() 선택자2</h2>
+               <p>내용4</p>
+               <p><strong>내용5</strong></p>
+               <p>내용6</p>
+           </section>
+       </div>-->
+    <!--예제2-->
+    <div id="container">
+        <div>Banana Show!!!!!</div>
+
+        <ul class="nav1">
+            <li>apple</li>
+            <li><span>banana</span></li>
+            <li>grape</li>
+        </ul>
+        <ul class="nav2">
+            <li>바나나우유</li>
+            <li>바나나케이크</li>
+            <li>바나나킥</li>
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>

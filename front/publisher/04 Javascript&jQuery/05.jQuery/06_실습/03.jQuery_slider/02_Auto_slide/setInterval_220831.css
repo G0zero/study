@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/***RESET*******************************/
+* {
+    margin: 0;
+    padding: 0;
+}
+ul,ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/***Contents*******************************/
+#contents {
+    width: 100%;
+}
+article.main {
+    width: 100%;
+    background: url(image/line.png);
+}
+article.main .slide_box {
+    /*실제 슬라이드가 보여지는 공간!*/
+    width: 1280px;
+    margin: 0 auto;
+    height: 380px;
+    position: relative; /* 하위요소의 기준! */
+    overflow: hidden;
+    /*outline: 3px solid blue;*/
+}
+
+.slide_box .btngrp {
+    text-align: center;
+    position: absolute;
+    bottom: 5%;
+    
+    /*width: 100%;*/
+    
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.slide_box .btngrp li {
+    /*float: left;*/
+    display: inline-block;
+    
+    /*width: 20px;
+    height: 20px;*/
+    
+    cursor: pointer;
+}
+.slide_box .btngrp li~li {
+    margin-left: 8px;
+}
+
+.slide_box #gallery {
+    /*width: 400%;*/
+    width: 5120px; /* li(1280px) x 4개 */
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+.slide_box #gallery li {
+    float: left;
+    width: 1280px;
+    height: 100%;
+}
+.slide_box #gallery li img {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+

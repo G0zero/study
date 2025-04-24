@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_for문</title>
+
+    <style>
+        #box {
+            outline: 2px solid blue;
+        }
+
+        #box>img {
+            width: 100px;
+        }
+    </style>
+
+    <script>
+        //for문을 이용해서 이미지 50개가 반복적으로 나타날 수 있도록 구현하시오.
+
+        //html 로딩후 실행!
+        window.addEventListener("load", function() {
+            for (var i = 1; i <= 50; i++) {
+                document.getElementById('box').innerHTML += '<img src="images/dress/' + i + '.jpg" alt= "여성원피스"title="WOMAN22-' + i + '">';
+            }
+        });
+        //이벤트 등록하는 메서드
+    </script>
+</head>
+
+<body>
+    <!--이미지 넣을 박스-->
+    <div id="box">
+        <!-- <img src="images/dress/1.jpg" alt="여성원피스" title="WOMAN22-1">-->
+    </div>
+
+    <script>
+        /*   for(var i=1; i<=50; i++ ){
+            document.getElementById('box').innerHTML += '<img src="images/dress/'+i+'.jpg" alt= "여성원피스"title="WOMAN22-'+i+'">';
+        }
+        */
+    </script>
+
+</body>
+
+</html>

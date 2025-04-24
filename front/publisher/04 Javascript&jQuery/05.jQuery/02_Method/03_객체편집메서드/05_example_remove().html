@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>05_example_remove()</title>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script> 
+            //미션: 풍선 이미지를 클릭하면 이미지가 터지는 풍선이미지로 변경 후 이미지 태그를 제거하시오.
+ 
+        /*    $(document).ready(function(){
+                //1.이미지를 클릭했을때 
+                $('img').click(function(){
+                    //이미지변경
+                    $(this).attr({
+                        src : 'image/balloon-burst.jpg'
+                    }).animate({
+                        width: '250px'
+                    },800,function(){
+                        $(this).remove();
+                    });
+                });
+                 
+            });*/
+            
+            //선생님 해설 
+            /*
+            1) 풍선 이미지를 클릭했을때 
+            2) 클릭된 풍선(this)이 터지는 풍선 이미지를 변경 >>src변경 
+            3) 이미지가 커지고 >>css(), animate()
+            4) 이미지 태그 제거 >>remove()*/
+            $(function(){//코드블럭이라고 함
+                  $('.container img').click(function(){
+                      $(this).attr({
+                          src : 'image/balloon-burst.jpg',
+                          alt : '펑!'
+                      }).animate({
+                          width: '300px',
+                          height: '360px'
+                      },500,function(){
+                          $(this).remove();
+                      });
+                  });
+            });
+          
+            /*
+            animate() 기본형 
+            animate({속성값}, 400, function(){});
+            
+            속성값은 css처럼 속성값을 넣는데 수치만 사용가능함 (얘만 써도 실행가능)
+            400은 easeing 가속도임 작성안했을시 400이 기본값임 0.4초
+            animate안에 function을 callbck함수라고 함 에니매이트가 끝나고 실행해줄 함수임
+            
+            */
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <img src="image/balloon_blue.png" alt="파란풍선">
+            <img src="image/balloon_green.png" alt="녹색풍선">
+            <img src="image/balloon_red.png" alt="빨간풍선">
+        </div>
+        
+        <style>
+            img {
+                width: 200px;
+                height: 260px;
+            }
+        
+        </style>
+    </body>
+</html>

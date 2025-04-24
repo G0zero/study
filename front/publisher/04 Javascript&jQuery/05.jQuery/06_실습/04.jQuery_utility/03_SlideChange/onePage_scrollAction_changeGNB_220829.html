@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>onePage_scrollAction_changeGNB</title>
+	
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul:after,
+        ol:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            float: left;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        html,
+        body {
+            /* 보이는 화면 기준! */
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+
+        /* header 디자인 */
+        header#top {
+            width: 100%;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            z-index: 9999;
+        }
+		
+		/* 탑메뉴 디자인 변경 */
+		.newTM {
+			height: 70px !important;
+			background-color: rgba(255,255,255,0.9) !important;
+		}
+		.newTM #logo {
+			height: 80%; /*56px*/
+			top: 10%;
+		}
+		.newTM #logo img {
+			height: 40px;
+			margin-top: 8px; /*기존에는 margin-top:10px이었던 것을 변경!*/
+		}
+		
+		.newTM #gnb {
+			top: 24px;
+		}
+		.newTM #gnb a {
+			color: #000;
+			font-weight: bold;
+		}
+		.newTM #gnb a:hover {
+			text-shadow: 1px 1px 1px #000;
+		}
+		
+		
+
+        .inbox {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+            /*로고, 메뉴의 기준!*/
+            /*outline: 2px solid lime;*/
+        }
+
+        #logo {
+            display: block;
+            /*width: 250px;*/
+            height: 100%;
+            /*80px*/
+            position: absolute;
+        }
+
+        #logo img {
+            height: 60px;
+            margin-top: 10px;
+        }
+
+
+        /* GNB 메뉴 */
+        #gnb {
+            position: absolute;
+            right: 2%;
+            top: 40px;
+        }
+
+        #gnb li {
+            margin: 0 7px;
+        }
+
+        #gnb li a {
+            /*color: #fff;*/
+        }
+
+        #gnb li a:hover {
+            color: lime;
+            text-decoration: overline;
+        }
+
+        #gnb li:hover {
+            transform: scale(1.1);
+        }
+        
+        /* 선택된 메뉴 - selM*/
+        .selM {
+            transform: scale(1.2);
+        }
+        .selM a {
+            color: lime;
+            text-decoration: overline;
+        }
+        
+
+        /* 각 섹션 디자인 */
+        .page {
+            width: 100%;
+            height: 100%;
+        }
+
+        #page1 {
+            background: url(images/p1.png) no-repeat top/cover;
+        }
+
+        #page2 {
+            background: url(images/p2.png) no-repeat top/cover;
+        }
+
+        #page3 {
+            background: url(images/p3.png) no-repeat top/cover;
+        }
+
+        #page4 {
+            background: url(images/p4.png) no-repeat top/cover;
+        }
+
+        #page5 {
+            background: url(images/p5.png) no-repeat top/cover;
+        }
+
+        #page6 {
+            background: url(images/p6.png) no-repeat top/cover;
+        }
+
+        #page7 {
+            background: url(images/p7.png) no-repeat top/cover;
+        }
+
+        /* 블릿 네비게이션 */
+        ol#bnavi {
+            width: 15px;
+            position: fixed;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        ol#bnavi li {
+            width: 100%;
+            height: 15px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 50%;
+            margin: 6px 0;
+            position: relative;
+            /*span 위치 기준!*/
+        }
+
+        ol#bnavi li a {
+            width: 100%;
+            height: 100%;
+            display: block;
+           /* color: #fff;*/
+        }
+
+        ol#bnavi li a span {
+            font: bold .9rem '맑은 고딕';
+            white-space: nowrap;
+            text-shadow: 1px 0 #888, -1px 0 #888, 0 1px #888, 0 -1px #888;
+            position: absolute;
+            right: 200%;
+            top: -50%;
+            display: none;
+        }
+        
+        /* 선택된 블릿 - selB */
+        .selB {
+            background-color: #ec686a;
+            transform: scale(1.15);
+        }
+        .selB span {
+            display: block !important;
+        }
+		
+		/** TOP버튼 *************************/
+		#tbtn {
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			border: none;
+			background-color: rgba(255,255,255,0.5);
+			font: bold 20px Verdana;
+			color: red;
+			position: absolute;
+			top: 80%;
+			right: 100px;
+			cursor: pointer;
+			transition: all .5s ease-out;
+			/* transiton을 통해 변경되는 top위치가 부드럽게 보여짐*/
+			
+			display: none;
+		}
+        
+    </style>
+    
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+		/////////////// 전역변수 /////////////////
+		const headerHeight = 80; //헤더 높잇값
+		
+		//탑메뉴 변경 실행여부 체크 (0-실행전, 1-실행후)
+		var tmsts = 0;
+		
+		//탑버튼 위치 기준값 (80%위치)
+		var tbpos = $(window).height() * 0.8;
+		
+		//각 페이지 시작위치값
+		var p1pos, p2pos, p3pos, p4pos, p5pos, p6pos, p7pos;
+
+		//현재 페이지를 담을 변수 (첫 페이지 0)
+		var pno = 0; 
+		
+		//페이지 기준 범위설정을 위한 값
+		var gap = 200;
+		
+		//클릭이벤트 구분 변수 (0-클릭안함, 1-클릭함)
+		//클릭해서 페이지가 이동할 때, 스크롤이벤트가 발생하기 때문에 스크롤 이벤트 막기 (0-스크롤 이벤트 허용, 1-스크롤 이벤트 막기)
+		var click_sts = 0;
+		
+		
+		// 스크롤 이벤트
+		$(window).scroll(function(){
+			
+			//클릭으로 스크롤이벤트 발생 시 이벤트 막기
+			if(click_sts === 1) return false;
+			
+			
+			var scTop = $(this).scrollTop();
+			console.log('스크롤위치값: '+scTop);
+			
+			//1. 새로운 탑메뉴 디자인 적용하기
+			/*if(scTop > 80){
+				$('#top').addClass('newTM');
+			}else{
+				$('#top').removeClass('newTM');
+			}*/
+			
+			if(scTop > headerHeight && tmsts === 0){
+				
+				tmsts = 1; //탑메뉴 상태 변경
+				
+				$('#top').css({
+					position: 'fixed',
+					top: '-40px'
+				}).animate({
+					top: '0px'
+				}, 800, 'easeOutQuint').addClass('newTM');
+				
+			}else if(scTop <= headerHeight && tmsts === 1){
+				
+				tmsts = 0; 
+				
+				$('#top').animate({
+					top: '-40px'
+					//top: '-100%'
+				}, 800, 'easeOutQuint', function(){
+					
+					$(this).css({
+						position: 'fixed',
+						top: '0px'
+					});
+					
+				}).removeClass('newTM');
+			}
+			
+			
+			//2. 스크롤시 TOP버튼 자리 고정 애니메이션
+			//원리 : 기존 버튼 위치 top값에 스크롤 top값을 더하여 항상 같은 위치를 유지
+			
+			if(scTop > p2pos-200) {
+				$('#tbtn').show().css({
+					top: (tbpos + scTop) + 'px'
+				});
+			}else{
+				$('#tbtn').hide().css({
+					top: tbpos + 'px'
+				});
+			}
+			
+			
+			//3. 스크롤 이동 시 해당 페이지 메뉴 변경하기
+			if(scTop > p1pos && scTop < p1pos+gap){ //첫 페이지
+				pno = 0;
+				chgMenu();
+			}
+			else if(scTop > p2pos-gap && scTop < p2pos+gap){
+				//두번째 페이지
+				pno = 1;
+				chgMenu();
+			}
+			else if(scTop > p3pos-gap && scTop < p3pos+gap){
+				//세번째 페이지
+				pno = 2;
+				chgMenu();
+			}
+			else if(scTop > p4pos-gap && scTop < p4pos+gap){
+				//네번째 페이지
+				pno = 3;
+				chgMenu();
+			}
+			else if(scTop > p5pos-gap && scTop < p5pos+gap){
+				//다섯번째 페이지
+				pno = 4;
+				chgMenu();
+			}
+			else if(scTop > p6pos-gap && scTop < p6pos+gap){
+				//여섯번째 페이지
+				pno = 5;
+				chgMenu();
+			}
+			else if(scTop > p7pos-gap){
+				//일곱번째 페이지
+				pno = 6;
+				chgMenu();
+			}
+			
+		}); //scroll()
+		
+		
+		$(document).ready(function(){
+			
+			//각 페이지 시작 위치값
+			p1pos = $('#page1').offset().top;
+			p2pos = $('#page2').offset().top;
+			p3pos = $('#page3').offset().top;
+			p4pos = $('#page4').offset().top;
+			p5pos = $('#page5').offset().top;
+			p6pos = $('#page6').offset().top;
+			p7pos = $('#page7').offset().top;
+			
+			//console.log('p2pos: '+p2pos);
+			
+			
+			//TOP버튼 클릭 시 상단 이동
+			$('#tbtn').click(function(){
+				$('html, body').stop().animate({
+					scrollTop: 0
+				}, 800, 'easeOutQuint');
+			});
+			
+			//#gnb a, #bnavi a를 클릭하면 해당 페이지 위치로 스크롤 이동
+			$('#gnb a, #bnavi a').click(function(e){
+				
+				e.preventDefault();
+				
+				//클릭여부 확인, 스크롤 이벤트 막기위해!
+				click_sts = 1;
+				
+				var idx = $(this).parent().index();
+				pno = idx;
+				
+				//1) 클릭된 a태그의 href값을 통해 이동할 페이지 위치 구하기
+				var pid = $(this).attr('href');
+				var pagepos = $(pid).offset().top;
+				console.log('클릭된 페이지 위치1: '+pagepos);
+				
+				//2) 클릭된 메뉴의 인덱스를 이용해서 해당 페이지 위치 구하기
+				var pagepos2 = $('.page').eq(pno).offset().top;
+				console.log('클릭된 페이지 위치2: '+pagepos2);
+				
+				//스크롤 애니메이션
+				$('html, body').animate({
+					scrollTop: pagepos + 'px'
+				}, 800, 'easeOutQuint', function(){
+					click_sts = 0;
+				});
+				
+				//메뉴변경 함수
+				chgMenu();
+				
+			});
+			
+			
+			
+			
+		});
+		
+		/*///////////////////////////////////////////////
+            함수명 : chgMenu
+            기능 : GNB 메뉴와 블릿베뉴를 현재 페이지와 일치되도록 동시에 변경
+        /////////////////////////////////////////////*/
+        
+        function chgMenu(){
+            //GNB 메뉴의 class 변경
+            $('#gnb li').eq(pno).addClass('selM').siblings().removeClass('selM');
+            
+            //bnavi 메뉴의 class변경
+            $('#bnavi li').eq(pno).addClass('selB').siblings().removeClass('selB');
+            
+        }
+	
+	
+	
+	</script>
+	
+	
+</head>
+<body>
+	<header id="top">
+        <div class="inbox">
+            <a href="#" id="logo"><img src="images/logo_cgv.png" alt="CGV"></a>
+
+            <!---GNB--->
+            <nav id="gnb">
+                <ul>
+                    <!--li*7>a[href=#page]-->
+                    <li class="selM"><a href="#page1">닥터두리틀</a></li>
+                    <li><a href="#page2">안녕베일리</a></li>
+                    <li><a href="#page3">라라랜드</a></li>
+                    <li><a href="#page4">어바웃타임</a></li>
+                    <li><a href="#page5">어벤져스</a></li>
+                    <li><a href="#page6">아이언맨3</a></li>
+                    <li><a href="#page7">라이온킹</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--각 페이지 박스-->
+    <!--section#page$.page*7-->
+    <section id="page1" class="page"></section>
+    <section id="page2" class="page"></section>
+    <section id="page3" class="page"></section>
+    <section id="page4" class="page"></section>
+    <section id="page5" class="page"></section>
+    <section id="page6" class="page"></section>
+    <section id="page7" class="page"></section>
+
+    <!--블릿 네비게이션-->
+    <ol id="bnavi">
+        <!--li*7>a[href=#page$]>span-->
+        <li class="selB"><a href="#page1"><span>닥터두리틀</span></a></li>
+        <li><a href="#page2"><span>안녕베일리</span></a></li>
+        <li><a href="#page3"><span>라라랜드</span></a></li>
+        <li><a href="#page4"><span>어바웃타임</span></a></li>
+        <li><a href="#page5"><span>어벤져스</span></a></li>
+        <li><a href="#page6"><span>아이언맨3</span></a></li>
+        <li><a href="#page7"><span>라이온킹</span></a></li>
+    </ol>
+    
+    <!--따라오는 TOP버튼-->
+    <button id="tbtn">TOP</button>
+    
+    
+    
+    
+	
+	
+</body>
+</html>

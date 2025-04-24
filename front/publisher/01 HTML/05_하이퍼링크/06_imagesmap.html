@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_imagesmap</title>
+</head>
+<body>
+    
+    <img src="images/bigdata_usemap.png" alt="빅데이터 이미지맵" usemap="#buy_link">
+    
+    <map name="buy_link">
+        <area shape="rect" coords="37,26,433,568" href="https://book.naver.com/bookdb/book_detail.nhn?bid=7188732" alt="빅데이터 승리의 과학 책표지" target="_blank">
+        
+        <area shape="rect" coords="362,671,499,709" href="http://www.interpark.com" alt="인터파크바로가기" target="_blank">
+        
+        <area shape="rect" coords="523,671,619,709" href="http://www.yes24.com" alt="yes24 바로가기"target="_blank">
+    </map>
+    
+    <!--
+    이미지맵이란 하나의 이미지에 링크에 여러가지 자료를 넣는것을 말함 
+    name태그는
+    #은 뭔가 연결할때 사용함 근데 이런경우는 대부분 조금 잘안쓰고 아이디에 제일 많이 쓰이긴함  
+    
+    1) 사각형 
+     shape="rect" coords="x1,y1,x2,y2"
+     x1,y1: 좌측상단
+     x2,y2: 우측하단
+     이 두가지를 기준으로 사각형을 만듦
+    
+    2) 원 
+    shape ="circle" coords="센터x,센터y"
+    
+    
+    -->
+    
+</body>
+</html>

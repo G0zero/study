@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Variables-6</title>
+</head>
+<body>
+<h3>각각의 변수를 한줄로 나열하여 할당하세요.
+firstName="John", lastName="Doe", age=35</h3>
+<p id="demo">Display the result here.</p> 
+
+<script>
+// Create the variables here
+    //result : John Doe 35
+
+  /*  var firstName = "John";
+    var lastName = "Doe";
+    var age = 35;
+    var a =" ";*/
+    /*
+     document.getElementById('demo').innerHTML=firstName+a+lastName+a+age;*/
+    //변수가 나열되어 선언할떄 
+    
+    var firstName = "John",
+        lastName = "Doe", 
+        age = 35;
+   
+    document.getElementById('demo').innerHTML=firstName + " " +lastName + " " + age;
+    
+    /*띄어쓰기는 변수값 뒤에 띄어쓰기를 해도 되고 내가 한것처럼 공백 문자를 만들어 넣어도되고 밑에 있는것처럼 그냥 ""안에 공백을 넣어 사용해도 됨 할수 있는게 너무 많음 */
+    
+    
+</script>
+</body>
+</html>

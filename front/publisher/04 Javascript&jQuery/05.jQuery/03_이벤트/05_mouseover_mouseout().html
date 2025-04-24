@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>05_mouseover_mouseout()</title>
+        <script src="jquery-1.12.4.min.js"></script>
+        <script>
+            /*
+            mouseover() : 선택한 요소에 마우스 포인터를 올릴때마다 이벤트 발생
+            
+            mouseout() : 선택한 요소에 마우스 포인터가 벗어날 때마다 이벤트 발생 
+            */
+            
+            $(function(){
+                //on() 여러개 등록하기 
+                $('.btn1').on({
+                    'mouseover':function(){
+                        $('.txt1').css({
+                            backgroundColor: 'yellow'
+                        });
+                    },
+                    'mouseout' :function(){
+                        $('.txt1').css({
+                            backgroundColor:'transparent'
+                        });
+                    }
+                }); //on()
+                
+            
+            });
+        </script>
+    </head>
+    <body>
+        <p><button class="btn1">Mouse Over/ Mouse Out</button></p>
+        <p class="txt1">내용1</p>
+        
+    
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>03_not선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <script>
+        //not 선택자: 선택한 요소 중 지정한 요소만 제외한 채 선택
+        //기본형: $('요소선택:not(제외할 요소선택)')또는 $('요소선택).not('제외할 요소 선택)
+        //siblings : 형제 선택자 
+
+        $(document).ready(function() {
+            //#inner_2 p 에서 첫번째 요소만 제외하고 선택 
+            $('#inner_2 p').not(':first').css({
+                color: '#f00',
+                fontWeight: 'bold'
+            });
+
+
+            //예제2
+            /*
+            1) li를 클릭하면 클릭된 li를 '야옹'이라고 글자변경
+            2) 변경된 글자의 글자크기를 72px, 글자색 빨강으로 변경 
+            3) 동시에 나머지 li는 사라지도록 하시오 !
+            */
+            /*            $('.nav li').click(function() {
+                            $(this).text('야옹').animate({
+                                fontSize: '72px',
+                                color: 'red'
+                            }, 1000);
+                            $('.nav li').not(this).hide(1000);
+                        });
+                    });*/
+
+            /*          $('.nav li').click(function() {
+                    $(this).text('야옹').css({
+                        fontSize: '72px',
+                        color :'red'
+                    });
+                    $('.nav li').not(this).hide(1000);
+                });*/
+
+
+            //선생님 해설 
+            $('li').click(function() {
+                //1.css()메서드, siblings()선택자 사용
+              /*  $(this).text('야옹').css({
+                    fontSize: '72px',
+                    color: 'red',
+                    transition: 'all .8s'
+                }).siblings().hide();*/
+                
+                //2. animate()메서드, siblings() 선택자 사용
+            /*    $(this).text('야옹').animate({
+                    fontSize: '72px',
+                    color: 'red'
+                },800, function(){
+                    $(this).siblings().hide(800);
+                });*/
+                
+                //3.css()메서드, not()선택자 사용 
+                  $(this).text('야옹').css({
+                    fontSize: '72px',
+                    color: 'red',
+                    transition: 'all .8s'
+                });
+                //(1) not() 선택자 사용 1
+                //$('li').not(this).hide(800);
+                
+                //(2) index()메서드 활용하기 
+                //index() :인덱스 번호를 구하는 메서드
+                var idx = $(this).index();
+                console.log('클릭된 li의 인덱스값: '+idx);
+                
+                //$('li').not(':eq('+idx+')').hide(800);
+                
+                $('li:not(:eq('+ idx +'))').hide(800);
+                
+            });//click
+
+        });
+    </script>
+</head>
+
+<body>
+    <!--예제1-->
+    <!--     <div id="outer-wrap">
+           <h1>상태 선택자</h1>
+           
+           <section id="inner_1">
+               <h2>not() 선택자1</h2>
+               <p><span>내용1</span></p>
+               <p>내용2</p>
+               <p><span>내용3</span></p>
+           </section>
+           
+           <section id="inner_2">
+               <h2>not() 선택자2</h2>
+               <p>내용4</p>
+               <p><strong>내용5</strong></p>
+               <p>내용6</p>
+           </section>
+       </div>-->
+    <!--예제 2-->
+    <div id="container">
+        <ul class="nav">
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+            <li>고양이</li>
+        </ul>
+    </div>
+</body>
+
+</html>

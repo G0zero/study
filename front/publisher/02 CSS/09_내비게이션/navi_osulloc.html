@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>navi_osulloc</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: url(images/sample1.jpg) no-repeat center top;
+        }
+
+        #gnb {
+            width: 1000px;
+            /* max-width: 1200px;*/
+            margin: 93px auto;
+            text-align: center;
+            line-height: 60px;
+           
+        }
+
+        #gnb a {
+            color: #fff;
+            display: block;
+        }
+
+        #gnb>ul>li {
+            float: left;
+            width: 200px;
+
+        }
+
+        #gnb>ul>li>a {
+            display: inline-block;
+             position: relative;
+            /*outline: 2px solid blue;*/
+
+        }
+        #gnb>ul>li:hover> a {
+             color: yellow;
+        }
+
+        #gnb>ul>li:hover> a:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+
+        }
+     
+        #gnb>ul>li:hover .sbox {
+            height: 220px;
+        }
+        #gnb>ul>li:hover .sb1 {
+            height: 190px !important;
+        }
+        #gnb>ul>li:hover .sb2 {
+            height: 130px !important; 
+        }
+
+        .sbox {
+            width: 200px;
+            line-height: 30px;
+            height: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+            /*outline: 2px solid red;*/
+        }
+
+        .sbox .smenu {
+            padding: 20px 0;
+        }
+
+        .sbox .smenu>li {
+            
+        }
+
+        #gnb .sbox .smenu>li>a {
+            color: #333;
+            font-size: 14px;
+
+        }
+        #gnb .sbox .smenu > li:hover >a {
+            color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="gnb">
+        <ul>
+            <li>
+                <a href="#">Shop</a>
+
+                <div class="sbox">
+                    <ul class="smenu">
+                        <li><a href="#">Tea shop</a></li>
+                        <li><a href="#">Tea ware shop</a></li>
+                        <li><a href="#">Gift shop</a></li>
+                        <li><a href="#">Weekly best</a></li>
+                        <li><a href="#">공동구매</a></li>
+                        <li><a href="#">오설록 라운지</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">Tea Life</a>
+
+                <div class="sbox">
+                    <ul class="smenu">
+                        <li><a href="#">상품구매후기</a></li>
+                        <li><a href="#">선물하기</a></li>
+                        <li><a href="#">다다일상(정기구독)</a></li>
+                        <li><a href="#">맞춤추천</a></li>
+                        <li><a href="#">MD's PICK</a></li>
+                        <li><a href="#">매장방문기</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">Event</a>
+
+                <div class="sbox sb1">
+                    <ul class="smenu">
+                        <li><a href="#">2020 GOLDEN PICK</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">온라인 쇼핑혜택</a></li>
+                        <li><a href="#">인스타그램</a></li>
+                        <li><a href="#">About Tea</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">About OSULLOC</a>
+
+                <div class="sbox">
+                    <ul class="smenu">
+                        <li><a href="#">Brand Story</a></li>
+                        <li><a href="#">Since 1979</a></li>
+                        <li><a href="#">오설록 차밭 이야기</a></li>
+                        <li><a href="#">숫자로 보는 오설록</a></li>
+                        <li><a href="#">티하우스 메뉴</a></li>
+                        <li><a href="#">매거진</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">Jeju Tea Museum</a>
+
+                <div class="sbox sb2">
+                    <ul class="smenu">
+                        <li><a href="#">티뮤지엄 소개</a></li>
+                        <li><a href="#">티스톤 예약</a></li>
+                        <li><a href="#">제주 오설록 맵</a></li>
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>

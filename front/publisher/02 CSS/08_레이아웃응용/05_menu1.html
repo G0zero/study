@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05_menu1</title>
+    <link rel="stylesheet" href="css/05_menu1.css">
+</head>
+
+<body>
+    <header>
+        <h1><a href="#">LOGO</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">메인메뉴1</a></li>
+                <li><a href="#">메인메뉴2</a></li>
+                <li><a href="#">메인메뉴3</a></li>
+                <li><a href="#">메인메뉴4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <main>
+            <p>메인이미지 슬라이더</p>
+        </main>
+        <article>
+            <ul class="product-wrap clearfix">
+                <li class="product1">Product1</li>
+                <li class="product2">Product2</li>
+                <li class="product1">Product3</li>
+                <li class="product2">Product4</li>
+            </ul>
+        </article>
+        <article>
+            <ul class="banner-wrap clearfix">
+                <li>Banner1</li>
+                <li>Banner2</li>
+            </ul>
+        </article>
+    </section>
+    <footer>
+       <!---footer라는 태그로 이미 이 영역이 구분되는데 .footer를 클래스로 사용하면 두개가 혼동이 되겠죠
+       
+       보통 header, footer를 클래스로 사용하는 건 시맨틱 태그가 나오기 이전에 div 가 중복되서 사용되므로 영역을 구분하기 위해 클래스로 사용되었던 거고 지금은 시맨틱 태그를 사용하므로 클래스명을 헷갈리게 사용하는 걸 피해야 해요 --->
+  
+        <div class="inner-footer">
+            <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+            <p class="sns"><a href="#">sns연결</a></p>
+            <p class="copy">&copy; COPYRIGHT 2018</p>
+        </div>
+    </footer>
+</body>
+
+</html>

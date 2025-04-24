@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>02_min-width</title>
+        
+        
+        <style>
+          /*min-width는 작은 수치에서 큰 수치순서로 */
+            img {
+                width: 100%;  
+            }
+            @media all and (min-width:370px) {
+                img {
+                    width: 80%;
+                }
+            } 
+            
+            @media all and (min-width:768px) {
+                img {
+                    width: 50%;
+                    float: left;
+                }
+            }
+            
+            @media all and (min-width:1024px) {
+                img {
+                    width: 33.33%
+                }
+                img:last-child {
+                    display: none;
+                }
+            }
+        
+        </style>
+        
+    </head>
+    <body>
+       <h1>Colorful Fruits</h1>
+       <img src="images/kiwi.jpg" alt="">
+       <img src="images/blueberry.jpg" alt="">
+       <img src="images/orange.jpg" alt="">
+       <img src="images/dragonfruit.jpg" alt="">
+        
+         
+           
+    </body>
+</html>

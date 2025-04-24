@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_position-fixed</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                width: 100%;
+                height: 100px;
+                background-color: rgba(0,0,0,0.5);
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            section {
+                width: 100%;
+                height: 1500px;
+                background-color: lightcyan;
+                font-size: 24px;
+                text-align: center;
+                /*padding-top: 100px;*/
+                margin-top: 100px; 
+            }
+            
+            /*상단에 공간을 줄때 
+            1) padding-top : 고정된 헤더 높잇값만큼 동일한 값을 줄것
+            2) margin-top : 헤더에 좌표값이 무조건 들어가야 바디를 기준으로 고정
+            */
+            
+            
+            footer {
+                width: 100%;
+                height: 80px;
+                background-color: #000;
+            }
+        
+        
+        </style>
+    </head>
+    <body>
+        <header></header>
+        
+        <section>여름이 오고 있어요~~~~~</section>
+        
+        <footer></footer>
+        
+    </body>
+</html>

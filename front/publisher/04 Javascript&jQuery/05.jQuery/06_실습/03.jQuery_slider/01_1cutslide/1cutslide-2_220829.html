@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>1cutslide-2</title>
+	
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background: #05184d;
+		}
+		div#slider {
+			width: 1200px;
+			margin: 0 auto;
+			margin-top: 40px;
+			border: 3px solid #fdf6dd;
+			position: relative; /* #btnGroup의 기준! */
+			overflow: hidden;
+			
+			/*자식요소(#viewer)가 absolute로 위치를 잡게 되면 높잇값 설정이 필요*/
+			/*height: 500px;*/
+		}
+		div#viewer {
+			width: 400%;
+			position: relative;
+			
+			/*position: absolute;*/
+			left: 0;
+		}
+		div#viewer:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		div#viewer img {
+			width: 25%;
+			display: block;
+			float: left;
+		}
+		
+		#btnGroup {
+			list-style: none;
+			position: absolute;
+			right: 1%;
+			bottom: 2%;
+		}
+		ul:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#btnGroup li {
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			/*background-color: #fdf6dd;
+			border-radius: 6px;
+			overflow: hidden;*/
+			float: left;
+		}
+		#btnGroup li~li {
+			margin-left: 6px;
+		}
+		#btnGroup li a {
+			text-decoration: none;
+			color: #000;
+			display: block;
+			background-color: #fdf6dd;
+			border-radius: 6px;
+		}
+		#btnGroup li a:hover {
+			background-color: darkseagreen;
+			color: #fff;
+		}
+		
+		
+	
+	</style>
+	
+	<script src="jquery-1.12.4.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script>
+	
+		$(function(){
+			
+			$('#btnGroup a').click(function(evt){
+				
+				evt.preventDefault();
+				
+				//클릭된 a태그의 li 순번(인덱스) 구하기
+				var idx = $(this).parent().index();
+				//alert(idx);
+				
+				//클릭된 번호에 따라 #viewer이동하기
+				$('#viewer').animate({
+					left: -(100 * idx) + '%'
+				}, 600, 'easeInOutQuint');
+				
+			});
+			
+		});
+	
+	</script>
+</head>
+<body>
+	
+	<div id="slider">
+		<!--slider : 실제 보여질 공간-->
+		
+		<div id="viewer">
+			<!--viewer : 슬라이드 전체를 담는 부모-->
+			<img src="images/illom-slide1.jpg" alt=""><img src="images/illom-slide2.jpg" alt=""><img src="images/illom-slide3.jpg" alt=""><img src="images/illom-slide4.jpg" alt="">
+		</div>
+		
+		<ul id="btnGroup">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+		</ul>
+	</div>
+</body>
+</html>

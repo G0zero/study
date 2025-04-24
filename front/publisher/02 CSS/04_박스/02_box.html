@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>02_box</title>
+    
+    <style>
+        body {
+            margin-bottom: 600px;
+        }
+        h2 {
+            color: aquamarine;
+        }
+    /*overflow*/
+        .div1 {
+            width: 200px;
+            height: 80px;
+            background-color: lightpink;
+            margin-bottom: 20px;
+        }
+    
+        .hidden { 
+            overflow:hidden;
+        }
+        .scroll {
+            overflow: scroll;
+        }
+        .auto {
+            overflow: auto;
+        }
+        /*over flow넘치는 요소에 대한 설정*/
+        
+    </style>
+    
+    
+</head>
+<body>
+    <h2>overflow : hidden, scroll, auto</h2>
+    <div class="div1 hidden">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    </div>
+     <div class="div1 scroll">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    </div>
+     <div class="div1 auto">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    </div>
+    
+    <h2>border-(width/style/color)</h2>
+    <p>border-width : top right bottom left;</p>
+    <p>border-style : top right bottom left;</p>
+    <p>border-color : top right bottom left;</p>
+    
+    <p class="border">border : width style color</p>
+    <!--border : 1px solid #ccc;-->
+    
+    <h2>border-style</h2>
+    <p class="border2 solid">solid</p>
+    <p class="border2 dotted">dotted</p>
+    <p class="border2 dashed">dashed</p>
+    <p class="border2 double">double</p>
+    <p class="border2 ridge">ridge</p>
+    <p class="border2 groove">groove</p>
+    <p class="border2 inset">inset</p>
+    <p class="border2 outset">outset</p>
+    <!--ridge,groove
+    inset outset세트임-->
+    <p class="border3">border-(left,right,top, bottom)</p>
+    
+    <style>
+        .border {
+            border: 1px solid #000;
+            border-width: 20px 10px 50px 8px;
+            border-style: dashed dotted solid double;
+            border-color: red blue green orange;
+        }
+    
+        .border2 {
+            border: 4px #f00;
+        }
+        .solid {
+            border-style: solid;
+        }
+        .dotted {
+            border-style: dotted;
+        }
+        .dashed {
+            border-style: dashed;
+        }
+        .double {
+            border-style: double;
+        }
+        .ridge {
+            border-style: ridge;
+        }
+        .groove {
+            border-style: groove;
+        }
+        .inset {
+            border-style: inset;
+        }
+        .outset {
+            border-style: outset;
+        }
+        .border3{
+            border-left: 2px double green;
+            border-top: 5px dashed yellow;
+            border-right: 3px solid pink;
+            border-bottom: 5px dotted skyblue;
+        }
+        
+        
+    </style>
+    
+    <h2>padding</h2>
+    <p class="bg padding1">padding: 50px; (네 방향 모두 50px)</p>
+    <p class="bg padding2">padding: 20px 40px; (위.아래 20px, 좌.우 40px)</p>
+    <p class="bg padding3">padding: 20px 40px 10px; (위 20px 좌우40px 아래 10px</p>
+    <p class="bg padding4">padding: 20px 10px 30px 5px; ( 위쪽 20px 오른쪽10px 아래30px 왼쪽5px) </p>
+    
+    
+    <style>
+        .bg {
+            background-color: yellow;
+            color: blue;
+        }
+        .padding1 {
+            padding: 50px;
+        }
+        .padding2 {
+            padding: 20px 40px;
+        }
+        .padding3 {
+            padding: 20px 40px 10px;
+        }
+        .padding4 {
+            padding: 20px 10px 30px 5px;
+        }
+    </style>
+    
+    
+    <h2>margin</h2>
+   
+    <h3 class="center">center</h3>
+      <p class="margin1">아날로그(Analog) 신디사이저는 종종 디지털(Digital) 신디사이저보다 '따듯한' 소리가 난다고 한다.</p>
+    <p class="margin2">아날로그(Analog) 신디사이저는 종종 디지털(Digital) 신디사이저보다 '따듯한' 소리가 난다고 한다.</p>
+    <p class="margin3">아날로그(Analog) 신디사이저는 종종 디지털(Digital) 신디사이저보다 '따듯한' 소리가 난다고 한다.</p>
+    
+    <style>
+        .center {
+            width: 70%;
+            border-bottom: 2px solid lightgray;
+            text-align: center;
+                margin: 0 auto 50px;
+           /* margin-bottom: 50px;*/
+        }
+        /*margin은 auto라는 속성을 사용할수 있다 
+        textalign은 글자만 가운데 정렬이지만 
+        margin은 덩어리 자체가 가운데로 정렬할수 있음*/
+        .margin1 {
+            width: 200px;
+            border: 1px solid blue;
+            padding: 10px;
+        }
+        .margin2 {
+            width: 200px;
+            border: 1px solid blue;
+            padding: 10px;
+            margin: 50px;
+            
+        }
+        .margin3 {
+            width: 200px;
+            border: 1px solid blue;
+            padding: 10px;
+            margin: 0 auto;
+        }
+    
+    
+    </style>
+    
+    <h2>box-sizing</h2>
+    <div class="box">봄이 왔어요!!!!!!!!</div>
+    <div class="box padding">봄이 왔어요!!!!!!!!</div>
+    <div class="box padding sizing">봄이 왔어요!!!!!!!!</div>
+    
+    
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            background-color: lightskyblue;
+            margin-bottom: 30px;
+            border: 5px solid #000;
+        }
+        .padding {
+            padding: 20px 30px;
+        }
+        /*마진 빼고 패딩 보더 모두 크기의 합이 그 덩어리의 크기임 */
+        
+        .sizing {
+            box-sizing: border-box;
+        }
+        /*border-box는 보더 패딩 모두 합쳐서 300이 되게 해줘 */
+    
+    </style>
+    
+    
+    
+    <h2>display  : block, inline, inline-block</h2>
+    
+    <h3 class="block">나는 블록요소~~블록블록</h3>
+    <a href="#">나는 인라인 요소~~인라인인라인</a>
+    
+    <!--인라인블록 : 요소를 인라인으로 배치(가로나열), 내용은 블록요소의 속성 적용-->
+    
+     <ul class="inline-block">
+         <li>menu</li>
+         <li>menu</li>
+         <li>menu</li>
+         <li>menu</li>
+     </ul>
+     <!--인라인요소-->
+    <ul class="inline">
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+    </ul>
+    
+    <!--인라인요소 태그-->
+    <h3> inline요소</h3>
+    <ul>
+        <li>img</li>
+        <li>a, span</li>
+        <li>input,textarea, button</li>
+        <li>label</li>
+        <li>sud,sup,b,strong,i,em</li>
+        <li>br</li>
+    </ul>
+    
+    <!--블록요소-->
+    <h3>block 요소</h3>
+    <ul>
+        <li>div</li>
+        <li>heading (h1~h6)</li>
+        <li>p</li>
+        <li>ul li (ol li)</li>
+        <li>form, fieldset</li>
+        <li>header, nav, section, article, aside, footer</li>
+    </ul>
+    
+    
+    <style>
+        .block {
+            background-color: darkseagreen;
+            display: inline;
+        }
+        a {
+            background-color: greenyellow;
+            display: block;
+        }
+        .inline-block li {
+            list-style: none;
+            width: 200px;
+            height: 100px;
+            background-color: darksalmon;
+            padding: 30px;
+            margin: 20px;
+            display: inline-block;
+        }
+        .inline li{
+            list-style: none;
+            width: 200px;
+            height: 100px;
+            background-color: cadetblue;
+            padding: 30px;
+            margin: 20px;
+            display: inline;
+        }
+    
+    </style>
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

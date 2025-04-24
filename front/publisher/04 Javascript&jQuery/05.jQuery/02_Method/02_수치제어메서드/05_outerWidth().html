@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_outerWidth()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+        outerWidth() :선(border)과 안쪽 여백을 포함한 너빗값을 반환하거나 변환
+        
+        $('요소선택').outerWidth(); - 반환
+        $('요소선택').outerWidth(값); - 변환 
+        */
+        $(function(){
+            
+            $('button').click(function(){
+                //alert($('div').outerWidth());//322
+                
+                alert($('div').outerWidth(true));
+                //outerWidth()는 매개변수 true, false따라 포함되는 수치가 달라짐 
+                //빈칸이거나 false일 경우  margin을 제외한 값을 구함 (width+padding+border)
+                //true인 경우 margin을 포함한 값을 구함 
+            });
+            
+            var ow = $('#p1').outerWidth();
+            console.log(ow);//150
+            
+            var owT = $('p1').outerWidth(true);//156
+            console.log(owT);
+            
+            $('#p2').outerWidth(100);
+            //margin 값 포함되지않음
+            //width값이 변경되고 padding, border값은 그대로 적용
+            
+        });
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    <h1>outerWidth()</h1>
+    <div></div>
+    
+    <button>Display the outerWidth of div</button>
+    
+    <p>outerWidth() - 매개변수가 true인경우 : margin을 포함한 값(width+padding+border+margin) / 매개변수가 false인 경우 : margin을 포함하지않는 값(width+padding+border)</p>
+    
+    <p id="p1">box</p>
+    <p id="p2">box</p>
+    
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid blue;
+            background-color: darkseagreen;
+        }
+        #p1, #p2 {
+            width: 100px;
+            height: 50px;
+            padding: 20px;
+            margin: 3px;
+            border: 5px solid #000;
+            background-color: #ff0;
+        }    
+    
+    
+    </style>
+    
+    
+</body>
+</html>

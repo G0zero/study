@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>04_click_dblclick()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+            1. click() - 선택한 요소를 클릭했을 때 이벤트를 발생시키거나 선택한 요소에 강제로 클릭 이벤트 발생
+            
+            2.dblclick() - 선택한 요소를 연속해서 두번 클릭했을 때 이벤트를 발생시키거나 선택한 요소에 강제로 더블 클릭 이벤트 발생 
+            
+            $('선택요소').click(function(){실행코드;});
+            $('선택요소').on('click',function(){실행코드;});
+            
+            $('선택요소').dblclick(function(){실행코드;});
+            $('선택요소').on('dblclick',function(){실행코드;});
+            */
+
+        $(document).ready(function() {
+            $('.btn1').on('click', function(e) {
+                e.preventDefault();
+                $('.txt1').css({
+                    backgroundColor: 'red'
+                });
+            });
+            $('.btn2').on('click', function() {
+                $('.txt2').css({
+                    backgroundColor: 'navy',
+                    color: '#fff'
+                });
+                return false;
+            });
+
+
+
+            /*
+            <a>, <form> 태그에 클릭 이벤트 적용시 기본 이벤트(기능) 차단하기
+            
+            1. preventDefault() 기본값을 막아줘? /기본속성을 못하게 해줘 이런뜻
+            $('a 또는 form').이벤트메서드(function(e){
+                preventDefault();
+            });
+            **주로 첫줄에 작성!
+            
+            2. return false;
+            **주로 마지막줄에 작성!
+            
+            */
+
+            $('.btn3').on('dblclick', function() {
+                $('.txt3').css({
+                    backgroundColor: 'yellow'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p><a href="http://www.daum.net" class="btn1">다음</a></p>
+    <p class="txt1">content1</p>
+
+    <p><a href="http://www.naver.com" class="btn2">네이버</a></p>
+    <p class="txt2">content2</p>
+
+    <p><button class="btn3">버튼</button></p>
+    <p class="txt3">content3</p>
+</body>
+
+</html>

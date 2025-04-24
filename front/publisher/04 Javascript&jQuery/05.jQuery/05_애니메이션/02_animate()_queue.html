@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>02_animate()_queue</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="jquery-ui-1.8.23.custom.min.js"></script>
+    <!-- <script src="jquery.myColor-1.1.js"></script>-->
+
+    <script>
+        /* 
+             함수실행될것들이 한곳에 나열되어 저장되어 있는 메모리 공간을 queue라고 함
+             FIFO(First In First Out)라고도 하고 선입선출이라고도 함 
+             
+             큐(Queue)란?
+             - 애니메이션이 적용된 메서드는 함수가 적용된 순서대로 큐(Queue)라는 저장소에 저장
+             - 큐에 저장된 애니메이션 대기열이 있다면 먼저 들어간 애니메이션이 먼저 실행 
+             (FIFO : First In First Out)
+            */
+        //미션 : 클래스가 run인 버튼을 클릭하면 아이디가 box인 요소를 아래의 순서대로 애니메이션 하시오 
+
+
+
+
+
+
+
+
+        //2가지 방법이 있는데 += 과 변수에 좌표를 담아주는 경우 
+        $(document).ready(function() {
+            $('.run').click(function() {
+                //1. 현재 위치로부터 left : 400px 이동, 배경색은 red (2초간 -진행되는시간)
+                $('#box').animate({
+                        left: '400px',
+                        backgroundColor: 'red'
+                    }, 2000)
+
+                    //2. 현재 위치로부터 top : 200px이동, 배경색은 yellow (2초간)
+                    .animate({
+                        top: '200px',
+                        backgroundColor: 'yellow'
+                    }, 2000)
+
+
+                    //3. 현재 위치로부터 top : -100px, left:-100px이동, 배경색은 green (2초간)
+                    .animate({
+                        top: '-=100px',
+                        left: '-=100px',
+                        backgroundColor: 'green'
+                    }, 2000)
+
+
+
+                    //4. 현재 위치로부터 top: -50px, left:-50px 이동, width: 350px, height:200px, 배경색은 lime(2초간)
+                    .animate({
+                        top: '-=50px',
+                        left: '-=50px',
+                        width: '550px',
+                        height: '500px',
+                        backgroundColor: 'lime'
+                    }, 2000, function() {
+                        //5. 4번이 실행된 후에 배경이미지를 박스에 넣고 
+                        $(this).css({
+                            background: 'url(https://blog.kakaocdn.net/dn/cnRs2T/btrG3rPqyGx/gvSvyKfokqo8yQomsVjuQK/img.jpg) no-repeat center/cover'
+                        });
+                    })
+
+                    //6. 2초후에 0.5초간 slideUp하여 사라짐
+                    .delay(2000).slideUp(500);
+
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p><a href="#" class="run">animate()</a></p>
+
+    <div id="box"></div>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: darkseagreen;
+            position: relative;
+        }
+    </style>
+
+
+
+
+
+</body>
+
+</html>

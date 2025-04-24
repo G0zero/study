@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+ol:after,
+ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    color:#333;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    text-align: center;
+    line-height: 40px;
+}
+
+header {
+    width: 100%;
+    height: 130px;
+    
+    /*header에 높잇값을 준 이유를 한번 생각해 보세요
+    보통 부모요소에게 높잇값을 줬다는 건 지금처럼 두줄로 되어 있는 영역에서는 저 높잇값을 나눠 쓰겠다는 의미인데 지금은 높잇값을 사용한 건 없고 패딩이나 마진으로 여백만 사용되어 있네요*/
+}
+
+header .head-box {
+    width: 90%;
+    margin: 10px auto 10px;
+}
+
+/*선택자는 같은 형제요소끼리 맞춰서 쓰시는 게 좋아요
+sns를 넣은 ul 태그와 로고의 선택자 두가지만 놓고 보면 두개 요소가 형제요소라는 걸 알기는 어렵겠죠 */
+header h1 {
+    width: 60%;
+    font-size: 26px;
+    float: left;
+
+}
+
+header .head-box ul {
+    width: 30%;
+    float: right;
+}
+
+header .head-box ul li {
+    /*  outline: 2px solid red;*/
+    padding: 0 30px;
+   
+}
+
+header nav {
+    width: 100%;
+    background-color: lightsteelblue;
+
+}
+
+header nav ul {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+header nav ul li {
+    width: 16.6%;
+    padding: 10px 0;
+}
+header nav ul li a {
+    font-size: 14px;
+    /*본문내용은 가능하면 최소 크기를 16px로 생각하면 좋을 것 같습니다*/
+    color: #fff;
+}
+header nav ul li a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section .main {
+    background-color: salmon;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+}
+section .content {
+    margin-bottom: 40px;
+}
+section .content div {
+    width: 50%;
+    height: 150px;
+    float: left;
+}
+
+/*배너와 공지사항 각 영역을 구분하는 게 필요하므로 첫번째 자식요소, 마지막 자식요소가 아니라 각각 클래스명을 부여해서 사용하세요*/
+section .content div:first-child {background-color: darkseagreen;}
+section .content div:last-child {
+    background-color: aquamarine;
+}
+footer {
+    width: 100%;
+    background-color: #eee;
+    height: 100px;
+}
+
+footer p {
+    color: #888;
+    padding-top:60px;
+    /*하위 요소에 여백이 필요한지 footer 영역 전체에 여백이 필요한지 확인해서수정하세요*/
+}

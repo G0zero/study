@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_while</title>
+
+
+   
+   
+       <style>
+        .blue {
+            color: blue;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+    
+    <script>
+        /*
+        3. 반복문 
+        - 원하는 횟수만큼 반복하여 코드 실행
+        
+        (1) while문 : 조건식을 만족할때 까지 코드를 여러번 반복하여 실행
+        
+        //////////기본형//////////////////////
+        
+            var 변수 = 초깃값;
+            
+            while(①③조건식){
+                ②
+                자바스크립트 실행코드;
+                증감식;
+            }
+        
+        //////////////////////////////////////
+        반복문에는 항상 증감식이 필요함 왜냐면 실행이 되고나면 그다음의 실행을 위해증감식이 필요함 그래야 10번 실행해줘 라고 할때 11번에서는 실행을 멈풀수 있음
+        
+        *while문의 실행 순서
+        ① 조건식을 검사하고, 만족하면
+        ② 중괄호 안에 코드와 증감식 실행 
+        ③ 다시 조건식을 검사
+        
+        
+        */
+
+        // 기본형 예제 - 안녕하세요1~ 안녕하세요10까지 1씩 증가하면서 10번 출력
+        
+        // 변수명과 값이 내용이 없는 경우 반복 할때 많이 사용하고 보통 i를 많이 사용함 
+        
+        //integer라는 의미로 int를 사용하거나 i를 사용함 
+
+        //var i; // 초깃값이 없으면 undefined
+        var i = 1;
+        
+        while(i <= 10){
+            document.write("안녕하세요"+i, "<br>");
+            i++;
+        }
+      
+        document.write("=========================FINISHED=====================<br>");
+        
+        
+        //예제1. 1부터 30까지의 숫자 중 2의 배수이면서 6의 배수인 숫자만 출력 
+        
+    /*    var int = 1;
+        
+        while(int<=30){
+            if(int%2==0 && int%6==0) document.write(int,"<br>");
+            int++;
+        }*/
+        
+   /*     var i =1;//변수 선언은 원래 이러면안댐 위에 있는거 반복이
+        while(i<=30){
+            //2의 배수 && 6의 배수
+            //i%2==0 && i%6==0
+            
+            if(i%2==0 && i%6==0){
+               document.write(i,"<br>");
+               }
+            i++;
+        }
+        */
+        //예제 2. 20부터 10까지의 숫자중 짝수는 파란색, 홀수는 빨간색으로 출력 
+        
+/*        var a = 20;
+        
+        while(a>=10){
+            if(a%2==0){
+                document.write("<p class='blue'>"+a+"</p>");
+            }else{
+                document.write("<p clas='red'>"+a+"</p>");
+            }
+            a--;
+        }
+        //클래스와 html안에 스타일을 넣는것중 클래스를 더 많이 사용한다.
+        */
+        
+        // 선생님 해설
+    /*     var i = 20;
+        while(i>=10){
+            if(i%2==0){
+                //짝수일때 실행
+                document.write("<h3 style='color: blue'>"+i+"</h3>");
+            }else{
+                //홀수일때 실행
+                document.write("<h3 style='color: red'>"+i+"</h3>");
+            }
+            i--; //i=19
+        }
+        */
+        
+            var i = 20;
+        while(i>=10){
+            if(i%2==0){
+                //짝수일때 실행
+                document.write("<h3 class='blue'>"+i+"</h3>");
+            }else{
+                //홀수일때 실행
+                document.write("<h3 class='red'>"+i+"</h3>");
+            }
+            i--; //i=19
+        }
+        
+        //예제3 구구단 출력하기
+      /*  var y=1;
+        
+        while(y<=10){
+          document.write(5+"x"+y+"="+(5*y),"<br>");
+            y++;
+        }*/
+        
+        // 선생님 해설 방법2개임 
+        
+        var gugu = "<h2>구구단</h2>";
+        
+        var k =1; //반복하는 횟수의 초기값, 곱해지는 값
+        
+        while(k<=9){
+            //document.write("3 x "+k+" = "+(3*k)+"<br>");
+            gugu += "3 x "+k+" = "+(3*k)+"<br>";
+            k++;
+        }
+        document.write(gugu);      
+              
+              
+              
+              
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

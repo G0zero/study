@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>audio</title>
+</head>
+<body>
+    
+    <h2>오디오 재생하기</h2>
+    <audio src="media/WannaOne-Beautiful.mp3" controls loop autoplay></audio>
+     
+      
+        <!--
+        controls : 웹화면에 컨트롤 막대 표시
+      여기에 들어가는 속성은 대부분 단일 속성임
+       loop: 반복 재생 무한반복
+       muted: 음소거
+       autoplay:자동재생(크롬, 엣지 불가) 
+       -제대로된 코드임에도 실행이 되지않는 것은  정책적인 부분도 있음 
+       (최신브라우져들은 대부분 다 자동재생이 안될거임)
+       edge와 chrome이 비슷해지고 있음
+       컨트롤쓰는 오디오 옆에 적어주는게 맞음 
+      -->
+      
+         <audio controls loop>
+             <source type="audio/mp3" src="media/WannaOne-Beautiful.mp3">
+         </audio>
+         
+         <!--
+         미디어의 발달로 미디어들의 확장자가 다르게됨 음원도 확장자가 다름
+         소스에 확장자를 여러개를 넣어두어 재생이 가능하도록 하는거임 저옆에 mp3처럼  
+         -->
+          
+</body>
+</html>

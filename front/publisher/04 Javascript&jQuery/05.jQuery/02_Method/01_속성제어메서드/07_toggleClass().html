@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_toggleClass()</title>
+    
+    <style>
+        .main {
+            font-size: 150%;
+            color: red;
+        }
+        .under {
+            text-decoration: underline;
+        }
+    
+    
+    </style>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+        toggleClass() : 선택한 요소에 지정한 클래스가 없으면 클래스를 생성하고(addClass), 클래스가 있을 경우에는 클래스를 삭제(removeClass)
+        
+        *기본형 
+        $('요소선택').toggleClass('클래스명');
+        */
+        $(function(){
+           $('button').click(function(){
+               //$('p').toggleClass('main');
+               $('p').first().toggleClass('main');
+           }); 
+        });
+    
+    
+    </script>
+</head>
+<body>
+    <button>Toggle Class 'main'</button>
+    
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    
+    <p><b>Note:  </b> Click the button more than once to see the toggle effect.</p>
+</body>
+</html>

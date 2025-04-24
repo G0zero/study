@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_for문_array</title>
+        <style>
+        
+            img {
+                width: 300px;
+            }
+            
+        </style>
+        <script>
+        //배열요소 출력 
+        var green = ["강남","종로","신촌","신도림","노원","인천","일산","부산","대전","대구"];
+            
+        console.log(green.length);//green안에 데이터 수를 구해줘
+            
+      /*  document.write(green[0],"<br>");
+        document.write(green[1],"<br>");
+        document.write(green[2],"<br>");*/
+            
+        for(var i=0; i<green.length; i++){
+            document.write(green[i],"<br>");
+        }   
+            
+        //배열이미지 출력
+        
+        document.write('<h1>배열이미지 출력</h1>');
+        
+        //진짜 이미지를 넣어주는것이 아니라 이미지 경로를 넣어주는 것임 
+        var img = ["1.jpg","2.jpg","3.jpg"];
+            
+        console.log(img.length);
+            
+     /*   for(var j=0; j < img.length; j++){
+            document.write('<img src="images/'+(j+1)+'.jpg" alt="">');
+        } 
+        // j+1을 해준건 jpg파일 명중 0은 없기 때문에 
+        */
+        
+        //배열에 들어가 있는 이미지 경로 활용 예시
+        for(var j=0; j < img.length; j++){
+            document.write('<img src="images/'+img[j]+'"alt="">');
+        }    
+        
+        </script>
+    </head>
+    <body>
+        
+      <!--  <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">-->
+        
+    </body>
+</html>

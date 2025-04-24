@@ -1,0 +1,39 @@
+*respond.js 다운로드 사이트
+https://github.com/scottjehl/Respond
+
+
+*하위버전 미디어쿼리 적용을 위한 CSS 조건 주석문
+ IE9 이하 버전일 경우 respond.js 파일을 가져와서 적용해!
+(조건에 따라서 주석이 되거나 조건에 따라서 실행이 되는
+조건 주석문임 
+만약에 익스플로러 9이하 버전에서는 스크립트를 끌고와서 
+적용해줘 라는 뜻임 
+ )
+<!-- [if It IE 9]
+        <script src="respond.js"></script>
+<[endif] -->
+
+* 미디어쿼리를 지원하는 브라우저 
+크롬 21.0이상 
+IE 9.0 이상 
+파이어폭스 3.5이상 
+사파리 4.0이상 
+오페라 9.0이상 
+
+favicon은 네이버나 다음페이지를 열었을때 웹 브라우저 타이틀
+앞에 아이콘이 있는데 그걸 만들어주는거임 
+
+ <!--Favicon-->
+    <!--PC용 /ico(컴퓨터 확장자)-->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    
+    <!--안드로이드/png-->
+    <link rel="shortcut icon" href="images/favicon.png">
+    
+    <!--애플IOS/png, jpg(png로 사용할수는 있지만 투명한 부분이 검정색으로 보이기 떄문에 jpg로 많이 사용함-->
+    
+    <link rel="apple-touch-icon" href="images/favicon.jpg">
+    
+타이틀 밑에 링크를 걸어주면됨 
+예제는 regularbold임 
+

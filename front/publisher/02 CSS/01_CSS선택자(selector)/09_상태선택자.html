@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>09_상태선택자</title>
+    
+    <style>
+        /*inherit은 위에 부모로 부터 속성을 그대로 물려받는 것
+        예: a: visited : 다음에 오는것이 상태선택자라고 함
+        hover 마우스를 올렸을때 색상을 바꿔줘라는 등의 명령어를 입력할떄 마우스를 올렸을떄라는 뜻
+        
+        CSS는 순서의 영향을 많이 받음 선택자의 우선순위의 따라도..
+        작성순서에 따라, 항상 마지막에 작성된 css가 최종적으로 적용됨
+        */
+        a {
+            color: indianred;
+            text-decoration: none;
+        }
+        
+        /*a:link{
+            color: greenyellow;
+        }*/
+        
+        a:visited {
+            color:plum;
+        }
+    
+        a:hover {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+        
+            a:active {
+            color: green;
+        }
+        
+        /*
+        1) :link 방문하지 않은 링크에 스타일 적용 
+        2) :visited 방문한 링크에 스타일 적용 
+        3) :hover 웹 요소에 마우스 커서를 올려 놓았을 때 스타일 적용 
+        4) :active 웹 요소를 활성화 (클릭) 했을 때 스타일 적용 
+        
+        **CSS 작성시 주의할 사항 
+     : link >> :visited>> :hover >> :active   
+     
+        */
+    </style>
+</head>
+<body>
+    
+    <a href="http://www.google.com" target="_blank">구글바로가기</a>
+</body>
+</html>

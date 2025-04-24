@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>09_부모선택자</title>
+        <!--jQuery Library-->
+        <script src="jquery-1.7.2.min.js"></script>
+        <script src="jquery-ui-1.8.23.custom.min.js"></script>
+        
+        <script>
+            //1. 부모요소 선택자1 : 선택한 요소를 감싸고 있는 부모요소를 선택 
+            //기본형 : $('요소선택').parent()
+            
+            $(document).ready(function(){
+                $('#list_1').parent().css({
+                    border : '2px dashed blue',
+                    backgroundColor : 'yellow'
+                });
+            });
+            
+            /*
+            2. 부모요소 선택자 2 : 선택한 요소를 기준으로 모든 상위요소를 선택하거나 상위요소 중 선택하고자 하는 요소만 선택할때 사용 
+            
+            1) $('요소선택').parents()
+            2) $('요소선택').parents('선택요소')
+            */
+            //예제2. parents()
+            $(function(){
+                
+                $('.txt1').parents().css('border','2px dashed blue');
+                $('.txt2').parents('div').css('border','3px dotted red');
+            });
+        
+            //예제3 
+            $(document).ready(function(){
+                //1. p태그를 클릭하면 부모요소의 배경색을 빨강색으로 변경하시오.
+                 
+                //animate({CSS속성},소요시간(ms임),가속도easing)
+                
+                $('p').click(function(){
+                  /*  $(this).parent().css({
+                        backgroundColor : 'red',
+                        transition : 'all .5s'
+                    });*/
+                    
+                    $(this).parent().animate({
+                        backgroundColor : 'red'
+                    },500);//500은 0.5초
+                });//click
+                
+                //2. a태그를 클릭하면 부모들 중 (상위요소 중)p탸그의 배경을 노란색, div#sub 태그의 배경을 녹색으로 지정하시오.
+                
+                $('a').click(function(){
+                    $(this).parents('p').animate({
+                        backgroundColor: 'yellow'
+                    },500);
+                    $(this).parents('#sub').animate({
+                        backgroundColor : 'green'
+                    },500);
+                    
+                    return false;
+                });
+            });
+        
+        </script>
+    </head>
+    <body>
+        <!--예제1-->
+       <!-- <h1>parent() 선택자</h1>
+        <ul id="wrap">
+            <li>리스트1
+                <ul>
+                    <li id="list_1">리스트1-1</li>
+                    <li>리스트 1-2</li>
+                </ul>
+            </li>
+            <li>리스트2</li>
+            <li>리스트3</li>
+        </ul>-->
+        
+        <!--예제2-->
+<!--        <h1>parents() 선택자</h1>
+        <section>
+            <div>
+                <p class="txt1">내용1</p>
+            </div>
+        </section>
+        <section>
+            <div>
+                <p class="txt2">내용2</p>
+            </div>
+        </section>-->
+        
+        <!--예제3-->
+        <div id="container">
+            <div id="sub">
+                <p>
+                    div p
+                    <a href="#">div p a</a>
+                </p>
+            </div>
+            
+            <p id="part1">Paragraph</p>
+            <p>Paragraph</p>
+            <p>Paragraph</p>
+        </div>
+        
+        <style>
+            div, p, a {
+                display: block;
+                float: left;
+                margin: 10px;
+                background-color: #fff;
+            } 
+            div#sub {
+                width: 180px;
+                height: 180px;
+                border: thin solid #00f;
+            }
+            p {
+                width: 150px;
+                height: 150px;
+                border: thin solid #000;
+            }
+            
+            a{
+                width: 130px;
+                height: 130px;
+                border: thin solid #000;
+            }
+        </style>
+        
+        
+        
+        
+    </body>
+</html>

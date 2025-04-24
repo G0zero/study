@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>19_example_application-form2</title>
+</head>
+
+<body>
+    <h1>프런트엔드 개발자 지원서 </h1>
+
+    <p>HTML, CSS, Javascrip에 대한 기술적 이해와 경험이 있는 분을 찾습니다. </p>
+    <hr>
+
+    <!--applyfrm이거는 form이 오타가 자주나서 일부러 o을 빼고 쓰는 거임 -->
+
+    <form action="#" method="post" name="applyfrm">
+
+        <!--form,required 블럭요소 나머지는 인라인요소임-->
+        <h3>개인정보</h3>
+        <ul>
+            <!-- <li><label>이름<input type="text"></label></li>
+         이렇게도 사용하긴 하지만 여기서는 안되고 보통은 radio랑 이렇게 쓰임-->
+            <li>
+                <label for="user-name">이름</label>
+                <input type="text" name="user-name" id="user-name" placeholder="공백없이 입력하세요." required autofocus>
+                <!--label for에는 id값만 들어갈수 있음 그리고 name 으로 항목을 정해주는거기때문에 작성하고 label과 input을 연결하기 위해 id태그가 필요함 그리고 required은 필수요소로 작성해야지만 제출할수있도록 함 
+                autofocus는 페이지가 새롭게 열였을때 작성해야할 곳이 반짝반짝 하는거임 -->
+            </li>
+            <li>
+                <label for="user-number">전화</label>
+                <input type="tel" name="user-number" id="user-number" placeholder="'-'없이 입력하세요." required>
+            </li>
+            <li>
+                <label for="city">지역</label>
+                <select name="city" id="city">
+                    <!--name과 id는 별개로 이름을 다르게 설정해도 됨-->
+                    <option value="서울">서울</option>
+                    <option value="경기">경기</option>
+                    <option value="강원">강원</option>
+                    <option value="제주">제주</option>
+                </select>
+            </li>
+        </ul>
+
+        <h3>지원분야</h3>
+        <ul>
+            <li><label><input type="radio" name="web" value="웹 퍼블리싱"> 웹퍼블리싱</label></li>
+            <li><input type="radio" name="web" value="웹 애플리케이션 개발" id="web-app"><label for="web-app"> 웹 애플리케이션 개발</label></li>
+            <li>
+                <input type="radio" name="web" value="개발 환경 개선" id="web-develope">
+                <label for="web-develope">개발 환경 개선</label>
+            </li>
+        </ul>
+        <!--위에처럼 
+        input과 label은 순서 상관없이 연결만 되면됨 
+        그래서 첫번쨰로 사용해도 되고 두번째로 사용해도 됨 
+        세번짼 잘보이게 정리한거임 
+        -->
+
+        <h3><label for="content">지원동기</label></h3>
+        <textarea name="content" id="content" cols="50" rows="5" placeholder="지원 동기를 간략히 입력해 주세요."></textarea>
+
+        <p>
+            <input type="submit" value="접수하기">
+            <input type="reset" value="다시하기">
+        </p>
+
+
+    </form>
+
+</body>
+
+</html>

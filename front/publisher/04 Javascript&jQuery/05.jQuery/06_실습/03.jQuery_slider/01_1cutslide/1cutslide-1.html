@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1cutslide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        /*body {
+            background-color: darkgreen;
+        }*/
+
+        .wrap {
+            width: 900px;
+            margin: 50px auto;
+            position: relative;/*btn의 기준!*/
+        }
+
+        /*slider*/
+        .slider {
+            /*width: 900px;*/
+            width: 100%;
+            outline: 2px solid red;
+            overflow: hidden;
+        }
+
+        .slider ul {
+           /* width: 3600px;*/
+        }
+
+        .slider ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .slider ul li {
+           /* width: 25%;*/
+            float: left;
+        }
+
+        .slider ul li img {
+           /* width: 100%;*/
+            width: 900px;
+            display: block;
+        }
+
+        /*좌우 이동버튼*/
+        .wrap .btn {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            /*transform: translateY(-50%);*/
+            margin-top: -25px;
+            /*outline: 3px solid blue;*/
+        }
+        .wrap .prevBtn {
+            left: 20px;
+        }
+        .wrap .nextBtn {
+            right: 20px;
+        }
+        .wrap .btn a {
+            display: block;
+            
+        }
+        .wrap .btn img {
+            width: 100%;
+        }
+        .wrap .nextBtn a {
+            height: 100%;
+            background: url(images/arrow_right.png) no-repeat center/100%;
+        }
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //초기설정1 - .slider ul과 li의 너비설정 
+            var liWidth = $('.slider ul li').width(); //900
+            var liSize = $('.slider ul li').size(); //4
+            console.log('li 하나의 너비 :' + liWidth);
+            console.log('li의 갯수 : '+liSize);
+            
+            var ulSize =liWidth * liSize
+            console.log('ul 의 넓이 : ' + ulSize); //3600
+            
+            $('.slider ul').css('width',ulSize);
+            //초기설정2 - 슬라이드 배치 설정 
+            
+            //이전 버튼 클릭을 대비하여 마지막 li를 첫번째로 이동 
+            $('.slider ul li:last').prependTo('.slider ul');
+            
+            //li 한칸의 크기 구하기 
+            var chW = $('.slider ul li').width();
+            console.log(chW);//900
+            
+            $('.slider ul').css('margin-left',-chW);
+            
+            //nextBtn을 클릭했을때
+            
+            $('.nextBtn a').click(function(e){
+                e.preventDefault();
+                $('.slider ul').animate({
+                    marginLeft: '-=' + chW
+                },800, function(){
+                    $('.slider ul li:first').appendTo('.slider ul ');
+                    $('.slider ul').css('margin-left',-chW);
+                });
+                
+            });
+            
+            //prvBtn
+            $('.prevBtn').click(function(e){
+                e.preventDefault();
+                $('.slider ul').animate({
+                    marginLeft: '+=' + chW
+                }, 800, function(){
+                    $('.slider ul li:last').prependTo('.slider ul');
+                    $('.slider ul').css('margin-left',-chW);
+                });
+            });
+            
+            
+        });
+    
+    
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <!--실제 슬라이드가 보여질 영역-->
+        <div class="slider">
+            <!--슬라이드 전체를 담는 부모-->
+            <ul>
+                <!--각 li는 각 slide-->
+                <li><img src="images/slide-1.jpg" alt="슬라이드1"></li>
+                <li><img src="images/slide-2.jpg" alt="슬라이드2"></li>
+                <li><img src="images/slide-3.jpg" alt="슬라이드3"></li>
+                <li><img src="images/slide-4.jpg" alt="슬라이드4"></li>
+            </ul>
+        </div>
+
+        <div class="btn prevBtn"><a href="#"><img src="images/arrow_left.png" alt=""></a></div>
+        <div class="btn nextBtn"><a href="#"><!--<img src="images/arrow_right.png" alt="">--></a></div>
+    </div>
+</body>
+
+</html>

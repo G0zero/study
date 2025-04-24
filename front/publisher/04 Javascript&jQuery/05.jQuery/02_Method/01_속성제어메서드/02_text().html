@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>02_text()</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        /*
+            text() 메서드 : 선택한 요소에 포함되어있는 전체텍스트를 가져오거나 선택한 하위요소와 텍스트를 전부 제거하고 새텍스트를 생성할 때 사용 
+            
+            *기본형
+            1) $('선택요소').text(); - 선택한 요소의 텍스트만 가져옴
+            2) $('선택요소').text('새텍스트'); - 선택한 요소의 하위요소와 텍스트를 제거하고 지정한 테스트를 생성 
+            */
+        
+        
+        $(function(){
+            var result = $('#winter_fruit').text();
+            console.log(result);
+           
+            $('#winter_fruit h2 em').html('맛있는 겨울과일');
+        });
+    </script>
+</head>
+
+<body>
+    <h1>text() 메서드</h1>
+
+    <section id="summer_fruit">
+        <h2><em>여름과일</em></h2>
+        <p>수박</p>
+        <p>복숭아</p>
+        <p>자두</p>
+    </section>
+    <section id="winter_fruit">
+        <h2><em>겨울과일</em></h2>
+        <p>딸기</p>
+        <p>귤</p>
+        <p>유자</p>
+    </section>
+</body>
+
+</html>

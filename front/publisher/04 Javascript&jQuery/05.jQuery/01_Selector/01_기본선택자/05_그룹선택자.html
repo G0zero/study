@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>05_그룹선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    
+    <script>
+        //그룹 선택자 : 한 번에 여러 개의 요소를 선택할때 사용
+        //기본형 : $('요소선택1,요소선택2,요소선택n')
+        
+        //예제1 
+        $(document).ready(function(){
+            $('h1, #title').css({
+                backgroundColor: 'aqua',
+                color: 'red'
+            });
+        });
+        
+        
+        //예제 2
+        //p태그 또는 #nav li 태그를 클릭하면 
+        //'클릭된 것만' 글자 변경,css변경
+        //글자변경 - text(),css변경-css()
+        $(function(){
+            $('p, #nav li').click(function(){
+                $(this).text('더워!!!!!!').css({
+                    backgroundColor: 'red',
+                    color : 'yellow',
+                    fontSize: '50px',
+                    transition: 'all .5s'
+                    
+                });
+            });
+        });
+    
+    
+    </script>
+</head>
+<body>
+    <!--예제1-->
+  <!--  <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3 id="title">기본 선택자</h3>
+    <h4>그룹 선택자</h4>-->
+    
+    <!--예제 2-->
+    <div id="container">
+        <h2>Welcome~!</h2>
+            
+        <p>Hello~</p>
+        <p>Nice to meet you!</p>
+        
+        <nav>
+            <ul id="nav">
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                 <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                
+            </ul>
+        </nav>
+       
+    </div>
+    
+</body>
+</html>

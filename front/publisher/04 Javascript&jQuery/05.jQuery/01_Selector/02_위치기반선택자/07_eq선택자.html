@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>07_eq선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //eq선택자: 선택한 요소 중 지정한 인덱스가 참조하는 요소만 선택
+        //기본형: $('요소선택: eq(index)')또는 $('요소 선택').eq(index)
+
+        //예제1
+        $(document).ready(function() {
+            $('#menu li:eq(2)').css({
+                backgroundColor: 'coral'
+            });
+            $('#menu li').eq(3).css({
+                border: '2px solid green'
+            });
+        });
+
+        //예제2
+
+        $(function() {
+            var color = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'plum'];
+            var num = 0; // 인덱스를 담을 변수 
+
+            //초기설정
+            $('.nav li').css({
+                fontSize: '30px',
+                textShadow: '0 0 6px #ff0',
+                width: '300px',
+                cursor: 'pointer'
+            }).click(function() {
+                //1) nav li를 클릭했을 때, 클릭된 li의 글씨 크기를 5px씩 커지게 하시오 ->click(),fontsize: +=5px
+                ///1-1) 동시에 글자색을 무지개 색 순서대로 차례로 변경되게 하시오 ->배열, 인덱스번호 조절
+                $(this).css({
+                    fontSize: '+=5px', //기존에 입력된 값에 += 5px을 해줘
+                    color: color[num]
+                });
+                num++; //num=1
+                if (num === 7) num = 0;
+            });//click
+            //2) 선택박스(select)의 선택(option)을 변경하는 순간
+            //2-1) 배경이미지를 해당 이름과 매칭하여 body에 넣기
+            //2-2) 동시에 선택된 이름 (li)의 배경색을 무지개색 순번으로 변경
+            
+            //change() 이벤트 메서드 : input, textarea, select 태그에서 value값이 변경되었을때 실행 
+            //selcet태그에서 option이 변경되었을때 실행 ()
+            
+            
+            //val()메서드 : value값을 가져오는 (반환하는) 메서드 , 주로 html의 폼태그 요소에서 사용
+            
+            $('#selnum').css({
+                fontSize:'34px',
+                height: '60px'
+            }).change(function(){
+                //선택된 option의 value값 읽어오기
+                var optval=$(this).val();
+                //alert(optval);
+                
+                //배경이미지 변경
+                $('body').css({
+                    background:'url(img/'+ optval+'.jpg) no-repeat top/cover'
+                });
+                
+                //배경색 초기화1 - 전체 li의 배경색 뺴기 
+       /*         $('.nav li').css({
+                    backgroundColor: 'transparent'
+                });*/
+                
+                //선택된 option에 따라 무지개색 순서대로 .nav li의 배경색이 적요오디도록 하기 
+                $('.nav li').eq(optval).css({
+                    backgroundColor: color[num]
+                });
+                
+                //배경색 초기화 2 - 선택한 요소 외에 나머지 형제 요소 (li) 배경색 뺴기 
+                $('.nav li').eq(optval).siblings().css({
+                    backgroundColor: 'transparent'
+                });
+                
+                num++;
+                if(num===7) num=0;
+                
+            });//change
+            
+
+        });
+    </script>
+</head>
+
+<body>
+    <!--예제1-->
+    <!--<h1>eq선택자</h1>
+    <ul id="menu">
+        <li>내용1 (index0)</li>
+        <li>내용2 (index1)</li>
+        <li>내용3 (index2)</li>
+        <li>내용4 (index3)</li>
+        <li>내용5 (index4)</li>
+    </ul>-->
+
+    <!--에제2-->
+    <div id="container">
+        <select name="" id="selnum">
+            <option value="tt">배우를 선택하세요 </option>
+            <option value="0">김수현</option>
+            <option value="1">서예지</option>
+            <option value="2">공유</option>
+            <option value="3">아이유</option>
+            <option value="4">이동욱</option>
+            <option value="5">송중기</option>
+            <option value="6">김혜수</option>
+            <option value="7">전지현</option>
+            <option value="8">손예진</option>
+        </select>
+
+        <ul class="nav">
+            <li>김수현(0)</li>
+            <li>서예지(1)</li>
+            <li>공유(2)</li>
+            <li>아이유(3)</li>
+            <li>이동욱(4)</li>
+            <li>송중기(5)</li>
+            <li>김혜수(6)</li>
+            <li>전지현(7)</li>
+            <li>손예진(8)</li>
+        </ul>
+    </div>
+    
+<!--    <style>
+        body {
+            background: url(img/0.jpg) no-repeat top/cover;
+        }
+    
+    </style>-->
+</body>
+
+</html>

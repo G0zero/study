@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_클래스선택자</title>
+    <!--jQuery Library-->
+    <script src="jquery-1.7.2.min.js"></script>
+
+    <script>
+        // 기본형 : $('.클레스명')
+
+        //예제 1
+        $(document).ready(function() {
+            $('.selector').css('background-color', '#fed136').css('color', 'red');
+        });
+
+
+        //예제2
+        $(function() {
+            //$('.group li').css('background-color','yellow');
+
+            $('.group li').click(function() {
+                //$('.group li').css('background-color','darkgreen');
+
+                //변경대상 : .group li에서 내가 클릭한 대상, 나 자신!!!
+                $(this).css({
+                    backgroundColor: 'lime',
+                    fontSize: '50px',
+                    transition: 'all .6s'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body> 
+
+    <!--예제1-->
+
+    <h1>제이쿼리</h1>
+    <h2 class="selector">선택자</h2>
+    <h3>클래스 선택자</h3>
+
+
+    <!--예제2-->
+
+    <div id="container">
+        <header>
+            <h2>Welcome!</h2>
+        </header>
+
+        <nav>
+            <ul class="group">
+                <li id="first">one</li>
+                <li id="second">two</li>
+                <li id="third">three</li>
+            </ul>
+        </nav>
+    </div>
+    <style>
+        .group li {
+            cursor: pointer;
+        }
+    </style>
+
+
+</body>
+
+</html>

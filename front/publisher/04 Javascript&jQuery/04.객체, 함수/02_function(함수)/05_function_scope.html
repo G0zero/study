@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>04_function_scope</title>
+
+    <script>
+        /*
+        스코프란?
+        변수 또는 함수의 유효 범위(함수의 중괄호 시작~끝 범위)
+        
+        *전역변수와 지역변수
+        -전역변수 : 함수의 바깥쪽에 위치, JS 어디에서든 사용 할 수 있는 변수,
+        -지역변수 : 함수 내부에 위치, 함수 스코프 안에서만 사용 
+        -지역변수는 전역변수보다 우선순위를 갖는다!
+        */
+        //기본예제
+        var score = 10; //함수 바깥쪽에 있기떄문에 전역변수
+
+        function myFnc() {
+            var score = 50; //함수안에 사용했기에 지역변수
+
+            alert(score); //50
+        }
+
+        // myFnc();//50
+
+        //alert(score);//10
+        //지역함수는 함수 안에서만 사용가능 가능하기 떄문에 안나오고 전역변수같은경우는 어디서든 사용가능하기 때문임
+        
+        //함수안에 함수를 만들면 안되는이유?
+        //함수스코프 안에 함수를 가둬둔다. 그 함수 안에서만 쓸수있는 함수임 지역함수를 만드는것이라 안되는것임 
+        
+        /*
+        *전역함수 와 지역함수 
+        -전역함수: JS 어디에서든 사용할 수 있음 
+        -지역함수: 함수 스코프 안에서만 사용 
+        
+        //////////////////////기본형//////////////
+        
+            *전역함수
+            function 함수명1 (){
+                자바스크립트 코드;
+            }
+            
+            *지역함수
+            function 함수명2 (){
+                function 함수명3 (){
+                    자바스크립트 코드;
+                }//함수2의 범위에서만 사용가능 
+            }
+        
+        /////////////////////////////////////////
+        */
+        
+        //기본예제 
+        function myFnc2 (){
+            alert('나 전역함수야~~~~~~~~~~~!!!');
+        }
+        
+        function outerFnc(){
+            function myFnc2 (){
+                alert('나 지역함수야~~~~~~~~~~~~!!!');
+            }
+            myFnc2();//지역함수 호출
+        }
+        //myFnc2(); //전역함수
+        //outerFnc(); //지역함수
+        //함수의 7~80%는 전역함수를 사용함 
+        
+        /*
+        자바스크립트 내장함수 (메서드)
+        [1] parseInt() : 문자열 데이터를 정수형 데이터로 반환
+            ex) parseInt("5,12") >> 5, parseInt("15px") >> 15
+          *Number와 차이점은 문자가 들어가면 Number는 문자형데이터 위에 예시로는 , 혹은 px이 들어가면 숫자가 아니야 라는 NaN이 나옴 그러나 perseInt는 뒤에 문자형 데이터를 버리고 위에 예시로 5 혹은 15를 반환해줌 한마디로 문자형 데이터를 버리고 숫자형 데이터만 반환해줌  
+        
+        [2] parseFloat() : 문자열 데이터를 실수형 데이터로 반환 
+            ex) parseFloat("65.5%") >> 65.5
+            parseFloat("5.12") >>5.12
+            
+        [3] String() : 문자형 데이터로 반환 
+            ex) string(5) >> "5"
+            
+        [4] Number() : 숫자형 데이터로 반환 
+            ex) Number("50") >> 50
+            
+        [5] Boolean() : 논리형 데이터로 반환 
+            ex) Boolean(5) >> true
+            Booloean(" ") >> false 
+            //숫자 0, null, undefined도 false 반환
+            
+        [6] isNaN() : Is Not a Number? 의 약자, 숫자가 아닌 문자가 포함되어있으면
+        true반환 예시로 이건 숫자가 아니니? 응 숫자가 아니야 (true) 아니 이건 숫자야(false)
+            ex) isNaN("5-3") >> true, isNaN(53) >> false
+        
+        [7] eval() : 문자형 데이터를 따옴표가 없는 자바스크립트 코드로 처리 
+            ex) eval("15+5") >> eval(15+5) >>20
+        */
+        
+        //예제 - isNaN() + 리턴값 활용 
+        
+        /*////함수1////////////////////////////////////
+        
+            함수명 : chkAge
+            기능 : 입력된 나이를 문자와 숫자로 구분, 입력된 나이에 따라
+            메세지 띄우기
+            
+        /////////////////////////////////////////////*/
+        
+        function chkAge(age){
+            //전달받은 값의 숫자 여부 확인 
+            //isNaN() >> 숫자일때는 false 문자일때는 true
+            //방법 1
+            var result = isNaN(age);
+            console.log('입력된 값이 숫자가 아닙니까?'+isNaN(result));
+            //방법 2
+            //console.log('입력된 값이 숫자가 아닙니까?'+isNaN(age));
+            
+            if(result){
+                alert('숫자만 입력하세요!');
+                return false;
+            }
+            
+            var txt = getMsg(age); //return msg
+            document.getElementById('msg').innerHTML=txt;
+            
+        }
+        
+        
+        
+        
+        
+        /*//////함수2//////////////////////////////////
+        
+            함수명 : getMsg
+            기능 : 입력된 나이를 성인과 미성년으로 구분하여 
+            return을 통해 함수를 실행해서 얻은 값을 반환 
+            
+        //////////////////////////////////////////////*/
+        
+        function getMsg (ageData){
+            ageData = Number(ageData);
+            
+            var msg="";//메세지를 담을 변수, 지역변수
+            if(ageData >= 19){
+                msg = '당신은 성년입니다. 마음대로 하세요~~~~!!!!!'
+            }else {
+                msg = '당신은 미성년입니다. 부모님 데려와~~~~~!!!!!'
+            }
+            
+            return msg;
+            //msg값을 반환하고 종료 
+        }
+        
+        
+        
+    </script>
+</head>
+
+<body>
+
+ <h2>당신의 나이를 만으로 입력하세요!</h2>
+ 
+ <input type="text" id="age" name="userage">
+ <input type="button" value="구분검사" onclick="chkAge(document.getElementById('age').value);">
+ <!--onclick은 이걸 눌렀을떄 실행할 함수 넣어주고 눌렀을때 함수가 실행됨 -->
+ 
+  <h3 id="msg"></h3>
+</body>
+
+</html>

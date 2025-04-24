@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>06_mouseenter_mouseleave()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+        /*
+            mouseenter() :대상요소의 경계 범위에 마우스 포인터가 들어오면 이벤트 발생 
+            
+            mouseleave() : 대상요소의 경계 범위에 마우스 포인터가 완전히 벗어나면 이벤트 발생 
+            
+                  hover() : 선택한 요소에 마우스 포인터가 올라갈 때(mouseover)와 벗어날 때(mouseout) 각각 이벤트가 발생
+            
+            *hover()기본형 
+            $('이벤트 대상').hover(
+                function(){마우스 오버시 실행 될 코드;},
+                function(){마우스 아웃시 실행 될 코드;}
+            );
+            */
+        $(document).ready(function() {
+            $('#box1').on({
+                'mouseenter': function() {
+                    $(this).css({
+                        backgroundColor: 'darkseagreen'
+                    });
+                },
+                'mouseleave': function() {
+                    $('#box1').css({
+                        //backgroundColor: 'transparent'
+                        background: 'none'
+                    });
+                }
+            });
+        });
+        $(function() {
+            //hover()
+            $('.btn2').hover(function() {
+                //mouerover시 실행코드
+                $('.txt2').css({
+                    backgroundColor: 'aqua',
+                    color: 'white'
+                });
+
+            }, function() {
+                //mouseout시 실행코드
+                $('.txt2').css({
+                    background: 'none',
+                    color: 'black'
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>mouseenter</h2>
+    <div id="box1">
+        <p><a href="#">내용1</a></p>
+        <p><a href="#">내용2</a></p>
+        <p><a href="#">내용3</a></p>
+    </div>
+
+    <h2>mouseleave</h2>
+    <div id="box2">
+        <p><a href="#">내용4</a></p>
+        <p><a href="#">내용5</a></p>
+        <p><a href="#">내용6</a></p>
+    </div>
+
+    <p><button class="btn2">hover</button></p>
+    <p class="txt2">내용2</p>
+
+    <style>
+        #box1 {
+            outline: 2px solid red;
+        }
+    </style>
+</body>
+
+</html>

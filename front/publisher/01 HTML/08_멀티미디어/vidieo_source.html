@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>video_source</title>
+        
+        <style>
+            body{
+                background: black;
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1>밤 하늘을 수 놓는 불꽃</h1>
+        
+        <video controls autoplay muted>
+            <source src="media/Fireworks.mp4" type="video/mp4">
+            <source src="media/Fireworks.webm" type="video/webm">
+            이 영상을 보기 위해서는 HTML5를 지원하는 브라우저가 필요합니다.
+            <!--이 위에 문장은 소스 지원이 어려울경우에 이 메세지가 보여짐 -->
+        </video>
+        
+        <!--
+          audio, video태그에서 source 태그를 사용할떄  type속성 사용 
+          type ="audio/파일포맷"
+          type="video/ 파일 포맷"
+          mp4: 최신 브라우저에서 모두 지원. 이번 버전에서 재생이 안되는 경우가 있음 
+          webm: 무료 코덱 사용, 화질이 뛰어남 
+          
+          웹에 영상을 넣을때 앞쪽에 썸네일을 만들어서 앞에 썸네일을 넣는 태그는 포스터라는 태그임 
+
+       
+        -->
+        
+        
+        
+    </body>
+</html>

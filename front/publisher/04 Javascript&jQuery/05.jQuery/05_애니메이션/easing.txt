@@ -1,0 +1,14 @@
+<button>easeOutQuart</button>
+<button>easeInOutElastic</button>
+<button>easeOutBack</button>
+<button>easeOutBounce</button><br>
+
+<button>easeInOutExpo</button>
+<button>easeInOutSine</button>
+<button>easeOutCubic</button>
+<button>easeOutCirc</button><br>
+
+<button>easeOutQuad</button>
+<button>easeInOutQuint</button>
+<button>easeInOutCirc</button>
+<button>easeInCubic</button>

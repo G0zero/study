@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+       /*
+       scroll() : 대상요소의 스크롤바가 이동할 때마다 이벤트 발생 
+       
+       *기본형
+       $(window).scroll();
+       */
+        $(window).on('scroll', function(){
+            var sc_top = $(this).scrollTop();
+            var sc_left = $(this).scrollLeft();
+            
+            $('.top').text(sc_top);
+            $('.left').text(sc_left);
+        });
+        
+    
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <p>scrollTop: <span class="top">0</span>px</p>
+        <p>scrollLeft: <span class="left">0</span>px</p>
+    </div>
+    <style>
+        body {
+            width: 5000px;
+            height: 10000px;
+        }
+        #wrap {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</body>
+</html>

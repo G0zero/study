@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>01_contains선택자</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script>
+        //문자요소를 선택하는 것을 contains라고함 
+        //contains선택자 : 선택한 요소 중 지정한 텍스트를 포함하는 요소만 선택
+        //기본형 : $('요소 선택: contains(텍스트)')
+
+
+        $(document).ready(function() {
+            //예제1
+            $('#day p:contains(요일)').css('background-color', 'coral');
+
+            //예제2
+            /*
+            1) 'ap'라는 문자 있는 li 요소를 선택해서  //contains 
+            2) 2초후에 1초 동안 사라짐 
+            3) 사라진 후 'apple'이라는 단어는 '사과'로 'grape'라는  단어는 '포도'로 글자변형 후 
+            4) 1초간 (애니메이션)으로 나타나게 하시오 
+            */
+            $('li:contains(ap)').delay(2000).hide(1000,function(){
+                $('li:contains(apple)').text('사과');
+                $('li:contains(grape)').text('포도');
+            }).show(1000);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            /*
+            jQuery 메서드 
+            
+            1. delay(시간) - (메서드에서 사용하는 시간은 주로 ms임 1초는 1000임)1/1000초 단위(ms)로 시간을 사용하여 뒤쪽에 이어붙인 애니메이션 동작 전에 지연시간을 주는 메서드로 가로안에 지연시간을 넣어주는것임 
+            2. hide(시간, 이징easing, 콜백함수) - 설정된 시간동안 사라짐 앞에 시간은 hide가 실해되는 시간이며 이징은 가속도임 
+            3. show(시간, 이징easing, 함수) - 설정된 시간동안 나타남 
+            4. text(문자) - 선택요소 내부에 글자를 넣어줌
+            
+            */
+        });
+
+        /*text: 태그안의 내용을 바꿔주는것 
+        html: 요소를 추가해주는것 */
+    </script>
+</head>
+
+<body>
+
+    <!--예제 1-->
+    <h1>contains 선택자</h1>
+    <div id="day">
+        <p>월요일</p>
+        <p>화요일</p>
+        <p>수</p>
+        <p>목요일</p>
+        <p>금요일</p>
+    </div>
+
+    <!--예제2-->
+    <div id="container">
+        <h2>contains선택자 2</h2>
+
+        <ul class="nav1">
+            <li>apple</li>
+            <li>banana</li>
+            <li>grape</li>
+        </ul>
+        <ul class="nav2">
+            <li>lion</li>
+            <li>tiger</li>
+            <li>fox</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

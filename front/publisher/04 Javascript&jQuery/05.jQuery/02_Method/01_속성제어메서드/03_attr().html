@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>03_attr()</title>
+        <script src="jquery-1.7.2.min.js"></script>
+        <script>
+            /*
+            스크립트에서는 
+            setAttribute() - 직접 src값을 넣겟다
+            getAttribute() - 값을 얻어옴
+            
+            attr() 메서드 : 선택한 요소에 새 속성을 생성하거나 기존의 속성을 변경할 때, 요소의 속성값을 불러올 때 사용 
+            
+            *기본형 
+            1) $('요소선택').attr('속성명'); - 선택한 요소의 지정한 속성값 가져오기 
+            2) $('요소선택').attr('속성명','속성값'); - 요소를 선택해서 지정한 속성값 적용 
+            3) $('요소선택').attr({
+                속성명1 : '속성값1',
+                속성명2 : '속성값2'
+            }); - css와 똑같음 이렇게 쓸수 있음 
+            */
+            //제이쿼리에서도 같은 코드로 이벤트를 두개이상 연결시 이벤트를 등록해줘야함 그건 나중에 배울거임 
+            $(document).ready(function(){
+                $('button').click(function(){
+                    //속성값 받아오기 
+                    //alert($('img').attr('title'));
+                    
+                    //단일 속성변경
+                    //$('img').attr('width','700');
+                    
+                    //여러가지 속성 변경 
+                    $('img').attr({
+                        src : 'image/mountain.jpg',
+                        alt : 'mountain',
+                        title: '멋진 산이야~~~~'
+                    });
+                   
+                    console.log($('img').attr('alt'));
+                    //mountain
+                });//click()
+            }); 
+        
+        </script>
+    </head>
+    <body>
+        <img src="image/sea.jpg" alt="Pulpit Rock" width="500" height="300" title="시원한 바다야~~~~~~~~">
+        <br>
+        <button>Set the width attribute of the image</button>
+    </body>
+</html>

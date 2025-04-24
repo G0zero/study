@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_innerHeight()</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+    /*
+    innerHeight() :안쪽 여백을 포함한 높잇값을 반환하거나 변환 
+    
+    $('요소선택').innerHeight(); -반환
+    $('요소선택').innerHeight(값); -변환
+    */
+    $(function(){
+        $('button').click(function(){
+            alert($('div').innerHeight());//120
+            
+            $('div').innerHeight(200);
+        });
+        var ih = $('#p1').innerHeight();//90
+        console.log(ih);
+        
+        $('#p1').innerWidth(100).innerHeight(100);
+        
+        
+        
+    });
+    </script>
+</head>
+<body>
+      <h1>innerHeight()</h1>
+    <div></div>
+    <button>Display the innerHeight of div</button>
+    
+    <p>innerHeight() -padding값을 포함한 세로크기 반환</p>
+    <p id="p1">box</p>
+    
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            margin: 3px;
+            border: 1px solid hotpink;
+            background-color: lightpink;
+        }
+        #p1 {
+            width: 100px;
+            height: 50px;
+            padding: 20px;
+            border: 5px solid #000;
+            background-color: #f00;
+        }
+    
+    </style>
+</body>
+</html>

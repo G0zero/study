@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>19_example_application-form</title>
+</head>
+
+<body>
+    <h1>프런트엔드 개발자 지원서 </h1>
+    <p>HTML, CSS, Javascrip에 대한 기술적 이해와 경험이 있는 분을 찾습니다. </p>
+    <hr>
+
+    <form action="#" method="post">
+        <h4>개인정보</h4>
+
+        <ul>
+            <li>이름 <input type="text" placeholder="공백없이 입력하세요"></li>
+            <li>전화 <input type="tel"></li>
+            <li>지역
+                <select name="area">
+                    <option value="서울">서울</option>
+                    <option value="경기">경기</option>
+                    <option value="강원">강원</option>
+                </select>
+            </li>
+
+        </ul>
+
+        <h4>지원분야</h4>
+        <ul>
+            <li>
+                <input type="radio" name="web" value="웹퍼블리싱">웹퍼블리싱
+            </li>
+            <li>
+                <input type="radio" name="web" value="웹 애플리케이션 개발 ">웹 애플리케이션 개발
+            <li>
+                <input type="radio" name="web" value="개발 환경개선">개발 환경 개선
+            </li>
+
+        </ul>
+
+        <h4>지원동기</h4>
+
+        <textarea cols="50" rows="5" placeholder="지원동기를 간략히 입력해주세요"></textarea>
+        <br><br>
+
+        <input type="submit" value="접수하기" placeholder="지원 동기를 간략히 입력해주세요.">
+        <input type="reset" value="다시작성">
+    </form>
+
+</body>
+
+</html>

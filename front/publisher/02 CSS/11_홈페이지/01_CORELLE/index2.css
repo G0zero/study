@@ -1,0 +1,219 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    text-indent: -9999px;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-image: url(images/bg_body.png);
+}
+
+.wrap {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto 40px;
+    position: relative;
+
+    outline: 2px solid red;
+    /*    background-image: url(images/bg_head.jpg),url(images/bg_main.gif);
+    background-repeat: no-repeat,no-repeat;
+    background-position: left, right*/
+
+}
+
+.wrap header {
+    width: 210px;
+    height: 848px;
+    background-image: url(images/bg_head.jpg);
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 26px;
+    background-size: 210px 100%;
+}
+
+.wrap header h1 {
+    margin: 30px 40px 10px;
+    background-image: url(images/bg_gnb.png);
+    text-indent: -9999px;
+
+}
+
+header nav ul li {
+    width: 150px;
+    height: 40px;
+    margin: 10px auto;
+    background-image: url(images/bg_gnb.png);
+    background-repeat: no-repeat;
+
+}
+
+
+header nav ul .history {
+    background-position: -30px -40px;
+
+}
+
+header nav ul .innovation {
+    background-position: -30px -110px;
+
+}
+
+header nav ul .new {
+    background-position: -30px -185px;
+
+}
+
+header nav ul .book {
+    background-position: -30px -255px;
+
+}
+
+header nav ul .event {
+    background-position: -30px -320px;
+
+}
+header nav ul li:hover {
+  background-position: -235px -40px; 
+}
+
+section {
+    width: 960px;
+    height: 848px;
+    background-image: url(images/bg_main.gif);
+    background-repeat: no-repeat;
+    float: right;
+    border: 2px solid #333;
+    position: relative;
+    background-color: aqua;
+
+}
+
+section > a {
+    background-repeat: no-repeat;
+    position: absolute;
+}
+section > a:hover {
+    background-position: -296px ;
+}
+
+section .con_book {
+    width: 296px;
+    height: 320px;
+    background-image: url(images/img_main01.png);
+    /*  background-repeat: no-repeat;
+    position: absolute;*/
+    left: 0;
+    top: 0;
+}
+
+section .con_history {
+    width: 295px;
+    height: 314px;
+    background-image: url(images/img_main02.png);
+    /*  background-repeat: no-repeat;
+    position: absolute*/
+    ;
+    right: 0px;
+    top: 267px;
+}
+
+section .con_movie {
+    width: 296px;
+    height: 222px;
+    background-image: url(images/img_main03.png);
+    /*    background-repeat: no-repeat;
+    position: absolute;*/
+    bottom: 120px;
+}
+
+section .con_innovation {
+    width: 369px;
+    height: 120px;
+    background-image: url(images/img_main04.png);
+    /*    background-repeat: no-repeat;
+    position: absolute;*/
+    left: 295px;
+    bottom: 0px;
+}
+
+section .con_event {
+    width: 160px;
+    height: 268px;
+    background-image: url(images/img_main05.png);
+    /*    background-repeat: no-repeat;
+    position: absolute;*/
+    right: 136px;
+    bottom: 0px;
+}
+section > .con_innovation :hover {
+    background-position: -200px ;
+}
+
+
+/*footer  {
+    width: 210px;
+    height: 200px;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    background-image: url(images/bg_footer.png);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    
+}*/
+
+footer {
+    width: 210px;
+    height: 150px;
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    text-indent: -9999px;
+    margin: 0 20px 10px;
+
+}
+
+footer address {
+    height: 30px;
+    margin-bottom: 10px;
+  /*  outline: 2px solid red;*/
+    background-image: url(images/bg_footer.png);
+    background-repeat: no-repeat;
+
+}
+
+footer p {
+    height: 41px;
+    margin-bottom: 10px;
+    background-image: url(images/bg_footer.png);
+    background-repeat: no-repeat;
+    background-position: 0px -35px;
+   /* outline: 2px solid red;*/
+}
+
+footer .sns {
+    height: 40px;
+    margin-bottom: 10px;
+    background-image: url(images/bg_footer.png);
+    background-repeat: no-repeat;
+    background-position: 0px -80px;
+
+}

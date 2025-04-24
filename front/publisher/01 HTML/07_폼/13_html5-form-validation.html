@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>13_html5-form-validation</title>
+</head>
+
+<body>
+
+    <!--name을 쓰는 이유는 여러개의 폼을 구별하기 위한 용도
+    method  post: 데이터를 넘겨줄때 용량상관없이 넘어가고 사용자의 입력한 정보 없이 보내짐 
+    method get: 데이터를 넘겨줄때 용량 제한이 있음 그리고 사용자의 입력정보가 그대로 드러남 예시) 검색어를 입력한후 페이지 위에 상세 주소보면 뒤에 따라오는것들이 가득한거 그거는 get으로 사용한거임 
+     required: 필수로 입력해야하는 것 
+     
+    -->
+
+    <form action="#" method="post" name="">
+        <p>사용자명: <input type="text" name="user" required></p>
+        <p>비밀번호: <input type="password" name="user=pw"></p>
+        
+        <input type="reset" value="다시작성">
+        <input type="submit" value="제출">
+        
+        <!--
+        <form>태그 속성
+        
+        1) method: 사용자가 입력한 내용을 서버 프로그램으로 어떻게 넘겨줄지 지정
+        
+        -get: 주소 표시줄에 입력한 내용, 노출 256btye~409btye 의 데이터만 서버로 전달 가능 
+       
+         -post:사용자가 입력한 내용을 표준입력 (standaed input)으로 넘기기 ㅒㄸ문에 입력 내용 길이에 제한이 없음 사용자가 입력한 내용이 노출되지 않음 
+        
+        2) action: form 태그 안의 내용들을 처리에 줄 서버상의 프로그램을 지정 
+        예: logon.hph / regist.hph등 
+        -->
+        
+    </form>
+    
+    
+</body>
+
+</html>
